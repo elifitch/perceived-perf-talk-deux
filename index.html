@@ -1,0 +1,788 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Understanding Perceived Performance</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/eli-pres.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <meta property="og:title" content="Eli's Perceived Performance Talk" />
+        <meta property="og:site_name" content="Eli.wtf" />
+        <meta property="og:url" content="http://assets.eli.wtf/talks/perceived-perf-talk/" />
+        <meta property="og:description" content="A talk on understanding perceived performance, delivered at CSS Dev Conf 2016." />
+        <meta property="fb:app_id" content="">
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="http://assets.eli.wtf/talks/perceived-perf-talk/img/og-image.jpg" />
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="http://assets.eli.wtf/talks/perceived-perf-talk/">
+        <meta name="twitter:creator" content="@EliFitch">
+        <meta name="twitter:title" content="Eli's Perceived Performance Talk">
+        <meta name="twitter:description" content="A talk on understanding perceived performance, delivered at CSS Dev Conf 2016.">
+        <meta name="twitter:image" content="http://assets.eli.wtf/talks/perceived-perf-talk/img/og-image.jpg">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<script src="demos/lib/js/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+					<h1 class="main-title">Perceived Performance</h1>
+					<h3>The only kind that really matters.</h3>
+				</section>
+				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+					<h2>Since there's no recording of this talk, press 'S' for speaker notes!</h2>
+				</section>
+				<!-- <section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+					<h2>#PerceivedPerf</h2>
+					<h3>(504) 229-6828</h3>
+					<h4 class="fragment">#PerceivedPerf [1-5] [comment]</h4>
+					<h4 class="fragment">Example:</h4>
+					<h4 class="fragment">#PerceivedPerf 5 speaker is v handsome &amp; snappy dresser imo</h4>
+				</section> -->
+				<section>
+					<h2>Hi, I'm Eli.</h2>
+					<h4 class="fragment">I make weird stuff on the internet</h4>
+				</section>
+				<section>
+					<img class="st-logo" src="img/st.svg" alt="">
+					<img class="st-logo fragment" src="img/codepen.svg" alt="">
+					<img class="st-logo fragment" src="img/skull-fella.png" alt="">
+					<aside class="notes">
+						<p>I lead a team of amazing developers making a WebGL event space diagramming app for Social Tables, a startup in Washington, DC.</p>
+						<p>I also co-organize the DC Codepen Meetup.</p>
+						<p>I love to make 3d art, animations, and games in my free time.</p>
+					</aside>
+				</section>
+				<section>
+					<div class="list">
+						<h2 class="list__heading">Today I'll be shrieking about</h2>
+						<ul>
+							<li class="fragment">Why focusing on perceived performance is smart</li>
+							<li class="fragment">How humans perceive time</li>
+							<!-- <li class="fragment">How to make passive waiting time less painful</li> -->
+							<li class="fragment">Techniques to manage passive waiting time</li>
+							<li class="fragment">Predictive design</li>
+						</ul>
+						<aside class="notes">
+							<p>Agenda:</p>
+							<ul>
+								<li>Why focusing on perceived performance over objective performance is often a good idea.</li>
+								<li>How people sense time.</li>
+								<li>How to use what we learn about how humans sense time to make waiting/loading time less parinful</li>
+								<li>Predictive design: the sneaky art of predicting user behavior and loading things in the background before they're required.</li>
+							</ul>
+						</aside>
+					</div>
+				</section>
+				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+					<h1 class="title">Why Perceived<br>Performance Matters
+					</h1>
+				</section>
+				<section>
+					<h2>
+						Web Performance
+						<br>
+						<span class="fragment">is a matter of time.</span>
+					</h2>
+					<aside class="notes">
+						<p>We talk about web performance in terms of time. Seconds to first paint, latency, download speed, etc.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Time is a funny thing.</h2>
+					<img src="img/thinky.png" class="transparent" alt="" style="width: 3em;">
+					<aside class="notes">
+						<ul>
+							<li>Time changes with the situation</li>
+							<li>It speeds up and slows down.</li>
+							<li>It's really hard to estimate, etc</li>
+						</ul>
+					</aside>
+				</section>
+				<!-- <section>
+					<img src="img/lol.gif" alt="">
+					<aside class="notes">It means different things to different ppl</aside>
+				</section> -->
+				<section>
+					<img src="img/dmv.jpg" alt="">
+					<aside class="notes">
+						<p>Anyone who's ever been to the DMV can tell you, it can even stand completely still, run backwards, and tear apart the fabric of reality</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<img src="img/picard.jpg" alt="">
+					<aside class="notes">I mean time doesn't really exist b/c look at patrick stewart</aside>
+				</section> -->
+				<!-- <section>
+					<img src="img/thinky.png" class="transparent" alt="">
+					<aside class="notes">It means different things to different ppl</aside>
+				</section> -->
+				<!-- <section>
+					<h2>Time is a funny thing.</h2>
+					<aside class="notes">
+						It means different things to different ppl.
+
+						It's hard for people to estimate.
+
+						Heck maybe even that one stoner friend Travis doesn't even think time exists...man.
+					</aside>
+				</section> -->
+				<section>
+					<h2>
+						<span class="fragment">Objective time</span>
+						<br>vs.<br>
+						<span class="fragment">Subjective time</span>
+					</h2>
+					<aside class="notes">
+						<p>At the heart of this is the difference between objective and subjective time.</p>
+						<p>Objective time is what a clock measures and subjective time is what we all perceive.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>We optimize for objective time<br><span class="fragment">but that isn't very efficient.</span></h2>
+					<aside class="notes">
+						<p>When users report that our app is slow, we usually focus on making it objectively faster. Reducing load time by a certain percentage, etc.</p>
+						<p>Objective time is easy to measure, that's why we focus on it.</p>
+						<p>But if the goal is to make our shit feel fast, just addressing objective time is not very efficient.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Just Noticeable Difference.</h2>
+					<aside class="notes">
+						<p>The field of Psychophysics, the raddest name for a science btw, has this concept of just noticeable difference.</p>
+						<p>Any human observable phenomena needs to have a certain level of difference in order for that difference to be noticieable.</p>
+						<p>If you show someone two light bulbs, and ask which is brighter, a bulb will have to be some level of brightness above the other for the difference to be perceptible.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Time differences of <span class="fragment anim-stroke">20%</span> or less are imperceptible.</h2>
+					<a class="citation" href="http://torbit.com/blog/2011/11/29/psychology-of-software-performance/" target="_blank">Steve Seow, Microsoft</a>
+					<aside class="notes">
+						<p>Steve Seow of microsoft found that the JND threshold for time is about 20%.</p>
+						<p>So if your app is slow, and you focus on improving objective speed, it'll have to be 20% faster than before for the difference to even be noticeable.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Shoot for <span class="fragment anim-stroke">30%</span> speedup.</h2>
+					<aside class="notes">
+						<p>Which means around 30% is needed to make it feel like an impactful improvement.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>We don't live inside of a web performance blog post.</h2>
+					<aside class="notes">
+						<p>We don't usually get to exert absolute control over everything, especially in a large codebase.</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/fucked-down-here.gif" alt="" style="width: 60%">
+					<aside class="notes">
+						<p>In fact our jobs are often times a lot more like this.</p>
+						<p>A 30% speedup, especially for a large codebase, can take a lot of resources &amp; coordination to achieve.</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<h2>We don't live inside of a web performance blog post.</h2>
+					<aside class="notes">
+						30%, especially for a large codebase, can take a very long time to get there, and take a lot of resources.
+					</aside>
+				</section> -->
+				<section>
+					<h2>
+						Focus on the subjective.<br>
+						Better <span class="emoji">💥</span> for <span class="emoji">🤑</span>.
+					</h2>
+
+					<aside class="notes">
+						<p>Sometimes you don't have a great deal of control over asset delivery, your application requires long asynchronous processes that cannot be easily improved, etc. We sell ourselves short by focusing on improving objective time when we can sometimes make much greater strides to how fast our apps &amp; sites *feel* without improving their actual speed at all.</p>
+					</aside>
+				</section>
+				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+					<h1 class="title">How Humans<br>Sense Time</h1>
+				</section>
+				<section>
+					<h2>
+						<span class="fragment">Active phase</span>
+						<br>vs.<br>
+						<span class="fragment">Passive phase</span>
+					</h2>
+					<aside class="notes">
+						<p>Activities tend to be divided into active and passive phases.</p>
+						<p>Active phase characterized by a high level of mental activity, passive phase by a high level of thumb twiddling.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>
+						Humans tend to overestimate passive waits by <span class="fragment anim-stroke">36%</span> .
+					</h2>
+					<a class="citation" href="http://www.jstor.org/stable/171439?seq=1#page_scan_tab_contents" target="_blank">Richard Larson, MIT</a>
+					<aside class="notes">
+						<p>Humans overestimate passive waits by 36%, per Richard Larson of MIT</p>
+					</aside>
+				</section>
+				<section>
+					<h2>
+						<span class="fragment emoji">🚗💨</span>
+						<br>vs.<br>
+						<span class="fragment emoji u-inline-block u-pt-04">🚐🚗🚐</span>
+					</h2>
+					<aside class="notes">
+						<p>We've all been in that situation where the faster route involves sitting in traffic on a main route, but it feels much faster to scoot along through side streets, even if it does take a few more minutes to get there.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>
+						<span class="fragment emoji">🤔</span>
+						<br>vs.<br>
+						<span class="fragment emoji u-inline-block u-pt-04">🕐🌮🕑🌮🕒</span>
+					</h2>
+					<aside class="notes">
+						<p>Think of waiting for food. Hemming and hawwing deciding what you want to eat doesn't really feel like time stretches on for ages, but waiting for a server to bring your food somehow does.</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<h2>
+						<span class="fragment emoji">💅</span>
+						<br>vs.<br>
+						<span class="fragment emoji u-inline-block u-pt-04">😑</span>
+					</h2>
+					<aside class="notes">
+						Getting ready for a date and then waiting for your date to come pick you up
+					</aside>
+				</section> -->
+				<!-- <section>
+					<h2>
+						<span class="fragment emoji">🔎</span>
+						<br>vs.<br>
+						<span class="fragment emoji u-inline-block u-pt-04">⋯⋯⋯✈️</span>
+					</h2>
+					<aside class="notes">
+						Like searching a travel site with your trip details, and waiting for it to go get you flight information
+					</aside>
+				</section> -->
+				<section>
+					<div class="list">
+						<h2 class="list__heading">
+							Let's do something about it
+						</h2>
+						<ul>
+							<li class="fragment">Make passive phase less painful</li>
+							<li class="fragment">Make active phase a greater proportion<br>of the total time</li>
+						</ul>
+					</div>
+					<aside class="notes">
+						<p>Know that we know a bit about how people sense time, we can do these two things to make things feel faster</p>
+					</aside>
+				</section>
+				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+					<!-- <h1 class="title">Un-Suck Passive Time</h1> -->
+					<h1 class="title">Un-Suck Waiting Time</h1>
+				</section>
+				<section>
+					<div class="list">
+						<h2 class="list__heading">
+							What we can do
+						</h2>
+						<ul>
+							<li class="fragment">Respond to users immediately<!--even if nothing is happening--></li>
+							<li class="fragment">Give users a sense of certainty</li>
+							<!-- <li class="fragment">Explain what's happening</li> -->
+							<li class="fragment">Occupy users' attention</li>
+							<li class="fragment">Render minimum viable layout</li>
+						</ul>
+					</div>
+					<aside class="notes">
+						<p>These are my 4 favorite ways to manage user waiting time</p>
+						<ul>
+							<li>Respond immediately.</li>
+							<li>Let users know where they are in the waiting process; how much time is elapsed and how much is left to go.</li>
+							<li>Especially with long waits, keeping user attention focused on other things.</li>
+							<li>Render minimum viable layout, to get users out of a passive phase and into an interactive, usable page ASAP</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2 class="sub-title title--gradient">Immediate<br>Response</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2>Takes <span class="fragment anim-stroke">~1 second</span> for<br>flow to be disrupted.</h2>
+					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Jakob Nielsen,<br>Neilsen Norman Group</a>
+					<aside class="notes">
+						<p>In a pretty famous study Jakob Nielsen of the Nielsen Norman Group showed that it takes about 1 sec for peoples flow of thought to be disrupted &amp; for them to mentally transition to a waiting state.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Let's pack as much loading into that 1 second as possible.</h2>
+					<aside class="notes">
+						<p>If it takes 1 sec for ppl to even consciously realize they're waiting, lets pack as much as possible into that 1 second.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>
+						<span class="fragment">Mousedown event</span>
+						<br>vs.<br>
+						<span class="fragment">Click event</span>
+					</h2>
+					<aside class="notes">
+						<p>One of my favorite ways to do that is replacing click events with mousedown (and touchstart) events.</p>
+						<p>Click events actually fire not when the mouse button goes down, but when it comes back up again.</p>
+						<p>So there's this gap when the user has clicked down, but the click event has yet to fire.</p>
+						<p>We can load things when the mouse button goes down, and only display them when the click event fires as the user releases their mouse button.</p>
+					</aside>
+				</section>
+				<section>
+					<iframe src="demos/mousedown.html" frameborder="0" class="frame"></iframe>
+					<aside class="notes">
+						<p>Made a little demo to show how long users usually hold their mouse buttons down.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Mousedown gives you a<br><span class="fragment anim-stroke">100-150ms</span> head start.</h2>
+					<aside class="notes">
+						<p>Folks tend to hold their mouse buttons down for 100-150ms; Found this through research on mechanical turk.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Stay <span class="active">:active,</span> kids!</h2>
+					<h4 class="fragment">Animation duration sweet spot is 150-200ms.</h4>
+					<aside class="notes">
+						<p>Active states function just like hoverstates, but they fire when an element is clicked.</p>
+						<p>They give your app a sense of immediacy and responsiveness which helps to keep the user's thought flow uninterrupted.</p>
+						<p>If you set the active animation duration to 150-200ms, people will keep their mouse button pressed for the full duration of the animation; so instead of holding their mouse button down for 100-150ms, they hold it down for 150-200ms. You end up coaxing them into giving us a longer head start from our mousedown event.</p>
+					</aside>
+				</section>
+				<section>
+					<h2 class="sub-title title--gradient">Give Users<br>Certainty</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2>Uncertain waits feel longer.</h2>
+					<a class="citation" href="http://www.columbia.edu/~ww2040/4615S13/Psychology_of_Waiting_Lines.pdf" target="_blank">David Maister</a>
+					<aside class="notes">
+						<p>Postulated by business consultant David Maister but confirmed in several studies. If people don't have a sense of how much has elapsed and how much is left, the wait feels longer.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>
+						<span>P</span><span class="fragment">rogr</span><span class="fragment">ess </span><span class="fragment">ba</span><span class="fragment">...</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">rs!</span>
+					</h2>
+
+					<aside class="notes">
+						<p>This is a job for progress bars!</p>
+					</aside>
+				</section>
+				<section>
+					<!-- <h2>Animation makes a difference.</h2> -->
+					<h2 class="fragment anim-bounce"><span>A</span><span>n</span><span>i</span><span>m</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span><span>&nbsp;</span><span>m</span><span>a</span><span>k</span><span>e</span><span>s</span><span>&nbsp;</span><span>a</span><span>&nbsp;</span><span>d</span><span>i</span><span>f</span><span>f</span><span>e</span><span>r</span><span>e</span><span>n</span><span>c</span><span>e</span><span>.</span></h2>
+
+					<aside class="notes">
+						<p>Progress bars are not all created equal, and certain animations can make them feel faster.</p>
+					</aside>
+				</section>
+				<section>
+					<!-- <iframe src="https://codepen.io/EliFitch/full/179fd5d77c41b213e2cb813a047faeaa/" frameborder="0" class="frame"></iframe> -->
+					<iframe src="demos/progress.html" frameborder="0" class="frame"></iframe>
+					<a class="citation" style="margin-top: 0; bottom: -1em;" target="_blank" href="http://www.chrisharrison.net/projects/progressbars2/ProgressBarsHarrison.pdf">Chris Harrison, Carnegie Mellon</a>
+					<aside class="notes">
+						<p>Chris Harrison, a grad student at Carnegie Mellon found that progress bars with bands that animate in the opposite direction of the progress make the bar seem to fill faster.</p>
+						<p>Same principle of being on a train, and another train is coming by the opposite direction, you look out the window to see the other train whizzing by, and it seems like you're going twice as fast.</p>
+						<p>In a followup study he found that if those bands accellerate, the bar feels faster still. Can get that accelerating feel just by applying an ease-in to the animation.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Bars with accelerating<br>bands feel <span class="fragment anim-stroke">12%</span> faster.</h2>
+					<a class="citation" target="_blank" href="http://www.chrisharrison.net/projects/progressbars2/ProgressBarsHarrison.pdf">Chris Harrison, Carnegie Mellon</a>
+					<aside class="notes">
+						<p>He found that they feel 12% faster.  So just from this one change we can get half way to our Just Noticeable Difference threshold.</p>
+					</aside>
+				</section>
+
+				<section>
+					<div class="list">
+						<h2 class="list__heading">Don't overdo it</h2>
+						<ul>
+							<li class="fragment">&lt; 1s? Don't bother.</li>
+							<li class="fragment">~ 1-3s? Stick to the basics.</li>
+							<li class="fragment">~ 3-10s? Time to get fancy.</li>
+						</ul>
+					</div>
+
+					<aside class="notes">
+						<ul>
+							<li>Any action taking less than 1 or so seconds doesn't need an indicator at all, thought is uninterrupted.  By showing an indicator here, you're taking their focus away from the action they just took and forcing them to focus on the fact that they have to wait for the app to respond. So you are in effect making the app feel *slower*.</li>
+							<li>1-3 seconds displaying a progress bar is preferable. Don't need to include lots of written explanation as to what the app is doing, since this is within the window where most people still have patience.</li>
+							<li>3-10s? Include an explanation as to what the app is doing. These durations can seem unreasonable if you don't explain to the user what is happening.</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>
+						<span class="fragment anim-spin">But </span>
+						<span class="fragment anim-spin">what </span>
+						<span class="fragment anim-spin">about </span>
+						<span class="fragment anim-spin">spinners?</span>
+					</h2>
+					<h2>
+						<span class="fragment anim-spin--slow">
+							Meh.
+						</span>
+					</h2>
+					<aside class="notes">
+						<p>Spinners have a pretty narrow use case.</p>
+						<p>Don't want to use them if the expected wait time is less than 1s or so, because user flow won't be disrupted.</p>
+						<p>Don't want to use them if the expected wait time is ~2.5s or up, since users need certainty as to where they are in the process.</p>
+						<p>So you're looking at using them for loads between 1 - 2ish seconds.</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<h2 class="sub-title title--gradient">Explain Yourself</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2>Unexplained waits feel longer.</h2>
+					<h6 class="citation">David Maister</h6>
+					<aside class="notes">
+						Flight delays.
+
+						Waits feel long and unjust when they're unexplained. Be honest w/ your users and tell them what's going on.  Explain to them the value of why they have to wait for something to load.
+					</aside>
+				</section>
+				<section>
+					<h2>TMI isn't always a bad thing.</h2>
+					<h2 class="fragment">Give users incremental information.</h2>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
+					<iframe src="demos/progress-explain.html" frameborder="0" class="frame" id="expl"></iframe>
+					<button class="lil-button js-reset" data-reset="expl">RESET</button>
+					<aside class="notes">
+						A science man named David Maister composed a list of prinicples that generally describe how humans perceive waits. Some of them are particularly applicable, and we can use these as a guide to take steps that make our creations feel faster.
+
+						One of them is uncertain waits feel longer
+					</aside>
+				</section> -->
+				<section>
+					<h2 class="sub-title title--gradient">Occupy Users'<br>Attention</h2>
+					<h4 class="fragment title--gradient" style="line-height: 1.2">Reticulating splines.</h4>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<img src="img/zoidberg.gif" alt="">
+					<aside class="notes">
+						<p>With long waits, up to and past 10 seconds. Sometimes you just have to discract users and keep them from focusing on how long the wait is.</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/slack-loading.gif" alt="">
+					<aside class="notes">
+						<p>Slack transitions from a visually arresting loader with an explanation, to another loader with an extraneous quotation to read, and then to a skeleton UI, and then to the full UI.  Holding user attention through this process.</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/human-revolution-loading.jpg" alt="">
+					<aside class="notes">
+						<p>Games frequently give players tips to read during long loading screens. Tips require high levels of mental activity to read them, digest them, and integrate them into the player's existing play style. Thus holding attention.</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/uber-waiting-game.png" alt="" style="height: 45vh;">
+					<aside class="notes">
+						<p>Uber's old screen when it was matching you with a driver was interactive.  You could draw little light doodles in this creative play space.  If you know the wait is going to be *very* long, give users something interactive to play with, because nothing holds attention like play.</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<h2>Animation</h2>
+					<aside class="notes">
+						TODO: animate this dood.
+					</aside>
+				</section> -->
+				<section>
+					<h2>If this feels like cheating,<br>that's because it is.</h2>
+					<h4 class="fragment">You dirty cheaters, you.</h4>
+					<aside class="notes">
+						<p>This information or experience you're feeding a userdoesn't have to be directly related to what you're doing; and that's okay.</p>
+					</aside>
+				</section>
+				<section>
+					<h2 class="sub-title title--gradient">Minimum<br>Viable Layout</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2 style="font-size: 2em;">Rather than hasten passive phase, increase active phase's share.</h2>
+					<aside class="notes">
+						<p>rather than making passive waiting less shitty, this gets you out of a passive state, and into an active state with a usable app/site ASAP.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Identify what your users<br>interact with first.</h2>
+					<aside class="notes">
+						<p>First, use data to identify what your users interact with first.</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/amazon.jpg" alt="">
+					<aside class="notes">
+						<p>Amazon identified that for their users, their minimum viable layout is the main menu and this hero area.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Render that first.</h2>
+					<h2  class="fragment">Lazyload everything else.</h2>
+					<aside class="notes">
+						<p>Load this first and bring in everything else afterwards.  For most users you'll be delivering them an experience that contains the UI they want to use anyways.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Not as simple as "above the fold".</h2>
+					<aside class="notes">
+						<p>There are a lot of "critical path" or "critical css" build libraries that will inline the styles of elements above a defined "fold" to load those elements fully styled with one request.  This doesn't account for any JS that might be needed to use this, nor do you necessarily want everything above some fold. Find out what *your* users need, and build your own custom minimum viable layout to suit them.</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<img class="transparent" src="img/medium-skeleton.png" alt="">
+				</section> -->
+				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+					<h1 class="title">Predictive<br>Design</h1>
+				</section>
+				<section>
+					<img src="img/airplane.jpg">
+					<aside class="notes">
+						<p>Great story that explains what predictive design is all about.</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/baggage-claim-sleep.gif" style="width: 50%">
+					<aside class="notes">
+						<p>Houston airport got lots of complaints from users that the waiting time for bags to emerge on the baggage carousel was too long. They tried to fix this by hiring more baggage handlers and spending lots of money to upgrade their baggage carousel infrastructure.  The complaints stayed steady.</p>
+					</aside>
+				</section>
+				<section>
+					<h2 class="emoji">🏃🏃🏃🏃🏃</h2>
+					<aside class="notes">
+						<p>Some consultants had the great idea to structure the arrival terminals so it takes longer for them to walk to the baggage claim, and to route passengers bags to the furthest baggage carousel at the baggage claim plaza. Thus passengers would spend more time in an active phase (walking) than they would in a passive phase (waiting). Complaints disappeared!</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/baggage-claim-kramer.gif">
+					<aside class="notes">
+						<p>They leaned on what they understood about passenger behavior (walking directly to the baggage claim) and structured their experience so the bags "loaded" while the user was still walking there.</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<h2>
+						<span class="fragment emoji">🤔</span>
+						<br>vs.<br>
+						<span class="fragment emoji u-inline-block u-pt-04">🕐🌮🕑🌮🕒</span>
+					</h2>
+					<aside class="notes">
+						Going back to the restaurant example, what if we could accurately predict what you were going to order, so the food was being prepared as you were making up your mind, and as soon as you put in the order, we just brought out the food. That's predictive design.
+					</aside>
+				</section> -->
+				<section>
+					<h2>We can do something similar.</h2>
+					<aside class="notes">
+						<p>Behavior of disembarking passengers is *very* predictable. They mostly travel to the baggage claim by the fastest possible route, and then procede to ground transportation.  They leaned on their understanding of how passengers behave, and used it to their advantage to make active time a much greater proportion of the experience.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Users aren't snowflakes.</h2>
+					<img class="fragment" src="img/snowflake.gif" alt="">
+					<h2 class="fragment">Behavior follows patterns.</h2>
+					<aside class="notes">
+						<p>Embrace the idea that individual users aren't unique snowflakes; their behavior follows patterns.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>If we can predict what users will do, why not preload their next action before they take it?</h2>
+				</section>
+				<!-- <section>
+					<img src="img/math.gif" alt="">
+				</section> -->
+				<section>
+					<img src="img/math-bird.gif" alt="">
+					<aside class="notes">
+						<p>Doesn't have to be a crazy complex machine learning algorithm.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Doesn't have to be crazy complicated.</h2>
+					<aside class="notes">
+						<p>Doesn't have to be a crazy complex machine learning algorithm.</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<h2>If we know what a user's done, or is doing, we can guess at what they will do next.</h2>
+					<aside class="notes">
+						
+					</aside>
+				</section> -->
+				<!-- <section>
+					<h2>Why wait for a click?</h2>
+					<h2 class="fragment">Idle time is a terrible thing to waste.</h2>
+					<aside class="notes">
+						
+					</aside>
+				</section> -->
+				<section>
+					<iframe src="demos/predictive-form-1.html" frameborder="0" class="frame" id="demo-1"></iframe>
+					<button class="lil-button js-reset" data-reset="demo-1">RESET</button>
+					<aside class="notes">
+						<p>Traditional form demo:</p>
+						<p>So this demo will load a second step in a multipart form when the user clicks Next Step.  The bar on the right will show what the loading progress is behind the scenes.</p>
+					</aside>
+				</section>
+				<section>
+					<iframe src="demos/predictive-form-2.html" frameborder="0" class="frame" id="demo-2"></iframe>
+					<button class="lil-button js-reset" data-reset="demo-2">RESET</button>
+					<aside class="notes">
+						<p>Predictive form demo:</p>
+						<p>We predict that if a user fills out all the fields, they want to move to the next step.  This demo will load the second step of the form after the user has inputted text into all the form fields.  Note that we wouldn't be sending their data to the server when they fill input fields, we'll still wait for a click to do that (don't want to transmit data that is then revised).  BUT in the real world we'd still use this as an opportunity to load the assets necessary to render the next step in the form.</p>
+						<p>In my testing I was able to accomplish about 50% of the loading process before users even clicked "Next step", which is a huge gain.</p>
+					</aside>
+				</section>
+				<section>
+					<!-- <iframe src="http://codepen.io/EliFitch/full/de45fbe0774bc6f6dce5db60fa25923d/" frameborder="0" class="frame"></iframe> -->
+					<iframe src="demos/predictive-button-1.html" frameborder="0" class="frame" id="demo-3"></iframe>
+					<button class="lil-button js-reset" data-reset="demo-3">RESET</button>
+					<aside class="notes">
+						<p>Traditional CTA button demo:</p>
+						<p>In this demo we'll load a 3d model into this little window when a user clicks a big, isolated CTA button.</p>
+					</aside>
+				</section>
+				<section>
+					<!-- <iframe src="http://codepen.io/EliFitch/full/87b337c9619afca8f390d173b505f1b7/" frameborder="0" class="frame"></iframe> -->
+					<iframe src="demos/predictive-button-2.html" frameborder="0" class="frame" id="demo-4"></iframe>
+					<button class="lil-button js-reset" data-reset="demo-4">RESET</button>
+					<aside class="notes">
+						<p>Predictive CTA button demo:</p>
+						<p>It's a common pattern for big CTA buttons to be obvious and surrounded by white space to attract users to click them.  We predict that if a user hovers the button, they will click the button.  Moreover, if they hover over a hitbox outside the button, we predict they will continue to move their mouse onto the button and click it.  You can reveal the hitbox by clicking the checkbox within the demo.</p>
+						<p>In my testing I was able to accomplish about 30% of the loading process before users even clicked the big button.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Predictive design is a very powerful tool.</h2>
+					<h2 class="fragment">Use it <span class="fragment anim-stroke">wisely.</span></h2>
+					<aside class="notes">
+						<p>We're taking a risk here that we will load assets that user's don't actually need.</p>
+						<p>We should feel comfortable taking this risk if it'll yield a faster feeling experience for a large majority of users, but we need to be sure.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Mitigate risk with data.</h2>
+					<aside class="notes">
+						<p>Use usage data to find where using predictive design would have the most impact; use predictive design in areas of high certainty.</p>
+					</aside>
+				</section>
+				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+					<h1 class="title">TLDR;</h1>
+				</section>
+				<section>
+					<h2>At the end of the day, what matters is how it <span class="fragment anim-stroke">feels.</span></h2>
+					<aside class="notes">
+						<p>People don't browse the web with a stopwatch. What matters is how fast it *feels* not how fast it actually is.</p>
+					</aside>
+				</section>
+				<section>
+					<!-- <h2>Focus on perceived performance.</h2> -->
+					<!-- <h2 class="fragment">Focus on the user.</h2> -->
+					<h2>Think about how you<br>want to use your resources.</h2>
+					<aside class="notes">
+						<p>If you have sufficient low hanging fruit to effect a 30% speedup in your app then by all means, do it.  But many team don't have that luxury, and for them it makes a great deal of sense to focus on subjective performance measures before dedicating significant resources on physically making their product faster.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Rely on data to<br>make sound decisions.</h2>
+					<aside class="notes">
+						<p>Individual users may not be snowflakes but *your* users as a group are. They most likely aren't a representative sample of humanity and they most likely aren't a carbon copy of another app's users.  Use data to make decisions that make sense for your particular set of users and your particular sitiuation.  A/B test the shit out of this stuff.</p>
+					</aside>
+				</section>
+				<section>
+					<!-- <h2>Focus on perceived performance.</h2> -->
+					<!-- <h2 class="fragment">Focus on the user.</h2> -->
+					<h2>Focus on the user.</h2>
+					<aside class="notes">
+						<p>Focusing on perceived perf is really just focusing on the user, and at the end of the day that's really what we're here to do.</p>
+					</aside>
+				</section>
+				<!-- <section>
+					<h2>Optimizing for perceived performance is more efficient.</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2>Build for immediacy.</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2>Give users feedback.</h2>
+					[[[<h2 class="fragment">But not too much.</h2>]]]
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2>Whenever possible,<br>predict and preload.</h2>
+					<aside class="notes">
+						Made a joke about machine learning and stuff, and while it doesn't have to be that complex it certainly can be.
+						If you work for a company that has a lot of data on how your users interact w/ your app, you could very feasibly make accurate predictions about what their next action/page/whatever will be without relying on something so crude as cursor position.
+					</aside>
+				</section> -->
+				<section data-background-image="img/pink-orange-gradient.svg">
+					<h1 class="thank-you">Thanks <img class="rad-pointer" src="img/rad-pointer.png" alt=""> y'all!</h1>
+					<h4><a class="end-link" href="http://assets.eli.wtf/talks/perceived-perf-talk">http://assets.eli.wtf/talks/perceived-perf-talk</a></h4>
+					<h4><a class="end-link" href="http://eli.wtf/fun">http://eli.wtf/fun</a></h4>
+					<!-- 
+					<h2>y'all!</h2> -->
+				</section>
+
+
+			<div class="footer">
+				<a class="footer__logo" href="http://eli.wtf/" target="_blank">Eli.wtf</a>
+				<!-- <span href="" class="footer__small">#PerceivedPerf<br><span class="footer__small">(504) 229-6828</span></span> -->
+				<a class="footer__social" href="http://twitter.com/elifitch" target="_blank">@elifitch</a>
+			</div>
+		</div>
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: false,
+				progress: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+
+			$('.js-reset').on('click', function() {
+				var target = $(this).attr('data-reset');
+				document.getElementById(target).contentWindow.location.reload();
+			})
+		</script>
+	</body>
+</html>
