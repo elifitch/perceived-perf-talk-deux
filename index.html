@@ -433,6 +433,70 @@
 					</aside>
 				</section>
 				<section>
+					<h2>Most progress bars are fake</h2>
+					<h2 class="fragment">and that's ok.</h2>
+
+					<aside class="notes">
+						<ul>
+							<li>We all make fake progress bars, and it's not something to be ashamed of.</li>
+							<li>Making a real progress bar, that updates with socket events can be overly complex.</li>
+							<li>For short durations, having a progress bar that updates with real data is more trouble than its worth</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Stay real&hellip;ish.</h2>
+					<h2 class="fragment">Measure requests.</h2>
+
+					<aside class="notes">
+						<ul>
+							<li>Constantly record and measure client - server interaction times to normalize your progress bars.</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
+					<pre>
+						<code class="hljs hljs javascript hljs">
+							const API_EXPECTED_TIME = 1000;
+							const SOME_OTHER_EXPECTED_TIME = 2000;
+
+							function setPerformanceScalar(expected, observed) {
+								const performanceScalar = expected * observed;
+								// ...
+								// tuck this away in app state, local storage, a global variable, etc
+							}
+
+							function getPerformanceScalar() {
+								// retreive your saved performance data
+							}
+
+							function init() {
+								let t1 = performance.now();
+								return fetch(`${VERY_SERIOUS_API_URL}`)
+									.then(response => {
+										// Do stuff
+										let apiRoundtrip = t1 - t0;
+										savePerformanceScalar(API_EXPECTED_TIME, t1 - t0);
+										return apiRoundtrip;
+									});
+							}
+
+							//...
+
+							<div class="progress" duration={SOME_OTHER_EXPECTED_TIME * getPerformanceScalar()}></div>
+						</code>
+					</pre>
+
+					<aside class="notes">
+						<ul>
+							<li>Gives you a very basic idea about what a client's connection speed is.</li>
+							<li>You can normalize this with the size of a postbody as well if you need to.</li>
+							<li>You can use this information to set your loading scheme for the next request.</li>
+							<li>This is a super simple example, you could also use something much more fancy, liek the resource timing api, but this is sufficient just to drive fake loading indicators, and is still a very powerful tool.</li>
+						</ul>
+					</aside>
+				</section>
+				<section>
 					<h2>
 						<span class="fragment anim-spin">But </span>
 						<span class="fragment anim-spin">what </span>
@@ -451,35 +515,22 @@
 						<p>So you're looking at using them for loads between 1 - 2ish seconds.</p>
 					</aside>
 				</section>
-				<!-- <section>
-					<h2 class="sub-title title--gradient">Explain Yourself</h2>
-					<aside class="notes"></aside>
-				</section>
 				<section>
-					<h2>Unexplained waits feel longer.</h2>
-					<h6 class="citation">David Maister</h6>
-					<aside class="notes">
-						Flight delays.
-
-						Waits feel long and unjust when they're unexplained. Be honest w/ your users and tell them what's going on.  Explain to them the value of why they have to wait for something to load.
-					</aside>
+					<div class="list">
+						<h2 class="list__heading">Spinners aren't versatile</h2>
+						<ul>
+							<li class="fragment">< ~1s? Don't indicate loading.</li>
+							<li class="fragment">> ~2s? Really need a progress bar.</li>
+							<li class="fragment">Only useful between 1 and 2 seconds.</li>
+						</ul>
+						<aside class="notes">
+							<p>Spinners have a pretty narrow use case.</p>
+							<p>Don't want to use them if the expected wait time is less than 1s or so, because user flow won't be disrupted.</p>
+							<p>Don't want to use them if the expected wait time is ~2.5s or up, since users need certainty as to where they are in the process.</p>
+							<p>So you're looking at using them for loads between 1 - 2ish seconds.</p>
+						</aside>
+					</div>
 				</section>
-				<section>
-					<h2>TMI isn't always a bad thing.</h2>
-					<h2 class="fragment">Give users incremental information.</h2>
-					<aside class="notes">
-						
-					</aside>
-				</section>
-				<section>
-					<iframe src="demos/progress-explain.html" frameborder="0" class="frame" id="expl"></iframe>
-					<button class="lil-button js-reset" data-reset="expl">RESET</button>
-					<aside class="notes">
-						A science man named David Maister composed a list of prinicples that generally describe how humans perceive waits. Some of them are particularly applicable, and we can use these as a guide to take steps that make our creations feel faster.
-
-						One of them is uncertain waits feel longer
-					</aside>
-				</section> -->
 				<section>
 					<h2 class="sub-title title--gradient">Occupy Users'<br>Attention</h2>
 					<h4 class="fragment title--gradient" style="line-height: 1.2">Reticulating splines.</h4>
