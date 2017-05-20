@@ -33,11 +33,12 @@ let counter = 0;
 
 function showMessage() {
 	setTimeout(function() {
-		const nowish = Date.now();
-		const timey = nowish - startTime;
-
 		$('.readout').html(generateMessage(counter));
-		counter++;
+		if (counter < 3) {
+			counter++;
+		} else {
+			counter = 0;
+		}
 	}, 100)
 }
 

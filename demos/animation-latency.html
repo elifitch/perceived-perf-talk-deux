@@ -8,6 +8,7 @@
 			height: 100vh;
 			display: flex;
 			align-items: center;
+			overflow: hidden;
 		}
 		.boxy {
 			height: 100px;
@@ -15,6 +16,8 @@
 			border-radius: 4px;
 			background-color: fuchsia;
 			position: absolute;
+			top: 0;
+			left: 0;
 			z-index: -1;
 		}
 
@@ -43,11 +46,6 @@
 			<label for="">16ms</label>
 			<input type="radio" class="radio" name="foo" value="16.666666">
 		</div>
-		<div>
-			<label for="">0ms</label>
-			<input type="radio" class="radio" name="foo" value="0">
-		</div>
-
 	</div>
 </div>
 
@@ -56,15 +54,16 @@
 
 	const box = document.querySelectorAll('.boxy')[0];
 	const radio = document.querySelectorAll('.radio');
+	const container = document.querySelectorAll('.container')[0];
 
 	let throttledMousemove = throttle(handleMouseMove, THROTTLE_FACTOR);
 
 	radio.forEach(el => {
 	  el.addEventListener('change', e => {
-	    window.removeEventListener('mousemove', throttledMousemove, false);
+	    container.removeEventListener('mousemove', throttledMousemove, false);
 	    THROTTLE_FACTOR = Number(e.target.value);
 	    throttledMousemove = throttle(handleMouseMove, THROTTLE_FACTOR);
-	    window.addEventListener('mousemove', throttledMousemove, false);
+	    container.addEventListener('mousemove', throttledMousemove, false);
 	  });
 	});
 
@@ -74,7 +73,7 @@
 	  box.style.transform = `translate(${x}px, ${y}px)`;
 	}
 
-	window.addEventListener('mousemove', throttledMousemove, false);
+	container.addEventListener('mousemove', throttledMousemove, false);
 
 
 
