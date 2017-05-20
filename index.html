@@ -159,6 +159,7 @@
 					<aside class="notes">
 						<p>When users report that our app is slow, we usually focus on making it objectively faster. Reducing load time by a certain percentage, etc.</p>
 						<p>Objective time is easy to measure, that's why we focus on it.</p>
+						<p>Even traditional perceived performance techniques, like inlining critical CSS to speed up initial render, is focused on objective time.</p>
 						<p>But if the goal is to make our shit feel fast, just addressing objective time is not very efficient.</p>
 					</aside>
 				</section>
@@ -322,11 +323,16 @@
 					<aside class="notes"></aside>
 				</section>
 				<section>
-					<h2>Takes <span class="fragment anim-stroke">~1 second</span> for<br>flow to be disrupted.</h2>
+					<h2 class="fragment">100ms: <span class="fragment">Immediate</span></h2>
+					<h2 class="fragment">1,000ms: <span class="fragment">Thought Flow</span></h2>
+					<h2 class="fragment">10,000ms: <span class="fragment">Attention Span</span></h2>
 					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Jakob Nielsen,<br>Neilsen Norman Group</a>
 					<aside class="notes">
 						<p>In a pretty famous study Jakob Nielsen of the Nielsen Norman Group showed that it takes about 1 sec for peoples flow of thought to be disrupted &amp; for them to mentally transition to a waiting state.</p>
 					</aside>
+				</section>
+				<section>
+					<h2>Takes <span class="fragment anim-stroke">~1 second</span> for<br>flow to be disrupted.</h2>
 				</section>
 				<section>
 					<h2>Let's pack as much loading into that 1 second as possible.</h2>

@@ -1,0 +1,57 @@
+<head>
+	<link rel="stylesheet prefetch" href="lib/css/foundation.min.css">
+	<script src="lib/js/jquery.min.js"></script>
+
+	<style>
+		html {
+		  font-size: 1.4em;
+		}
+		.container {
+		  padding-top: 2em;
+		}
+		.bold {
+		  font-weight: bold;
+		  color: red;
+		}
+	</style>
+</head>
+
+<div class="container">
+  <div class="row align-middle align-center">
+    <div class="column small-12">
+      <button class="button button--onclick">Immediate response</button>
+    </div>
+    <div class="column small-12">
+      <h3 class="readout"></h3>
+    </div>
+  </div>
+</div>
+
+<script>
+$('.button--onclick').on('mousedown', showMessage);
+let counter = 0;
+
+function showMessage() {
+	setTimeout(function() {
+		const nowish = Date.now();
+		const timey = nowish - startTime;
+
+		$('.readout').html(generateMessage(counter));
+		counter++;
+	}, 100)
+}
+
+function generateMessage(seed) {
+	const messages = [
+		'le wow, super immediate response',
+		'so satisfying',
+		'who even noticed that delay, not me, a computer',
+		'pringles are better than doritos'
+	];
+
+	// const seed = Math.floor(Math.random() * (messages.length + 1));
+
+	return messages[seed];
+}
+
+</script>
