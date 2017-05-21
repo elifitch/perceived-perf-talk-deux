@@ -155,12 +155,38 @@
 					</aside>
 				</section>
 				<section>
+					<h2>We've gotten INSANELY good at objective performance.</h2>
+					<aside class="notes">
+						<p>Especially on the client...</p>
+					</aside>
+				</section>
+				<section>
+					<div class="word-cloud">
+						<h4 class="fragment">Critical Rendering Path</h4>
+						<h4 class="fragment">Image optimization</h4>
+						<h4 class="fragment">Minified JS</h4>
+						<h4 class="fragment">Code splitting</h4>
+						<h4 class="fragment">Tree shaking</h4>
+						<h4 class="fragment">Edge node caching</h4>
+						<h4 class="fragment">SVG spritesheets</h4>
+					</div>
+					<aside class="notes">
+						<p>We've mastered all of these things in the pursuit of raw, gnarly speed.</p>
+					</aside>
+				</section>
+				<section>
 					<h2>We optimize for objective time<br><span class="fragment">but that isn't very efficient.</span></h2>
 					<aside class="notes">
 						<p>When users report that our app is slow, we usually focus on making it objectively faster. Reducing load time by a certain percentage, etc.</p>
 						<p>Objective time is easy to measure, that's why we focus on it.</p>
 						<p>Even traditional perceived performance techniques, like inlining critical CSS to speed up initial render, is focused on objective time.</p>
 						<p>But if the goal is to make our shit feel fast, just addressing objective time is not very efficient.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>What if user's can't detect<br>our hard work?</h2>
+					<aside class="notes">
+						<p>Put yourself in my shoes. I spent days optimizing our build system to optimize images, minify JS, moved our iconfont to an SVG spritesheet etc etc. I improved our loading time by 15%, and the amount of complaints about slowness stayed constant.</p>
 					</aside>
 				</section>
 				<section>
@@ -198,12 +224,6 @@
 						<p>A 30% speedup, especially for a large codebase, can take a lot of resources &amp; coordination to achieve.</p>
 					</aside>
 				</section>
-				<!-- <section>
-					<h2>We don't live inside of a web performance blog post.</h2>
-					<aside class="notes">
-						30%, especially for a large codebase, can take a very long time to get there, and take a lot of resources.
-					</aside>
-				</section> -->
 				<section>
 					<h2>
 						Focus on the subjective.<br>
@@ -257,26 +277,6 @@
 						<p>Think of waiting for food. Hemming and hawwing deciding what you want to eat doesn't really feel like time stretches on for ages, but waiting for a server to bring your food somehow does.</p>
 					</aside>
 				</section>
-				<!-- <section>
-					<h2>
-						<span class="fragment emoji">💅</span>
-						<br>vs.<br>
-						<span class="fragment emoji u-inline-block u-pt-04">😑</span>
-					</h2>
-					<aside class="notes">
-						Getting ready for a date and then waiting for your date to come pick you up
-					</aside>
-				</section> -->
-				<!-- <section>
-					<h2>
-						<span class="fragment emoji">🔎</span>
-						<br>vs.<br>
-						<span class="fragment emoji u-inline-block u-pt-04">⋯⋯⋯✈️</span>
-					</h2>
-					<aside class="notes">
-						Like searching a travel site with your trip details, and waiting for it to go get you flight information
-					</aside>
-				</section> -->
 				<section>
 					<div class="list">
 						<h2 class="list__heading">
@@ -292,7 +292,6 @@
 					</aside>
 				</section>
 				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
-					<!-- <h1 class="title">Un-Suck Passive Time</h1> -->
 					<h1 class="title">Un-Suck Waiting Time</h1>
 				</section>
 				<section>
