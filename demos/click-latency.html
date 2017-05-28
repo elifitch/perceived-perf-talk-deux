@@ -13,6 +13,12 @@
 		  font-weight: bold;
 		  color: red;
 		}
+		.button {
+			transition: transform 0.1s;
+		}
+		.button:active {
+			transform: translateY(0.2em);
+		}
 	</style>
 </head>
 
@@ -28,7 +34,8 @@
 </div>
 
 <script>
-$('.button--onclick').on('mousedown', showMessage);
+// $('.button--onclick').on('mousedown', showMessage);
+$('.button--onclick').on('click', showMessage);
 let counter = 0;
 
 function showMessage() {

@@ -45,9 +45,6 @@
 					<h1 class="main-title">Perceived Performance</h1>
 					<h3>The only kind that really matters.</h3>
 				</section>
-				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
-					<h2>Since there's no recording of this talk, press 'S' for speaker notes!</h2>
-				</section>
 				<!-- <section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
 					<h2>#PerceivedPerf</h2>
 					<h3>(504) 229-6828</h3>
@@ -172,6 +169,8 @@
 					</div>
 					<aside class="notes">
 						<p>We've mastered all of these things in the pursuit of raw, gnarly speed.</p>
+						<p>We're incredibly good at getting a page to interactivity quickly.</p>
+						<p>Even traditional perceived performance techniques, like inlining critical CSS to speed up initial render, is focused on objective perf. Ms to paint.</p>
 					</aside>
 				</section>
 				<section>
@@ -179,14 +178,19 @@
 					<aside class="notes">
 						<p>When users report that our app is slow, we usually focus on making it objectively faster. Reducing load time by a certain percentage, etc.</p>
 						<p>Objective time is easy to measure, that's why we focus on it.</p>
-						<p>Even traditional perceived performance techniques, like inlining critical CSS to speed up initial render, is focused on objective time.</p>
-						<p>But if the goal is to make our shit feel fast, just addressing objective time is not very efficient.</p>
+						<p>We make our projects faster, hoping that because they *are* faster, they'll feel faster.</p>
 					</aside>
 				</section>
 				<section>
-					<h2>What if user's can't detect<br>our hard work?</h2>
+					<h2>What if users don't notice?</h2>
 					<aside class="notes">
-						<p>Put yourself in my shoes. I spent days optimizing our build system to optimize images, minify JS, moved our iconfont to an SVG spritesheet etc etc. I improved our loading time by 15%, and the amount of complaints about slowness stayed constant.</p>
+						<p>Put yourself in my shoes. I spent days optimizing our build system to optimize images, minify JS, moved our iconfont to an SVG spritesheet etc etc. I improved our loading time by 15% (500ms), and the amount of complaints about slowness stayed constant.</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/no.gif" style="width: 50%">
+					<aside class="notes">
+						<p>I felt basically like this.</p>
 					</aside>
 				</section>
 				<section>
@@ -229,7 +233,6 @@
 						Focus on the subjective.<br>
 						Better <span class="emoji">💥</span> for <span class="emoji">🤑</span>.
 					</h2>
-
 					<aside class="notes">
 						<p>Sometimes you don't have a great deal of control over asset delivery, your application requires long asynchronous processes that cannot be easily improved, etc. We sell ourselves short by focusing on improving objective time when we can sometimes make much greater strides to how fast our apps &amp; sites *feel* without improving their actual speed at all.</p>
 					</aside>
@@ -250,11 +253,17 @@
 				</section>
 				<section>
 					<h2>
-						Humans tend to overestimate passive waits by <span class="fragment anim-stroke">36%</span> .
+						Humans tend to overestimate passive time by <span class="fragment anim-stroke">36%</span>.
 					</h2>
 					<a class="citation" href="http://www.jstor.org/stable/171439?seq=1#page_scan_tab_contents" target="_blank">Richard Larson, MIT</a>
 					<aside class="notes">
 						<p>Humans overestimate passive waits by 36%, per Richard Larson of MIT</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/watched-pot.jpg" alt="">
+					<aside class="notes">
+						
 					</aside>
 				</section>
 				<section>
@@ -278,21 +287,30 @@
 					</aside>
 				</section>
 				<section>
+					<h2>
+						Make a demo to show what this looks like on a webpage?<br>On a webpage, clicking a link the common pattern is active - passive - active.
+					</h2>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
 					<div class="list">
 						<h2 class="list__heading">
 							Let's do something about it
 						</h2>
 						<ul>
-							<li class="fragment">Make passive phase less painful</li>
-							<li class="fragment">Make active phase a greater proportion<br>of the total time</li>
+							<li class="fragment">Make that first active phase seem to last as long as possible</li>
+							<li class="fragment">Make the interstitial passive phase seem as fast as possible.</li>
+							<li class="fragment">Move users back into an active state however we can.</li>
 						</ul>
 					</div>
 					<aside class="notes">
-						<p>Know that we know a bit about how people sense time, we can do these two things to make things feel faster</p>
+						<p>Now that we know about JND threshold, and the differences between passive and active time, there are two basic genres of techniques to circumvent</p>
 					</aside>
 				</section>
 				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
-					<h1 class="title">Un-Suck Waiting Time</h1>
+					<h1 class="title">Keep users active</h1>
 				</section>
 				<section>
 					<div class="list">
@@ -300,11 +318,11 @@
 							What we can do
 						</h2>
 						<ul>
-							<li class="fragment">Respond to users immediately<!--even if nothing is happening--></li>
-							<li class="fragment">Give users a sense of certainty</li>
-							<!-- <li class="fragment">Explain what's happening</li> -->
+							<li class="fragment">Respond to users immediately, even if nothing is happening</li>
+							<li class="fragment">Use loaders to give users a sense of certainty</li>
 							<li class="fragment">Occupy users' attention</li>
-							<li class="fragment">Render minimum viable layout</li>
+							<!-- <li class="fragment">Render minimum viable layout [[ maybe ]]</li> -->
+							<li class="fragment">Maybe a section about how to compress background work into manageable chunks????</li>
 						</ul>
 					</div>
 					<aside class="notes">
@@ -313,9 +331,13 @@
 							<li>Respond immediately.</li>
 							<li>Let users know where they are in the waiting process; how much time is elapsed and how much is left to go.</li>
 							<li>Especially with long waits, keeping user attention focused on other things.</li>
-							<li>Render minimum viable layout, to get users out of a passive phase and into an interactive, usable page ASAP</li>
+							<!-- <li>Render minimum viable layout, to get users out of a passive phase and into an interactive, usable page ASAP</li> -->
 						</ul>
 					</aside>
+				</section>
+				<section>
+					<h2 class="sub-title title--gradient">Structure this whole big section to go from smallest durations (immediate) to greatest durations, and mention that structure.</h2>
+					<aside class="notes"></aside>
 				</section>
 				<section>
 					<h2 class="sub-title title--gradient">Immediate<br>Response</h2>
@@ -325,16 +347,28 @@
 					<h2 class="fragment">100ms: <span class="fragment">Immediate</span></h2>
 					<h2 class="fragment">1,000ms: <span class="fragment">Thought Flow</span></h2>
 					<h2 class="fragment">10,000ms: <span class="fragment">Attention Span</span></h2>
-					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Jakob Nielsen,<br>Neilsen Norman Group</a>
+					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Jakob Nielsen</a>
 					<aside class="notes">
-						<p>In a pretty famous study Jakob Nielsen of the Nielsen Norman Group showed that it takes about 1 sec for peoples flow of thought to be disrupted &amp; for them to mentally transition to a waiting state.</p>
+						<p>In a pretty famous study Jakob Nielsen showed that it takes about 1 sec for peoples flow of thought to be disrupted &amp; for them to mentally transition to a waiting state.</p>
 					</aside>
 				</section>
 				<section>
-					<h2>What does "immediate" feel like?</h2>
+					<h2>Immediacy keeps users from entering a passive state.</h2>
+				</section>
+				<section>
+					<h2>Immediacy is contextual.</h2>
 				</section>
 				<section>
 					<iframe src="demos/click-latency.html" frameborder="0" class="frame"></iframe>
+				</section>
+				<section>
+					<h2>Stay <span class="active">:active,</span> kids!</h2>
+					<h4 class="fragment">Animation duration sweet spot is 150-200ms.</h4>
+					<aside class="notes">
+						<p>Makes your app feel immediate on static interactions, even if its not.</p>
+						<p>Even if you're not doing anything, the active state communicates to your users that it it receiving input and acting on it.</p>
+						<p>Insanely easy to use, no excuse not to, *ever*.</p>
+					</aside>
 				</section>
 				<section>
 					<h2>Animation is much,<br>much more sensitive.</h2>
@@ -353,15 +387,15 @@
 					<h2 class="fragment">Facebook's engagement "collapsed".</h2>
 					<a class="citation" href="https://www.youtube.com/watch?v=3-WYu_p5rdU&t=2160s" target="_blank">Shane O'Sullivan</a>
 					<aside class="notes">
-						<p>shane o'sullivan </p>
+						<p>Caveat, we don't know what "collapsed" means, but it sure sounds bad.</p>
+						<p>30fps isn't even that bad!</p>
+						<p>Shows that jank, apps not feeling immediate, damage the overall experience in a big way</p>
 					</aside>
 				</section>
 				<section>
-					<h2>Some conclusion</h2>
-					<h2 class="fragment">Immediate response</h2>
-					<a class="citation" href="https://www.youtube.com/watch?v=3-WYu_p5rdU&t=2160s" target="_blank">Shane O'Sullivan</a>
+					<h2>Some conclusion?</h2>
 					<aside class="notes">
-						<p>shane o'sullivan </p>
+						
 					</aside>
 				</section>
 				<section>
@@ -373,15 +407,16 @@
 				</section>
 				<section>
 					<h2>Let's pack as much loading into that 1 second as possible.</h2>
+					<h2>Take action as soon as the user signals intent.</h2>
 					<aside class="notes">
 						<p>If it takes 1 sec for ppl to even consciously realize they're waiting, lets pack as much as possible into that 1 second.</p>
 					</aside>
 				</section>
 				<section>
 					<h2>
-						<span class="fragment">Mousedown event</span>
+						<span class="fragment">Mousedown: button down</span>
 						<br>vs.<br>
-						<span class="fragment">Click event</span>
+						<span class="fragment">Click: button up</span>
 					</h2>
 					<aside class="notes">
 						<p>One of my favorite ways to do that is replacing click events with mousedown (and touchstart) events.</p>
@@ -400,20 +435,62 @@
 					<h2>Mousedown gives you a<br><span class="fragment anim-stroke">100-150ms</span> head start.</h2>
 					<aside class="notes">
 						<p>Folks tend to hold their mouse buttons down for 100-150ms; Found this through research on mechanical turk.</p>
+						<p>Incredibly small easy change to get a really solid bump on desktops.</p>
 					</aside>
 				</section>
-				<section>
-					<h2>Stay <span class="active">:active,</span> kids!</h2>
-					<h4 class="fragment">Animation duration sweet spot is 150-200ms.</h4>
+				<!-- <section>
+					<h2>Works on touch devices too!</h2>
 					<aside class="notes">
-						<p>Active states function just like hoverstates, but they fire when an element is clicked.</p>
-						<p>They give your app a sense of immediacy and responsiveness which helps to keep the user's thought flow uninterrupted.</p>
-						<p>If you set the active animation duration to 150-200ms, people will keep their mouse button pressed for the full duration of the animation; so instead of holding their mouse button down for 100-150ms, they hold it down for 150-200ms. You end up coaxing them into giving us a longer head start from our mousedown event.</p>
+						
+					</aside>
+				</section> -->
+				<section>
+					<h2 class="fragment current-visible">Works on touch devices too!</h2>
+					<h2 class="fragment">Begin on touchstart.</h2>
+					<h2 class="fragment">Confirm on touchend.</h2>
+					<h2 class="fragment">Cancel on touchmove.</h2>
+					<h2>MAKE A DEMO.</h2>
+					<aside class="notes">
+						<p>benefit not as much, but still get you something.</p>
 					</aside>
 				</section>
 				<section>
-					<h2 class="sub-title title--gradient">Maybe a section about how to compress background work into manageable chunks</h2>
+					<h2><span class="active">:active</span> animations<br>buy you more time</h2>
+					<h4 class="fragment">Sweet spot is 150-200ms.</h4>
+					<aside class="notes">
+						<p>If you set the active animation duration to 150-200ms, people will keep their mouse button pressed for the full duration of the animation; so instead of holding their mouse button down for 100-150ms, they hold it down for 150-200ms. You end up coaxing them into giving us a longer head start from our mousedown event.</p>
+						<p>Taps are generally much faster than clicks, but are influenced much more dramatically by active animations.</p>
+					</aside>
+				</section>
+				<section>
+					<h2 class="sub-title title--gradient">#Resist loading<br>indicators</h2>
 					<aside class="notes"></aside>
+				</section>
+				<section>
+					<img src="img/room-guardian-1.jpg" alt=""/>
+					<h2 class="fragment">Don't use loaders?</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<img src="img/room-guardian-2.jpg" alt=""/>
+					<h2 class="fragment">But perceived perf?</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2>It takes <span class="fragment anim-stroke">~500ms</span> for users to know that they're waiting.</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>Adding a loader prematurely puts them in a passive state.</h2>
+					<h2 class="fragment">This is the opposite of what we want.</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>Only begin to use loaders when the anticipated loading time approaches 1 second.</h2>
+					<aside class="notes">
+					</aside>
 				</section>
 				<section>
 					<h2 class="sub-title title--gradient">Give Users<br>Certainty</h2>
@@ -424,6 +501,12 @@
 					<a class="citation" href="http://www.columbia.edu/~ww2040/4615S13/Psychology_of_Waiting_Lines.pdf" target="_blank">David Maister</a>
 					<aside class="notes">
 						<p>Postulated by business consultant David Maister but confirmed in several studies. If people don't have a sense of how much has elapsed and how much is left, the wait feels longer.</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/ding-dong.gif" alt="">
+					<aside class="notes">
+						Maister notes that this is due to subconscious anxiety caused my mismanaged expectations
 					</aside>
 				</section>
 				<section>
@@ -590,9 +673,12 @@
 					</aside>
 				</section>
 				<section>
-					<img src="img/slack-loading.gif" alt="">
+					<h2>We can learn from the games industry.</h2>
+
 					<aside class="notes">
-						<p>Slack transitions from a visually arresting loader with an explanation, to another loader with an extraneous quotation to read, and then to a skeleton UI, and then to the full UI.  Holding user attention through this process.</p>
+						<p>Game developers have to deal with these problems all the time.</p>
+						<p>Games demand constant, smooth 60fps interactivity, and frequently have to interrupt their players with long (and short) waiting times.</p>
+						<p>From opening a menu, to loading a new level, to streaming in a world, game developers have to be masters of perceived performance.</p>
 					</aside>
 				</section>
 				<section>
@@ -602,9 +688,33 @@
 					</aside>
 				</section>
 				<section>
+					Fifa loading screen!!
+					<aside class="notes">
+						<p>Note as well that the player you control, and the goalkeeper are assets you'll have to load for the upcoming game anyways, so there's little cost to loading them and making them interactive while the rest of the content loads. The enviornment loads when the game itself boots, so that's almost free as well.</p>
+					</aside>
+				</section>
+				<section>
+					Mass effect elevator loading
+					<aside class="notes">
+						<p>Games frequently give players tips to read during long loading screens. Tips require high levels of mental activity to read them, digest them, and integrate them into the player's existing play style. Thus holding attention.</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/slack-loading.gif" alt="">
+					<aside class="notes">
+						<p>Slack transitions from a visually arresting loader with an explanation, to another loader with an extraneous quotation to read, and then to a skeleton UI, and then to the full UI.  Holding user attention through this process.</p>
+					</aside>
+				</section>
+				<section>
 					<img src="img/uber-waiting-game.png" alt="" style="height: 45vh;">
 					<aside class="notes">
 						<p>Uber's old screen when it was matching you with a driver was interactive.  You could draw little light doodles in this creative play space.  If you know the wait is going to be *very* long, give users something interactive to play with, because nothing holds attention like play.</p>
+					</aside>
+				</section>
+				<section>
+					Viget's branded loader study
+					<aside class="notes">
+						
 					</aside>
 				</section>
 				<!-- <section>
@@ -620,7 +730,7 @@
 						<p>This information or experience you're feeding a userdoesn't have to be directly related to what you're doing; and that's okay.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2 class="sub-title title--gradient">Minimum<br>Viable Layout</h2>
 					<aside class="notes"></aside>
 				</section>
@@ -654,9 +764,6 @@
 					<aside class="notes">
 						<p>There are a lot of "critical path" or "critical css" build libraries that will inline the styles of elements above a defined "fold" to load those elements fully styled with one request.  This doesn't account for any JS that might be needed to use this, nor do you necessarily want everything above some fold. Find out what *your* users need, and build your own custom minimum viable layout to suit them.</p>
 					</aside>
-				</section>
-				<!-- <section>
-					<img class="transparent" src="img/medium-skeleton.png" alt="">
 				</section> -->
 				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">Predictive<br>Design</h1>
@@ -785,6 +892,24 @@
 					</aside>
 				</section>
 				<section>
+					<h2>This pairs exceptionally well with code splitting and HTTP/2</h2>
+					<aside class="notes">
+						<p>The more we can chop up our code, the more benefit we can get from loading only the bits users need, and only when they signal their intent to use it.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>This already exists! Its *everywhere* in games! The coolest shit about predictive design is that it's suposed to be invisible, and IS.</h2>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
+					<h2>Demo of metroid prime loader</h2>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
 					<h2>Mitigate risk with data.</h2>
 					<aside class="notes">
 						<p>Use usage data to find where using predictive design would have the most impact; use predictive design in areas of high certainty.</p>
@@ -793,6 +918,13 @@
 				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">TLDR;</h1>
 				</section>
+				<section>
+					<h2>Need a much better conclusion.</h2>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
 				<section>
 					<h2>At the end of the day, what matters is how it <span class="fragment anim-stroke">feels.</span></h2>
 					<aside class="notes">
