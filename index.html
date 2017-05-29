@@ -164,13 +164,14 @@
 						<h4 class="fragment">Minified JS</h4>
 						<h4 class="fragment">Code splitting</h4>
 						<h4 class="fragment">Tree shaking</h4>
+						<h4 class="fragment">Lazyloading</h4>
 						<h4 class="fragment">Edge node caching</h4>
 						<h4 class="fragment">SVG spritesheets</h4>
 					</div>
 					<aside class="notes">
 						<p>We've mastered all of these things in the pursuit of raw, gnarly speed.</p>
 						<p>We're incredibly good at getting a page to interactivity quickly.</p>
-						<p>Even traditional perceived performance techniques, like inlining critical CSS to speed up initial render, is focused on objective perf. Ms to paint.</p>
+						<p>Even traditional perceived performance techniques, like inlining critical CSS, lazyloading images to speed up initial render, is still focused on an objective improvement to first paint.</p>
 					</aside>
 				</section>
 				<section>
@@ -258,6 +259,14 @@
 					<a class="citation" href="http://www.jstor.org/stable/171439?seq=1#page_scan_tab_contents" target="_blank">Richard Larson, MIT</a>
 					<aside class="notes">
 						<p>Humans overestimate passive waits by 36%, per Richard Larson of MIT</p>
+						<p>Dopamine is the main neurotransmitter associated with time perception per the guardian https://www.theguardian.com/science/2013/jan/01/psychology-time-perception-awareness-research</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Should dopamine get a slide?</h2>
+					<a class="citation" href="http://www.jstor.org/stable/171439?seq=1#page_scan_tab_contents" target="_blank">Richard Larson, MIT</a>
+					<aside class="notes">
+						<p>Humans overestimate passive waits by 36%, per Richard Larson of MIT</p>
 					</aside>
 				</section>
 				<section>
@@ -295,6 +304,16 @@
 					</aside>
 				</section>
 				<section>
+					<h2 class="fragment">100ms: <span class="fragment">Immediate</span></h2>
+					<h2 class="fragment">1,000ms: <span class="fragment">Thought Flow</span></h2>
+					<h2 class="fragment">10,000ms: <span class="fragment">Attention Span</span></h2>
+					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Jakob Nielsen</a>
+					<aside class="notes">
+						<p>In a pretty famous study Jakob Nielsen showed that it takes about 1 sec for peoples flow of thought to be disrupted &amp; for them to mentally transition to a waiting state.</p>
+						<p>Basically what this means, is that right around 1000ms users start to slip from an active mental state into a passive mental state</p>
+					</aside>
+				</section>
+				<section>
 					<div class="list">
 						<h2 class="list__heading">
 							Let's do something about it
@@ -312,7 +331,7 @@
 				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">Keep users active</h1>
 				</section>
-				<section>
+				<!-- <section>
 					<div class="list">
 						<h2 class="list__heading">
 							What we can do
@@ -321,7 +340,6 @@
 							<li class="fragment">Respond to users immediately, even if nothing is happening</li>
 							<li class="fragment">Use loaders to give users a sense of certainty</li>
 							<li class="fragment">Occupy users' attention</li>
-							<!-- <li class="fragment">Render minimum viable layout [[ maybe ]]</li> -->
 							<li class="fragment">Maybe a section about how to compress background work into manageable chunks????</li>
 						</ul>
 					</div>
@@ -331,8 +349,22 @@
 							<li>Respond immediately.</li>
 							<li>Let users know where they are in the waiting process; how much time is elapsed and how much is left to go.</li>
 							<li>Especially with long waits, keeping user attention focused on other things.</li>
-							<!-- <li>Render minimum viable layout, to get users out of a passive phase and into an interactive, usable page ASAP</li> -->
 						</ul>
+					</aside>
+				</section> -->
+				<section>
+					<div class="list">
+						<h2 class="list__heading">
+							What we can do
+						</h2>
+						<ul>
+							<li class="fragment">Respond to users immediately, even if nothing is happening.</li>
+							<li class="fragment">Keep users in flow with more responsive event listeners.</li>
+							<li class="fragment">Don't show a loader prematurely.</li>
+						</ul>
+					</div>
+					<aside class="notes">
+						<p>This is how you manage short duration, 100ms to 1s ish, loads to keep users in an active mental state</p>
 					</aside>
 				</section>
 				<section>
@@ -341,16 +373,8 @@
 				</section>
 				<section>
 					<h2 class="sub-title title--gradient">Immediate<br>Response</h2>
+					<h2 class="sub-title title--gradient">I'm not sure I like this section. maybe cut?</h2>
 					<aside class="notes"></aside>
-				</section>
-				<section>
-					<h2 class="fragment">100ms: <span class="fragment">Immediate</span></h2>
-					<h2 class="fragment">1,000ms: <span class="fragment">Thought Flow</span></h2>
-					<h2 class="fragment">10,000ms: <span class="fragment">Attention Span</span></h2>
-					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Jakob Nielsen</a>
-					<aside class="notes">
-						<p>In a pretty famous study Jakob Nielsen showed that it takes about 1 sec for peoples flow of thought to be disrupted &amp; for them to mentally transition to a waiting state.</p>
-					</aside>
 				</section>
 				<section>
 					<h2>Immediacy keeps users from entering a passive state.</h2>
@@ -406,8 +430,7 @@
 					<h2>Takes <span class="fragment anim-stroke">~1 second</span> for<br>flow to be disrupted.</h2>
 				</section>
 				<section>
-					<h2>Let's pack as much loading into that 1 second as possible.</h2>
-					<h2>Take action as soon as the user signals intent.</h2>
+					<h2>React as soon as<br>the user signals intent.</h2>
 					<aside class="notes">
 						<p>If it takes 1 sec for ppl to even consciously realize they're waiting, lets pack as much as possible into that 1 second.</p>
 					</aside>
@@ -449,7 +472,7 @@
 					<h2 class="fragment">Begin on touchstart.</h2>
 					<h2 class="fragment">Confirm on touchend.</h2>
 					<h2 class="fragment">Cancel on touchmove.</h2>
-					<h2>MAKE A DEMO.</h2>
+					<h2>make a demo?</h2>
 					<aside class="notes">
 						<p>benefit not as much, but still get you something.</p>
 					</aside>
@@ -477,24 +500,37 @@
 					<aside class="notes"></aside>
 				</section>
 				<section>
-					<h2>It takes <span class="fragment anim-stroke">~500ms</span> for users to know that they're waiting.</h2>
+					<h2>It takes users at least <span class="fragment anim-stroke">~500ms</span><br>to know they're waiting.</h2>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
-					<h2>Adding a loader prematurely puts them in a passive state.</h2>
-					<h2 class="fragment">This is the opposite of what we want.</h2>
+					<h2>Adding a loader prematurely<br>puts them in a passive state.</h2>
+					<aside class="notes">
+						<p>This is the opposite of what we want.</p>
+						<p>Remember we want them in an active mental state as long as possible</p>
+					</aside>
+				</section>
+				<section>
+					<h2>As you approach ~1s,<br>start to use loaders.</h2>
 					<aside class="notes">
 					</aside>
 				</section>
 				<section>
-					<h2>Only begin to use loaders when the anticipated loading time approaches 1 second.</h2>
-					<aside class="notes">
-					</aside>
+					<h2 class="sub-title title--gradient">Animation to manage the transition from active to passive? active to active, skipping passive?</h2>
+					<aside class="notes"></aside>
 				</section>
 				<section>
 					<h2 class="sub-title title--gradient">Give Users<br>Certainty</h2>
 					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2>Once you enter [[[[~1-4s]]]]] loading times, this is when you start to lose people.</h2>
+					<h2>Critical to get this right.</h2>
+					<h2>Has a wonky transition to next slide.</h2>
+					<aside class="notes">
+						<p>reference nielsen</p>
+					</aside>
 				</section>
 				<section>
 					<h2>Uncertain waits feel longer.</h2>
@@ -506,7 +542,9 @@
 				<section>
 					<img src="img/ding-dong.gif" alt="">
 					<aside class="notes">
-						Maister notes that this is due to subconscious anxiety caused my mismanaged expectations
+						<p>Maister notes that this is due to subconscious anxiety caused my mismanaged expectations</p>
+						<p>This again comes down to dopamine. Anxiety inhibits dopamine, thus causing time to pass more slowly</p>
+						<p>We've all experienced this. Isn't it so much worse when you're sitting on tarmac waiting for the plane to take off, and they keep telling you 5 more minutes? Wouldn't you rather they just told you an hour?</p>
 					</aside>
 				</section>
 				<section>
@@ -575,7 +613,18 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Stay real&hellip;ish.</h2>
+					<iframe src="demos/fake-progress.html" frameborder="0" class="frame"></iframe>
+					
+					<aside class="notes">
+						<p>How this works, is basically we animate the bar towards the end of its track, with a strong ease out, so it will slow down as it approches, say 95% of its length</p>
+						<p>When the load finishes, you just animate it to complete.</p>
+						<p>Most of the time this is fairly adequate, especially for short durations like loading an image.</p>
+						<p>Sometimes bad things happen though, like the progress bar scoots to the end immediately, thus prematurely jumping the user into a passive state, while lying to them about how long they're going to wait and defeating the whole point of a progress bar</p>
+						<p>Or you can have the progress bar sit forever right at the end, which is infuriating.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Keep it real&hellip;ish.</h2>
 					<h2 class="fragment">Measure requests.</h2>
 
 					<aside class="notes">
@@ -627,6 +676,20 @@
 					</aside>
 				</section>
 				<section>
+					<div class="list">
+						<h2 class="list__heading">Some tips</h2>
+						<ul>
+							<li class="fragment">Great place for middleware.</li>
+							<li class="fragment">Record anticipated times with your test runner.</li>
+							<li class="fragment">Store resource size in metadata.</li>
+							<li class="fragment">Post this to user analytics to re-normalize for *your* users.</li>
+						</ul>
+					</div>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
 					<h2>
 						<span class="fragment anim-spin">But </span>
 						<span class="fragment anim-spin">what </span>
@@ -639,10 +702,7 @@
 						</span>
 					</h2>
 					<aside class="notes">
-						<p>Spinners have a pretty narrow use case.</p>
-						<p>Don't want to use them if the expected wait time is less than 1s or so, because user flow won't be disrupted.</p>
-						<p>Don't want to use them if the expected wait time is ~2.5s or up, since users need certainty as to where they are in the process.</p>
-						<p>So you're looking at using them for loads between 1 - 2ish seconds.</p>
+						
 					</aside>
 				</section>
 				<section>
@@ -653,13 +713,13 @@
 							<li class="fragment">> ~2s? Really need a progress bar.</li>
 							<li class="fragment">Only useful between 1 and 2 seconds.</li>
 						</ul>
-						<aside class="notes">
-							<p>Spinners have a pretty narrow use case.</p>
-							<p>Don't want to use them if the expected wait time is less than 1s or so, because user flow won't be disrupted.</p>
-							<p>Don't want to use them if the expected wait time is ~2.5s or up, since users need certainty as to where they are in the process.</p>
-							<p>So you're looking at using them for loads between 1 - 2ish seconds.</p>
-						</aside>
 					</div>
+					<aside class="notes">
+						<p>Spinners have a pretty narrow use case.</p>
+						<p>Don't want to use them if the expected wait time is less than 1s or so, because user flow won't be disrupted.</p>
+						<p>Don't want to use them if the expected wait time is ~2.5s or up, since users need certainty as to where they are in the process.</p>
+						<p>So you're looking at using them for loads between 1 - 2ish seconds.</p>
+					</aside>
 				</section>
 				<section>
 					<h2 class="sub-title title--gradient">Occupy Users'<br>Attention</h2>
@@ -937,6 +997,12 @@
 					<h2>Think about how you<br>want to use your resources.</h2>
 					<aside class="notes">
 						<p>If you have sufficient low hanging fruit to effect a 30% speedup in your app then by all means, do it.  But many team don't have that luxury, and for them it makes a great deal of sense to focus on subjective performance measures before dedicating significant resources on physically making their product faster.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Take time to make great progress bars</h2>
+					<aside class="notes">
+						<p>They're boring but make an incredible difference in perceived speed for medium length requests, which is where you really start to lose people in bulk. Don't skimp on them.</p>
 					</aside>
 				</section>
 				<section>

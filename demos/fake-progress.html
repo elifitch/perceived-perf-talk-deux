@@ -1,0 +1,127 @@
+<head>
+	<link rel="stylesheet prefetch" href="lib/css/foundation.min.css">
+	<script src="lib/js/tweenmax.min.js"></script>
+
+	<style>
+		.container {
+		  padding-top: 2em;
+			padding-top: 2em;
+			height: 100vh;
+			display: flex;
+			align-items: center;
+		}
+		.action-jackson {
+		  display: flex;
+		  flex-direction: row;
+		}
+		.button {
+			transition: transform 0.2s;
+
+		}
+		.bar {
+		  background: #efefef;
+		  position: relative;
+		  overflow: hidden;
+		  margin-bottom: 2em;
+		  /*width: calc(100% - 3em);*/
+		  width: 0;
+		}
+		.bar__prog {
+		  height: 2em;
+		  background-color: turquoise;
+		  overflow: hidden;
+		}
+		.bar__stripes {
+		  height: 100%;
+		  width: calc(100% + 120px);
+		  background-size: 60px 60px;
+		  opacity: 0.3;
+		  background-image: linear-gradient(
+			45deg, 
+			#efefef        25%, 
+			transparent       25%, 
+			transparent       50%, 
+			#efefef        50%, 
+			#efefef        75%, 
+			transparent       75%, 
+			transparent
+		  );
+		}
+		.bar__stripes--counterflow-speedup {
+			height: 2em;
+			width: 300%;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 0;
+		}
+
+		.anim-bar {
+		  animation: bar 15s cubic-bezier(.08,.21,.27,1.01) infinite;
+		}
+
+		.anim-counter-flow {
+		  animation: counter-flow 2s linear;
+		}
+		.anim-counter-flow--speedup {
+		  animation: counter-flow-speedup 7.5s linear infinite;
+		}
+
+		@keyframes bar {
+		  0% {
+			width: 0%;
+		  }
+		  100% {
+			width: 100%;
+		  }
+		}
+
+		@keyframes counter-flow-speedup {
+		  0% {
+			transform: translateX(0)
+		  }
+		  100% {
+			transform: translateX(-50%);
+		  }
+		}
+
+		.full-width {
+			width: 100%;
+		}
+	</style>
+</head>
+
+<div class="container">
+	<div class="full-width">
+		<div class="row">
+			<div class="column small-12 medium-10 medium-offset-1 large-8 large-offset-2">
+				<button class="button js-button-start">Start loading</button>
+				<button class="button js-button-complete">Complete</button>
+				<div class="action-jackson">
+					<div class="bar">
+						<div class="bar__prog"></div>
+						<div class="bar__stripes bar__stripes--counterflow-speedup anim-counter-flow--speedup"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<script>
+	var bar = document.querySelectorAll('.bar')[0];
+	var startButton = document.querySelectorAll('.js-button-start')[0];
+	var completeButton = document.querySelectorAll('.js-button-complete')[0];
+	function start() {
+		bar.style.width = 0;
+		TweenMax.fromTo(bar, 15, {width: 0}, {width: '95%', ease: Power4.easeOut});
+	}
+	function stop() {
+		TweenMax.to(bar, 0.4, {width: '100%', ease: Power2.easeInOut});
+
+	}
+	startButton.addEventListener('click', start);
+	completeButton.addEventListener('click', stop);
+
+</script>
