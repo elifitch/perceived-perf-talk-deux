@@ -68,7 +68,7 @@
 				</section>
 				<section>
 					<div class="list">
-						<h2 class="list__heading">Today I'll be shrieking about</h2>
+						<h2 class="list__heading">Today I'll be shrieking about [REVISE]</h2>
 						<ul>
 							<li class="fragment">Why focusing on perceived performance is smart</li>
 							<li class="fragment">How humans perceive time</li>
@@ -177,6 +177,7 @@
 				<section>
 					<h2>We optimize for objective time<br><span class="fragment">but that isn't very efficient.</span></h2>
 					<aside class="notes">
+						<p>We're good at objective time, because this is what we optimize for.</p>
 						<p>When users report that our app is slow, we usually focus on making it objectively faster. Reducing load time by a certain percentage, etc.</p>
 						<p>Objective time is easy to measure, that's why we focus on it.</p>
 						<p>We make our projects faster, hoping that because they *are* faster, they'll feel faster.</p>
@@ -263,14 +264,7 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Should dopamine get a slide?</h2>
-					<a class="citation" href="http://www.jstor.org/stable/171439?seq=1#page_scan_tab_contents" target="_blank">Richard Larson, MIT</a>
-					<aside class="notes">
-						<p>Humans overestimate passive waits by 36%, per Richard Larson of MIT</p>
-					</aside>
-				</section>
-				<section>
-					<img src="img/watched-pot.jpg" alt="">
+					<img src="img/watched-pot.jpg" alt="" style="height: 45vh">
 					<aside class="notes">
 						
 					</aside>
@@ -297,7 +291,7 @@
 				</section>
 				<section>
 					<h2>
-						Make a demo to show what this looks like on a webpage?<br>On a webpage, clicking a link the common pattern is active - passive - active.
+						MAKE A DEMO to show what this looks like on a webpage?<br>On a webpage, clicking a link the common pattern is active - passive - active.
 					</h2>
 					<aside class="notes">
 						
@@ -309,8 +303,9 @@
 					<h2 class="fragment">10,000ms: <span class="fragment">Attention Span</span></h2>
 					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Jakob Nielsen</a>
 					<aside class="notes">
+						<p>Going through that flow, active and passive states are demarkated by estimates of time.</p>
 						<p>In a pretty famous study Jakob Nielsen showed that it takes about 1 sec for peoples flow of thought to be disrupted &amp; for them to mentally transition to a waiting state.</p>
-						<p>Basically what this means, is that right around 1000ms users start to slip from an active mental state into a passive mental state</p>
+						<p>Basically what this means, is that right around 1000ms users start to slip from an active mental state into a passive mental state.</p>
 					</aside>
 				</section>
 				<section>
@@ -361,6 +356,7 @@
 							<li class="fragment">Respond to users immediately, even if nothing is happening.</li>
 							<li class="fragment">Keep users in flow with more responsive event listeners.</li>
 							<li class="fragment">Don't show a loader prematurely.</li>
+							<li class="fragment">Use interstitial animations.</li>
 						</ul>
 					</div>
 					<aside class="notes">
@@ -461,20 +457,19 @@
 						<p>Incredibly small easy change to get a really solid bump on desktops.</p>
 					</aside>
 				</section>
-				<!-- <section>
-					<h2>Works on touch devices too!</h2>
-					<aside class="notes">
-						
-					</aside>
-				</section> -->
 				<section>
 					<h2 class="fragment current-visible">Works on touch devices too!</h2>
 					<h2 class="fragment">Begin on touchstart.</h2>
 					<h2 class="fragment">Confirm on touchend.</h2>
 					<h2 class="fragment">Cancel on touchmove.</h2>
-					<h2>make a demo?</h2>
 					<aside class="notes">
 						<p>benefit not as much, but still get you something.</p>
+					</aside>
+				</section>
+				<section>
+					<iframe src="demos/touchstart.html" frameborder="0" class="frame"></iframe>
+					<aside class="notes">
+						
 					</aside>
 				</section>
 				<section>
@@ -631,14 +626,19 @@
 						<p>He found that they feel 12% faster.  So just from this one change we can get half way to our Just Noticeable Difference threshold.</p>
 					</aside>
 				</section>
-
+				<section>
+					Viget's branded loader study
+					<aside class="notes">
+						
+					</aside>
+				</section>
 				<section>
 					<div class="list">
 						<h2 class="list__heading">Don't overdo it</h2>
 						<ul>
 							<li class="fragment">&lt; 1s? Don't bother.</li>
 							<li class="fragment">~ 1-3s? Stick to the basics.</li>
-							<li class="fragment">~ 3-10s? Time to get fancy.</li>
+							<li class="fragment">~ 3-10s? Include extra information</li>
 						</ul>
 					</div>
 
@@ -648,6 +648,14 @@
 							<li>1-3 seconds displaying a progress bar is preferable. Don't need to include lots of written explanation as to what the app is doing, since this is within the window where most people still have patience.</li>
 							<li>3-10s? Include an explanation as to what the app is doing. These durations can seem unreasonable if you don't explain to the user what is happening.</li>
 						</ul>
+					</aside>
+				</section>
+				<section>
+					[[MAKE A DEMO: annotations should be real]]
+					<iframe src="demos/progress-extra-info.html" frameborder="0" class="frame"></iframe>
+
+					<aside class="notes">
+						
 					</aside>
 				</section>
 				<section>
@@ -822,18 +830,6 @@
 					</aside>
 				</section>
 				<section>
-					Viget's branded loader study
-					<aside class="notes">
-						
-					</aside>
-				</section>
-				<!-- <section>
-					<h2>Animation</h2>
-					<aside class="notes">
-						TODO: animate this dood.
-					</aside>
-				</section> -->
-				<section>
 					<h2>If this feels like cheating,<br>that's because it is.</h2>
 					<h4 class="fragment">You dirty cheaters, you.</h4>
 					<aside class="notes">
@@ -939,9 +935,19 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Doesn't have to be crazy complicated.</h2>
+					<h2>You've probably done it without realizing</h2>
 					<aside class="notes">
-						<p>Doesn't have to be a crazy complex machine learning algorithm.</p>
+						<p>Who's lazyloaded images on scroll with a buffer so you're loading them before the user gets there?</p>
+						<p>You're using the users current behavior (scrolling), to predict what their next action will be (consuming the next bit of content), and you're loading the resources they need before they get there.</p>
+						<p>We can take this like 10 steps further though.</p>
+					</aside>
+				</section>
+				<section>
+					MAKE A DEMO of lazyloading images on scroll
+					<aside class="notes">
+						<p>Who's lazyloaded images on scroll with a buffer so you're loading them before the user gets there?</p>
+						<p>You're using the users current behavior (scrolling), to predict what their next action will be (consuming the next bit of content), and you're loading the resources they need before they get there.</p>
+						<p>We can take this like 10 steps further though.</p>
 					</aside>
 				</section>
 				<!-- <section>
@@ -971,6 +977,7 @@
 					<aside class="notes">
 						<p>Predictive form demo:</p>
 						<p>We predict that if a user fills out all the fields, they want to move to the next step.  This demo will load the second step of the form after the user has inputted text into all the form fields.  Note that we wouldn't be sending their data to the server when they fill input fields, we'll still wait for a click to do that (don't want to transmit data that is then revised).  BUT in the real world we'd still use this as an opportunity to load the assets necessary to render the next step in the form.</p>
+						<p>To be clear, this is not for pre-emptively sending a server data that a user hasn't finished entering, it's for loading resources you need for the next page</p>
 						<p>In my testing I was able to accomplish about 50% of the loading process before users even clicked "Next step", which is a huge gain.</p>
 					</aside>
 				</section>
@@ -994,6 +1001,12 @@
 					</aside>
 				</section>
 				<section>
+					MAKE A DEMO of lazyloading on scroll with a dynamic buffer size based on scroll speed, asset size, and connection speed.
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
 					<h2>Predictive design is a very powerful tool.</h2>
 					<h2 class="fragment">Use it <span class="fragment anim-stroke">wisely.</span></h2>
 					<aside class="notes">
@@ -1014,7 +1027,7 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Demo of metroid prime loader</h2>
+					<h2>MAKE A DEMO of metroid prime loader</h2>
 					<aside class="notes">
 						
 					</aside>

@@ -1,0 +1,69 @@
+<head>
+	<link rel="stylesheet prefetch" href="lib/css/foundation.min.css">
+	<script src="lib/js/jquery.min.js"></script>
+
+	<style>
+		html {
+			font-size: 1.4em;
+		}
+		.container {
+			padding-top: 2em;
+		}
+		.bold {
+			font-weight: bold;
+			color: red;
+		}
+		.button {
+			transition: all 0.4s;
+		}
+		.button:active {
+			transform: translateY(0.5em);
+		}
+	</style>
+</head>
+
+<div class="container">
+	<div class="row align-middle align-center">
+	<div class="column small-12">
+		<button class="button button--onclick">Tap me!</button>
+	</div>
+	<div class="column small-12">
+		<h3 class="readout"></h3>
+	</div>
+	</div>
+</div>
+
+<script>
+$('.button--onclick').on('mousedown', start);
+
+function start(e) {
+	$('.readout').html('Loading in background');
+
+	$('.button--onclick').on('mouseup', function() {
+		$('.button--onclick').off('mousemove');
+		$('.readout').html('take action with loaded resources');
+	});
+	
+	$('.button--onclick').on('mousemove', function(moveEvent) {
+		if (
+			e.clientX - moveEvent.clientX > 25 || 
+			e.clientX - moveEvent.clientX < -25 || 
+			e.clientY - moveEvent.clientY > 25 || 
+			e.clientY - moveEvent.clientY < -25
+		) {
+			cancel();
+		} else {
+			$('.readout').html('moving, but threshhold not exceeded');
+		}
+	});
+}
+
+function cancel() {
+	$('.button--onclick').off('mousemove');
+	$('.button--onclick').on('mouseup', function() {
+		$('.readout').html('touchended after cancel. Resources loaded but no action taken.');
+	});
+	$('.readout').html('cancelled');
+}
+
+</script>
