@@ -159,11 +159,11 @@
 				</section>
 				<section>
 					<div class="word-cloud">
-						<h4 class="fragment">Critical Rendering Path</h4>
+						<h4 class="fragment">Code minification</h4>
 						<h4 class="fragment">Image optimization</h4>
-						<h4 class="fragment">Minified JS</h4>
-						<h4 class="fragment">Code splitting</h4>
+						<h4 class="fragment">Critical Rendering Path</h4>
 						<h4 class="fragment">Tree shaking</h4>
+						<h4 class="fragment">Code splitting</h4>
 						<h4 class="fragment">Lazyloading</h4>
 						<h4 class="fragment">Edge node caching</h4>
 						<h4 class="fragment">SVG spritesheets</h4>
@@ -290,9 +290,7 @@
 					</aside>
 				</section>
 				<section>
-					<h2>
-						MAKE A DEMO to show what this looks like on a webpage?<br>On a webpage, clicking a link the common pattern is active - passive - active.
-					</h2>
+					<video src="/img/website-active-passive-annotated.mp4" controls />
 					<aside class="notes">
 						
 					</aside>
@@ -353,9 +351,9 @@
 							What we can do
 						</h2>
 						<ul>
+							<li class="fragment">Don't show a loader prematurely.</li>
 							<li class="fragment">Respond to users immediately, even if nothing is happening.</li>
 							<li class="fragment">Keep users in flow with more responsive event listeners.</li>
-							<li class="fragment">Don't show a loader prematurely.</li>
 							<li class="fragment">Use interstitial animations.</li>
 						</ul>
 					</div>
@@ -382,15 +380,6 @@
 					<iframe src="demos/click-latency.html" frameborder="0" class="frame"></iframe>
 				</section>
 				<section>
-					<h2>Stay <span class="active">:active,</span> kids!</h2>
-					<h4 class="fragment">Animation duration sweet spot is 150-200ms.</h4>
-					<aside class="notes">
-						<p>Makes your app feel immediate on static interactions, even if its not.</p>
-						<p>Even if you're not doing anything, the active state communicates to your users that it it receiving input and acting on it.</p>
-						<p>Insanely easy to use, no excuse not to, *ever*.</p>
-					</aside>
-				</section>
-				<section>
 					<h2>Animation is much,<br>much more sensitive.</h2>
 				</section>
 				<section>
@@ -413,9 +402,81 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Some conclusion?</h2>
+					<h2>Stay <span class="active">:active,</span> kids!</h2>
+					<aside class="notes">
+						<p>Makes your app feel immediate on static interactions, even if its not.</p>
+						<p>Even if you're not doing anything, the active state communicates to your users that it it receiving input and acting on it.</p>
+						<p>Insanely easy to use, no excuse not to, *ever*.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Optimism!</h2>
 					<aside class="notes">
 						
+					</aside>
+				</section>
+				<section>
+					<img src="img/optimism.jpg" alt="">
+
+					<aside class="notes">
+						<p>Not necessarily this kind of optimism.</p>
+						<p>update the UI optimistically.</p>
+						<p>This means update the UI before the response is received, because you can safely assume that it will be successful.</p>
+					</aside>
+				</section>
+				<section>
+					<iframe src="demos/optimistic-updates-traditional.html" frameborder="0" class="frame" id="demo-optimistic-optimistic"></iframe>
+					<button class="lil-button js-reset" data-reset="demo-optimistic-optimistic">RESET</button>
+					<aside class="notes">
+
+					</aside>
+				</section>
+				<section>
+					<iframe src="demos/optimistic-updates-optimistic.html" frameborder="0" class="frame" id="demo-optimistic-optimistic"></iframe>
+					<button class="lil-button js-reset" data-reset="demo-optimistic-optimistic">RESET</button>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
+					<h2 class="sub-title title--gradient">#Resist loading<br>indicators</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2>
+						<span class="fragment">Woah. </span>
+						<span class="fragment">Woah. </span>
+						<span class="fragment">Woah. </span>
+					</h2>
+					<h2 class="fragment">Slow down here.</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<img src="img/room-guardian-1.jpg" alt=""/>
+					<h2>Don't use loaders?</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<img src="img/room-guardian-2.jpg" alt=""/>
+					<h2>But perceived perf?</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2>It takes users at least <span class="fragment anim-stroke">~500ms</span><br>to know they're waiting.</h2>
+					<aside class="notes">
+						This is why optimistic updates are important. Sure we could show a loader while making the request, and then update our like button, but isn't it better to just show the success ui?
+					</aside>
+				</section>
+				<section>
+					<h2>Adding a loader prematurely<br>puts them in a passive state.</h2>
+					<aside class="notes">
+						<p>This is the opposite of what we want.</p>
+						<p>Remember we want them in an active mental state as long as possible</p>
+					</aside>
+				</section>
+				<section>
+					<h2>As you approach ~1s,<br>start to use loaders.</h2>
+					<aside class="notes">
 					</aside>
 				</section>
 				<section>
@@ -481,37 +542,6 @@
 					</aside>
 				</section>
 				<section>
-					<h2 class="sub-title title--gradient">#Resist loading<br>indicators</h2>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<img src="img/room-guardian-1.jpg" alt=""/>
-					<h2 class="fragment">Don't use loaders?</h2>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<img src="img/room-guardian-2.jpg" alt=""/>
-					<h2 class="fragment">But perceived perf?</h2>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<h2>It takes users at least <span class="fragment anim-stroke">~500ms</span><br>to know they're waiting.</h2>
-					<aside class="notes">
-					</aside>
-				</section>
-				<section>
-					<h2>Adding a loader prematurely<br>puts them in a passive state.</h2>
-					<aside class="notes">
-						<p>This is the opposite of what we want.</p>
-						<p>Remember we want them in an active mental state as long as possible</p>
-					</aside>
-				</section>
-				<section>
-					<h2>As you approach ~1s,<br>start to use loaders.</h2>
-					<aside class="notes">
-					</aside>
-				</section>
-				<section>
 					<h2 class="sub-title title--gradient">Interstitial<br>Animations</h2>
 					<aside class="notes"></aside>
 				</section>
@@ -549,6 +579,18 @@
 					<h1 class="title">Un-suck passive waits</h1>
 				</section>
 				<section>
+					<h2>You start to lose people<br>at <span class="fragment anim-stroke">~1-4s</span> of waiting.</h2>
+					<aside class="notes">
+						<p>reference nielsen</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Critical to get this right.</h2>
+					<aside class="notes">
+						<p>reference nielsen</p>
+					</aside>
+				</section>
+				<section>
 					<div class="list">
 						<h2 class="list__heading">
 							What we can do
@@ -556,7 +598,7 @@
 						<ul>
 							<li class="fragment">The right animation can make time pass more quickly</li>
 							<li class="fragment">Ground fake progress bars in reality</li>
-							<li class="fragment">Hide long loading time with extraneous interactivity. [[[terrible title]]]</li>
+							<li class="fragment">Distract with shiny objects</li>
 						</ul>
 					</div>
 					<aside class="notes">
@@ -568,14 +610,6 @@
 				<section>
 					<h2 class="sub-title title--gradient">Give Users<br>Certainty</h2>
 					<aside class="notes"></aside>
-				</section>
-				<section>
-					<h2>Once you enter [[[[~1-4s]]]]] loading times, this is when you start to lose people.</h2>
-					<h2>Critical to get this right.</h2>
-					<h2>Has a wonky transition to next slide.</h2>
-					<aside class="notes">
-						<p>reference nielsen</p>
-					</aside>
 				</section>
 				<section>
 					<h2>Uncertain waits feel longer.</h2>
@@ -651,11 +685,11 @@
 					</aside>
 				</section>
 				<section>
-					[[MAKE A DEMO: annotations should be real]]
-					<iframe src="demos/progress-extra-info.html" frameborder="0" class="frame"></iframe>
+					<iframe src="demos/progress-extra-info.html" frameborder="0" class="frame" id="demo-extra-info"></iframe>
+					<button class="lil-button js-reset" data-reset="demo-extra-info">RESET</button>
 
 					<aside class="notes">
-						
+						<p>an example of what this might look like if we were loading a custom game for a user</p>
 					</aside>
 				</section>
 				<section>

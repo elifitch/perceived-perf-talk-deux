@@ -22,7 +22,7 @@
 			background: #efefef;
 			position: relative;
 			overflow: hidden;
-			margin-bottom: 2em;
+			margin-bottom: 0.8em;
 			width: 0;
 		}
 		.bar__prog {
@@ -95,13 +95,12 @@
 		<div class="row">
 			<div class="column small-12 medium-10 medium-offset-1 large-8 large-offset-2">
 				<button class="button js-button-start">Start loading</button>
-				<button class="button js-button-complete">Complete</button>
 				<div class="action-jackson">
 					<div class="bar">
 						<div class="bar__prog"></div>
 						<div class="bar__stripes bar__stripes--counterflow-speedup anim-counter-flow--speedup"></div>
 					</div>
-					<div class="bar__annotation"></div>
+					<h4 class="bar__annotation"></h4>
 				</div>
 			</div>
 		</div>
@@ -112,27 +111,26 @@
 <script>
 	var bar = document.querySelectorAll('.bar')[0];
 	var startButton = document.querySelectorAll('.js-button-start')[0];
-	var completeButton = document.querySelectorAll('.js-button-complete')[0];
 	var annotationEl = document.querySelectorAll('.bar__annotation')[0];
 
 	var messages = [
-		'loading message 1',
-		'loading message 2',
-		'loading message 3',
-		'loading message 4',
-		'loading message 5'
+		'Building detailed objects',
+		'Loading high def textures',
+		'Creating immersive environment',
+		'Making beautiful lighting effects',
+		'Compiling your game. Almost ready to play!'
 	];
 
 	function start() {
 		var currentMessageIndex = -1;
 		bar.style.width = 0;
-		TweenMax.fromTo(bar, 20, {width: 0}, {
+		TweenMax.fromTo(bar, 10, {width: 0}, {
 			width: '100%', 
-			ease: Power1.easeOut, 
+			ease: Power0.easeNone, 
 			onUpdate: function() {
-				if (Math.floor(this.progress() * messages.length) > currentMessageIndex) {
-					currentMessageIndex = Math.floor(this.progress() * messages.length);
-					annotationEl.innerHTML = messages[currentMessageIndex];
+				if (Math.floor(this.progress() * (messages.length)) > currentMessageIndex) {
+					currentMessageIndex = Math.floor(this.progress() * (messages.length));
+					annotationEl.innerHTML = messages[currentMessageIndex] ? messages[currentMessageIndex] : messages[messages.length - 1];
 				}
 			}
 		});
@@ -141,6 +139,5 @@
 		TweenMax.to(bar, 0.4, {width: '100%', ease: Power2.easeInOut});
 	}
 	startButton.addEventListener('click', start);
-	completeButton.addEventListener('click', stop);
 
 </script>

@@ -11,13 +11,15 @@ Structure 5/31:
 * why percieved perf matters
 * How humans sense time (active vs passive)
 * How to keep users active
-	- immediate response
-	- mousedown/touchstart
 	- don't show loaders
+	- immediate response (removed animation)
+	- respond quickly with mousedown/touchstart
 	- use interstitial anims
 * How to make passive waits seem to pass more quickly
 	- Good loader animations (progress bars)
 	- How to make a good fake progress bar
 	- [[Hide long loading time with extraneous stuff]]
 * Predictive design (short circuiting this process)
+	- Houston story: consultants predicted that after getting off the plane, people go to pick up their bags, and loaded their 
+	- We can predict user behavior too, you've probably done it before
 	- 
