@@ -7,7 +7,7 @@
 		<title>Understanding Perceived Performance</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/eli-pres.css">
+		<link rel="stylesheet" href="css/theme/eli-pres-light.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -39,13 +39,14 @@
 		<script src="demos/lib/js/jquery.min.js"></script>
 	</head>
 	<body>
+		<div class="vignette"></div>
 		<div class="reveal">
 			<div class="slides">
-				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="main-title">Perceived Performance</h1>
 					<h3>The only kind that really matters.</h3>
 				</section>
-				<!-- <section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+				<!-- <section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h2>#PerceivedPerf</h2>
 					<h3>(504) 229-6828</h3>
 					<h4 class="fragment">#PerceivedPerf [1-5] [comment]</h4>
@@ -87,7 +88,7 @@
 						</aside>
 					</div>
 				</section>
-				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">Why Perceived<br>Performance Matters
 					</h1>
 				</section>
@@ -239,7 +240,7 @@
 						<p>Sometimes you don't have a great deal of control over asset delivery, your application requires long asynchronous processes that cannot be easily improved, etc. We sell ourselves short by focusing on improving objective time when we can sometimes make much greater strides to how fast our apps &amp; sites *feel* without improving their actual speed at all.</p>
 					</aside>
 				</section>
-				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">How Humans<br>Sense Time</h1>
 				</section>
 				<section>
@@ -301,7 +302,7 @@
 					<h2 class="fragment">10,000ms: <span class="fragment">Attention Span</span></h2>
 					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Jakob Nielsen</a>
 					<aside class="notes">
-						<p>Going through that flow, active and passive states are demarkated by estimates of time.</p>
+						<p>When waiting for something to load, users don't just snap into a passive state, it takes time for them to realize they're waiting.</p>
 						<p>In a pretty famous study Jakob Nielsen showed that it takes about 1 sec for peoples flow of thought to be disrupted &amp; for them to mentally transition to a waiting state.</p>
 						<p>Basically what this means, is that right around 1000ms users start to slip from an active mental state into a passive mental state.</p>
 					</aside>
@@ -321,7 +322,7 @@
 						<p>Now that we know about JND threshold, and the differences between passive and active time, there are two basic genres of techniques to circumvent</p>
 					</aside>
 				</section>
-				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">Keep users active</h1>
 				</section>
 				<!-- <section>
@@ -360,10 +361,6 @@
 					<aside class="notes">
 						<p>This is how you manage short duration, 100ms to 1s ish, loads to keep users in an active mental state</p>
 					</aside>
-				</section>
-				<section>
-					<h2 class="sub-title title--gradient">Structure this whole big section to go from smallest durations (immediate) to greatest durations, and mention that structure.</h2>
-					<aside class="notes"></aside>
 				</section>
 				<section>
 					<h2 class="sub-title title--gradient">Immediate<br>Response</h2>
@@ -425,8 +422,8 @@
 					</aside>
 				</section>
 				<section>
-					<iframe src="demos/optimistic-updates-traditional.html" frameborder="0" class="frame" id="demo-optimistic-optimistic"></iframe>
-					<button class="lil-button js-reset" data-reset="demo-optimistic-optimistic">RESET</button>
+					<iframe src="demos/optimistic-updates-traditional.html" frameborder="0" class="frame" id="demo-optimistic-traditional"></iframe>
+					<button class="lil-button js-reset" data-reset="demo-optimistic-traditional">RESET</button>
 					<aside class="notes">
 
 					</aside>
@@ -535,8 +532,9 @@
 				</section>
 				<section>
 					<h2><span class="active">:active</span> animations<br>buy you more time</h2>
-					<h4 class="fragment">Sweet spot is 150-200ms.</h4>
+					<h4 class="fragment">~200ms duration gives you a +50ms bonus</h4>
 					<aside class="notes">
+						<p>People subconsciously hold their mouse button down longer if there is an active animation</p>
 						<p>If you set the active animation duration to 150-200ms, people will keep their mouse button pressed for the full duration of the animation; so instead of holding their mouse button down for 100-150ms, they hold it down for 150-200ms. You end up coaxing them into giving us a longer head start from our mousedown event.</p>
 						<p>Taps are generally much faster than clicks, but are influenced much more dramatically by active animations.</p>
 					</aside>
@@ -575,7 +573,7 @@
 					<h2>EXAMPLES!!!</h2>
 					<aside class="notes"></aside>
 				</section>
-				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">Un-suck passive waits</h1>
 				</section>
 				<section>
@@ -608,7 +606,8 @@
 					</aside>
 				</section>
 				<section>
-					<h2 class="sub-title title--gradient">Give Users<br>Certainty</h2>
+					<!-- <h2 class="sub-title title--gradient">Give Users<br>Certainty</h2> -->
+					<h2 class="sub-title title--gradient">The Perfect<br>Progress Bar</h2>
 					<aside class="notes"></aside>
 				</section>
 				<section>
@@ -666,7 +665,7 @@
 						
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<div class="list">
 						<h2 class="list__heading">Don't overdo it</h2>
 						<ul>
@@ -683,6 +682,14 @@
 							<li>3-10s? Include an explanation as to what the app is doing. These durations can seem unreasonable if you don't explain to the user what is happening.</li>
 						</ul>
 					</aside>
+				</section> -->
+				<section>
+					<h2>Long waits?</h2>
+					<h2 class="fragment">Context is everything.</h2>
+
+					<aside class="notes">
+						<p>3-10s? Include an explanation as to what the app is doing. These durations can seem unreasonable if you don't explain to the user what is happening.</p>
+					</aside>
 				</section>
 				<section>
 					<iframe src="demos/progress-extra-info.html" frameborder="0" class="frame" id="demo-extra-info"></iframe>
@@ -690,7 +697,12 @@
 
 					<aside class="notes">
 						<p>an example of what this might look like if we were loading a custom game for a user</p>
+						<p>I made a test on mechanical turk, where I asked people to chose a handful of options and play a game that was generated for them, and review that game. I then showed them a progress bar while the game was "loading" and gave them a link that said "click here if game loads slowly".  On average, mech turk users that got the explained progress bar waited an additional 2 full seconds before clicking the panic button.</p>
 					</aside>
+				</section>
+				<section>
+					<h2 class="sub-title title--gradient">Fake progress bars done right</h2>
+					<aside class="notes"></aside>
 				</section>
 				<section>
 					<h2>Most progress bars are fake</h2>
@@ -728,33 +740,33 @@
 				<section>
 					<pre>
 						<code class="hljs hljs javascript hljs">
-							const API_EXPECTED_TIME = 1000;
-							const SOME_OTHER_EXPECTED_TIME = 2000;
+const API_EXPECTED_TIME = 1000;
+const SOME_OTHER_EXPECTED_TIME = 2000;
 
-							function setPerformanceScalar(expected, observed) {
-								const performanceScalar = expected * observed;
-								// ...
-								// tuck this away in app state, local storage, a global variable, etc
-							}
+function setPerformanceScalar(expected, observed) {
+	const performanceScalar = expected * observed;
+	// ...
+	// tuck this away in app state, local storage, a global variable, etc
+}
 
-							function getPerformanceScalar() {
-								// retreive your saved performance data
-							}
+function getPerformanceScalar() {
+	// retreive your saved performance data
+}
 
-							function init() {
-								let t1 = performance.now();
-								return fetch(`${VERY_SERIOUS_API_URL}`)
-									.then(response => {
-										// Do stuff
-										let apiRoundtrip = t1 - t0;
-										savePerformanceScalar(API_EXPECTED_TIME, t1 - t0);
-										return apiRoundtrip;
-									});
-							}
+function init() {
+	let t1 = performance.now();
+	return fetch(`${VERY_SERIOUS_API_URL}`)
+		.then(response => {
+			// Do stuff
+			let apiRoundtrip = t1 - t0;
+			savePerformanceScalar(API_EXPECTED_TIME, t1 - t0);
+			return apiRoundtrip;
+		});
+}
 
-							//...
+//...
 
-							<div class="progress" duration={SOME_OTHER_EXPECTED_TIME * getPerformanceScalar()}></div>
+<div class="progress" duration={SOME_OTHER_EXPECTED_TIME*getPerformanceScalar()}></div>
 						</code>
 					</pre>
 
@@ -846,23 +858,17 @@
 					</aside>
 				</section>
 				<section>
-					Mass effect elevator loading
-					<aside class="notes">
-						<p>Games frequently give players tips to read during long loading screens. Tips require high levels of mental activity to read them, digest them, and integrate them into the player's existing play style. Thus holding attention.</p>
-					</aside>
-				</section>
-				<section>
 					<img src="img/slack-loading.gif" alt="">
 					<aside class="notes">
 						<p>Slack transitions from a visually arresting loader with an explanation, to another loader with an extraneous quotation to read, and then to a skeleton UI, and then to the full UI.  Holding user attention through this process.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<img src="img/uber-waiting-game.png" alt="" style="height: 45vh;">
 					<aside class="notes">
 						<p>Uber's old screen when it was matching you with a driver was interactive.  You could draw little light doodles in this creative play space.  If you know the wait is going to be *very* long, give users something interactive to play with, because nothing holds attention like play.</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2>If this feels like cheating,<br>that's because it is.</h2>
 					<h4 class="fragment">You dirty cheaters, you.</h4>
@@ -905,7 +911,7 @@
 						<p>There are a lot of "critical path" or "critical css" build libraries that will inline the styles of elements above a defined "fold" to load those elements fully styled with one request.  This doesn't account for any JS that might be needed to use this, nor do you necessarily want everything above some fold. Find out what *your* users need, and build your own custom minimum viable layout to suit them.</p>
 					</aside>
 				</section> -->
-				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">Predictive<br>Design</h1>
 				</section>
 				<section>
@@ -977,7 +983,8 @@
 					</aside>
 				</section>
 				<section>
-					MAKE A DEMO of lazyloading images on scroll
+					<iframe src="demos/lazyload.html" frameborder="0" class="frame" id="lazyload"></iframe>
+					<button class="lil-button js-reset" data-reset="lazyload">RESET</button>
 					<aside class="notes">
 						<p>Who's lazyloaded images on scroll with a buffer so you're loading them before the user gets there?</p>
 						<p>You're using the users current behavior (scrolling), to predict what their next action will be (consuming the next bit of content), and you're loading the resources they need before they get there.</p>
@@ -1072,7 +1079,7 @@
 						<p>Use usage data to find where using predictive design would have the most impact; use predictive design in areas of high certainty.</p>
 					</aside>
 				</section>
-				<section data-background-image="img/pink-orange-gradient.svg" data-state="footer-fade">
+				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">TLDR;</h1>
 				</section>
 				<section>
@@ -1081,7 +1088,6 @@
 						
 					</aside>
 				</section>
-				<section>
 				<section>
 					<h2>At the end of the day, what matters is how it <span class="fragment anim-stroke">feels.</span></h2>
 					<aside class="notes">
@@ -1136,7 +1142,7 @@
 						If you work for a company that has a lot of data on how your users interact w/ your app, you could very feasibly make accurate predictions about what their next action/page/whatever will be without relying on something so crude as cursor position.
 					</aside>
 				</section> -->
-				<section data-background-image="img/pink-orange-gradient.svg">
+				<section data-background-image="XXXimg/pink-orange-gradient.svg">
 					<h1 class="thank-you">Thanks <img class="rad-pointer" src="img/rad-pointer.png" alt=""> y'all!</h1>
 					<h4><a class="end-link" href="http://assets.eli.wtf/talks/perceived-perf-talk">http://assets.eli.wtf/talks/perceived-perf-talk</a></h4>
 					<h4><a class="end-link" href="http://eli.wtf/fun">http://eli.wtf/fun</a></h4>
@@ -1174,6 +1180,7 @@
 
 			$('.js-reset').on('click', function() {
 				var target = $(this).attr('data-reset');
+				console.log(target)
 				document.getElementById(target).contentWindow.location.reload();
 			})
 		</script>

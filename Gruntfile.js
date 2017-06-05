@@ -118,7 +118,12 @@ module.exports = function(grunt) {
 				tasks: 'js'
 			},
 			theme: {
-				files: [ 'css/theme/source/*.scss', 'css/theme/source/eli-pres/*.scss', 'css/theme/template/*.scss',  ],
+				files: [ 
+					'css/theme/source/*.scss', 
+					'css/theme/source/eli-pres/*.scss', 
+					'css/theme/source/eli-pres-light/*.scss',
+					'css/theme/template/*.scss',
+				],
 				tasks: 'css-themes'
 			},
 			css: {
