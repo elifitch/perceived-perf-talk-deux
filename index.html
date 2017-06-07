@@ -363,6 +363,47 @@
 					</aside>
 				</section>
 				<section>
+					<h2 class="sub-title title--gradient">#Resist loading<br>indicators</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2>
+						<span class="fragment">Woah. </span>
+						<span class="fragment">Woah. </span>
+						<span class="fragment">Woah. </span>
+					</h2>
+					<h2 class="fragment">Slow down here.</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<img src="img/room-guardian-1.jpg" alt=""/>
+					<h2>Don't use loaders?</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<img src="img/room-guardian-2.jpg" alt=""/>
+					<h2>But perceived perf?</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<h2>It takes users at least <span class="fragment anim-stroke">~500ms</span><br>to know they're waiting.</h2>
+					<aside class="notes">
+						This is why optimistic updates are important. Sure we could show a loader while making the request, and then update our like button, but isn't it better to just show the success ui?
+					</aside>
+				</section>
+				<section>
+					<h2>Adding a loader prematurely<br>puts them in a passive state.</h2>
+					<aside class="notes">
+						<p>This is the opposite of what we want.</p>
+						<p>Remember we want them in an active mental state as long as possible</p>
+					</aside>
+				</section>
+				<section>
+					<h2>As you approach ~1s,<br>start to use loaders.</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
 					<h2 class="sub-title title--gradient">Immediate<br>Response</h2>
 					<h2 class="sub-title title--gradient">I'm not sure I like this section. maybe cut?</h2>
 					<aside class="notes"></aside>
@@ -433,47 +474,6 @@
 					<button class="lil-button js-reset" data-reset="demo-optimistic-optimistic">RESET</button>
 					<aside class="notes">
 						
-					</aside>
-				</section>
-				<section>
-					<h2 class="sub-title title--gradient">#Resist loading<br>indicators</h2>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<h2>
-						<span class="fragment">Woah. </span>
-						<span class="fragment">Woah. </span>
-						<span class="fragment">Woah. </span>
-					</h2>
-					<h2 class="fragment">Slow down here.</h2>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<img src="img/room-guardian-1.jpg" alt=""/>
-					<h2>Don't use loaders?</h2>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<img src="img/room-guardian-2.jpg" alt=""/>
-					<h2>But perceived perf?</h2>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<h2>It takes users at least <span class="fragment anim-stroke">~500ms</span><br>to know they're waiting.</h2>
-					<aside class="notes">
-						This is why optimistic updates are important. Sure we could show a loader while making the request, and then update our like button, but isn't it better to just show the success ui?
-					</aside>
-				</section>
-				<section>
-					<h2>Adding a loader prematurely<br>puts them in a passive state.</h2>
-					<aside class="notes">
-						<p>This is the opposite of what we want.</p>
-						<p>Remember we want them in an active mental state as long as possible</p>
-					</aside>
-				</section>
-				<section>
-					<h2>As you approach ~1s,<br>start to use loaders.</h2>
-					<aside class="notes">
 					</aside>
 				</section>
 				<section>
@@ -549,16 +549,23 @@
 					<aside class="notes"></aside>
 				</section>
 				<section>
+					<iframe src="/demos/button-hover.html" frameborder="0" class="frame"></iframe>
+					<aside class="notes"></aside>
+				</section>
+				<section>
 					<div class="list">
 						<h2 class="list__heading">The hoverstate falloff</h2>
 						<ul>
-							<li class="fragment">1: 80-100%</li>
-							<li class="fragment">2-5: 40% - 80%</li>
-							<li class="fragment">5+: 0% - 40%</li>
+							<li class="fragment">1: 60-100%</li>
+							<li class="fragment">2-5: 30% - 60%</li>
+							<li class="fragment">5+: 0% - 30%</li>
 						</ul>
 					</div>
 					<aside class="notes">
-						Conducted some research on mechanical turk, where I told people to navigate through a checkout flow.  
+						<p>Conducted some research on mechanical turk, where I told people to navigate through a checkout flow.</p>
+						<p>Users had to click through many stages of a form.</p>
+						<p>I found, that even when they were motivated to get through the process as fast as possible, as mechanical turk users are, users tended to watch hover effects before clicking.</p>
+						<p>I didn't test hover effects other than a 200ms duration, diagonal slash button, and a liquid fill button, so there's definitely more research to be done here, but the early returns are promising.</p>
 					</aside>
 				</section>
 				<section>
