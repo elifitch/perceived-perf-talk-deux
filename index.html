@@ -325,27 +325,6 @@
 				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">Keep users active</h1>
 				</section>
-				<!-- <section>
-					<div class="list">
-						<h2 class="list__heading">
-							What we can do
-						</h2>
-						<ul>
-							<li class="fragment">Respond to users immediately, even if nothing is happening</li>
-							<li class="fragment">Use loaders to give users a sense of certainty</li>
-							<li class="fragment">Occupy users' attention</li>
-							<li class="fragment">Maybe a section about how to compress background work into manageable chunks????</li>
-						</ul>
-					</div>
-					<aside class="notes">
-						<p>These are my 4 favorite ways to manage user waiting time</p>
-						<ul>
-							<li>Respond immediately.</li>
-							<li>Let users know where they are in the waiting process; how much time is elapsed and how much is left to go.</li>
-							<li>Especially with long waits, keeping user attention focused on other things.</li>
-						</ul>
-					</aside>
-				</section> -->
 				<section>
 					<div class="list">
 						<h2 class="list__heading">
@@ -355,7 +334,7 @@
 							<li class="fragment">Don't show a loader prematurely.</li>
 							<li class="fragment">Respond to users immediately, even if nothing is happening.</li>
 							<li class="fragment">Keep users in flow with more responsive event listeners.</li>
-							<li class="fragment">Use interstitial animations.</li>
+							<!-- <li class="fragment">Use interstitial animations.</li> -->
 						</ul>
 					</div>
 					<aside class="notes">
@@ -540,6 +519,31 @@
 					</aside>
 				</section>
 				<section>
+					<h2>People watch hovers.</h2>
+					<h2>Should this be after predictive design???</h2>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<iframe src="/demos/button-hover.html" frameborder="0" class="frame"></iframe>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<div class="list">
+						<h2 class="list__heading">The hoverstate falloff</h2>
+						<ul>
+							<li class="fragment">1: 60-100%</li>
+							<li class="fragment">2-5: 30% - 60%</li>
+							<li class="fragment">5+: 0% - 30%</li>
+						</ul>
+					</div>
+					<aside class="notes">
+						<p>Conducted some research on mechanical turk, where I told people to navigate through a checkout flow.</p>
+						<p>Users had to click through many stages of a form.</p>
+						<p>I found, that even when they were motivated to get through the process as fast as possible, as mechanical turk users are, users tended to watch hover effects before clicking.</p>
+						<p>I didn't test hover effects other than a 200ms duration, diagonal slash button, and a liquid fill button, so there's definitely more research to be done here, but the early returns are promising.</p>
+					</aside>
+				</section>
+				<!-- <section>
 					<h2 class="sub-title title--gradient">Interstitial<br>Animations</h2>
 					<aside class="notes"></aside>
 				</section>
@@ -569,17 +573,16 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Elaborate-ness counts.</h2>
-					<aside class="notes"></aside>
-				</section>
-				<section>
 					<h2>Animating from one layout to another can reduce preceived loading time to zero.</h2>
 					<aside class="notes"></aside>
 				</section>
 				<section>
-					<h2>EXAMPLES!!!</h2>
-					<aside class="notes"></aside>
-				</section>
+					<video src="/img/page-transition-demos.mp4" controls />
+					<aside class="notes">
+						<p>This is incredibly easy to fuck up, which is one of the main reasons this technique isn't popular.</p>
+						<p>However, if you can do it elegantly, as I believe these examples do, it can be an incredibly powerful tool for perceived perf</p>
+					</aside>
+				</section> -->
 				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">Un-suck passive waits</h1>
 				</section>
@@ -708,7 +711,7 @@
 					</aside>
 				</section>
 				<section>
-					<h2 class="sub-title title--gradient">Fake progress bars done right</h2>
+					<h2 class="sub-title title--gradient">Fake it til you make it</h2>
 					<aside class="notes"></aside>
 				</section>
 				<section>
@@ -746,7 +749,7 @@
 				</section>
 				<section>
 					<pre>
-						<code class="hljs hljs javascript hljs">
+						<code class="hljs javascript">
 const API_EXPECTED_TIME = 1000;
 const SOME_OTHER_EXPECTED_TIME = 2000;
 
@@ -859,7 +862,7 @@ function init() {
 					</aside>
 				</section>
 				<section>
-					Fifa loading screen!!
+					<video src="/img/fifa-demo-basic.mp4" controls loop />
 					<aside class="notes">
 						<p>Note as well that the player you control, and the goalkeeper are assets you'll have to load for the upcoming game anyways, so there's little cost to loading them and making them interactive while the rest of the content loads. The enviornment loads when the game itself boots, so that's almost free as well.</p>
 					</aside>
@@ -962,7 +965,7 @@ function init() {
 					</aside>
 				</section>
 				<section>
-					<h2>Users aren't snowflakes.</h2>
+					<h2>Users aren't [[snowflakes]].</h2>
 					<img class="fragment" src="img/snowflake.gif" alt="">
 					<h2 class="fragment">Behavior follows patterns.</h2>
 					<aside class="notes">
@@ -970,7 +973,7 @@ function init() {
 					</aside>
 				</section>
 				<section>
-					<h2>If we can predict what users will do, why not preload their next action before they take it?</h2>
+					<h2>Predict and preload.</h2>
 				</section>
 				<!-- <section>
 					<img src="img/math.gif" alt="">
@@ -982,7 +985,7 @@ function init() {
 					</aside>
 				</section>
 				<section>
-					<h2>You've probably done it without realizing</h2>
+					<h2>You've probably done it<br>without realizing.</h2>
 					<aside class="notes">
 						<p>Who's lazyloaded images on scroll with a buffer so you're loading them before the user gets there?</p>
 						<p>You're using the users current behavior (scrolling), to predict what their next action will be (consuming the next bit of content), and you're loading the resources they need before they get there.</p>
@@ -1049,7 +1052,7 @@ function init() {
 					</aside>
 				</section>
 				<section>
-					MAKE A DEMO of lazyloading on scroll with a dynamic buffer size based on scroll speed, asset size, and connection speed.
+					<iframe src="/demos/lazyload-variable.html" frameborder="0" class="frame"></iframe>
 					<aside class="notes">
 						
 					</aside>
