@@ -1,55 +1,41 @@
 <head>
-	<link rel="stylesheet prefetch" href="lib/css/foundation.min.css">
+	<link rel="stylesheet prefetch" href="lib/css/foundation-grid-only.min.css">
+	<link rel="stylesheet prefetch" href="../css/theme/eli-pres-light.css">
 	<script src="lib/js/jquery.min.js"></script>
 
 	<style>
-		html {
-			font-size: 1.4em;
-		}
-		.container {
-			padding-top: 2em;
-		}
-		.bold {
-			font-weight: bold;
-			color: red;
-		}
-		.button {
-			transition: all 0.4s;
-		}
-		.button:active {
-			transform: translateY(0.5em);
+		body {
+			background-color: transparent;
 		}
 	</style>
 </head>
-
-<div class="container">
-	<div class="row align-middle align-center">
-	<div class="column small-12">
-		<button class="button button--onclick">Tap me!</button>
+<body class="demo">
+	<div class="container u-flex u-align-middle u-align-center">
+		<button class="button button--onclick u-mb-1r">Tap me!</button>
+		<h3 class="readout">&nbsp;</h3>
 	</div>
-	<div class="column small-12">
-		<h3 class="readout"></h3>
-	</div>
-	</div>
-</div>
+</body>
 
 <script>
 $('.button--onclick').on('mousedown', start);
 
 function start(e) {
+	console.log('start')
 	$('.readout').html('Loading in background');
 
 	$('.button--onclick').on('mouseup', function() {
+		console.log('mouseup')
 		$('.button--onclick').off('mousemove');
 		$('.readout').html('take action with loaded resources');
 	});
 	
 	$('.button--onclick').on('mousemove', function(moveEvent) {
+		console.log(moveEvent)
 		if (
-			e.clientX - moveEvent.clientX > 25 || 
-			e.clientX - moveEvent.clientX < -25 || 
-			e.clientY - moveEvent.clientY > 25 || 
-			e.clientY - moveEvent.clientY < -25
+			e.clientX - moveEvent.clientX > 50 || 
+			e.clientX - moveEvent.clientX < -50 || 
+			e.clientY - moveEvent.clientY > 50 || 
+			e.clientY - moveEvent.clientY < -50
 		) {
 			cancel();
 		} else {
