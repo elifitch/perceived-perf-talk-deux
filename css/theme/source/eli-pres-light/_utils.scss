@@ -21,3 +21,14 @@
 	background-image: linear-gradient(to bottom, $color-pink 0%, $color-pink 100%);
 	text-shadow: 0px 0.025em 0.1em rgba(0,0,0,0.15);
 }
+
+.u-flex {
+	display: flex;
+	flex-direction: column;
+}
+.u-align-center {
+	align-items: center;
+}
+.u-align-middle {
+	justify-content: center;
+}

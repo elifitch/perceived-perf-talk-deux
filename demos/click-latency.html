@@ -1,37 +1,20 @@
 <head>
-	<link rel="stylesheet prefetch" href="lib/css/foundation.min.css">
+	<link rel="stylesheet prefetch" href="../css/theme/eli-pres-light.css">
 	<script src="lib/js/jquery.min.js"></script>
 
 	<style>
-		html {
-		  font-size: 1.4em;
-		}
-		.container {
-		  padding-top: 2em;
-		}
-		.bold {
-		  font-weight: bold;
-		  color: red;
-		}
-		.button {
-			transition: transform 0.1s;
-		}
-		.button:active {
-			transform: translateY(0.2em);
+		body {
+			background-color: transparent;
 		}
 	</style>
 </head>
 
-<div class="container">
-  <div class="row align-middle align-center">
-    <div class="column small-12">
-      <button class="button button--onclick">Immediate response</button>
-    </div>
-    <div class="column small-12">
-      <h3 class="readout"></h3>
-    </div>
-  </div>
-</div>
+<body class="demo">
+	<div class="container u-flex u-align-middle u-align-center">
+		<button class="button button--onclick">Immediate response</button>
+		<h3 class="readout font-pinopolis">&nbsp;</h3>
+	</div>
+</body>
 
 <script>
 // $('.button--onclick').on('mousedown', showMessage);

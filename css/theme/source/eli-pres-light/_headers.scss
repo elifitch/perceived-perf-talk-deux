@@ -38,8 +38,12 @@
 	position: relative;
 	font-size: 3em;
 	// color: $color-electric-blue;
-	color: $color-purple;
-	@include ThreeDText($color-electric-green, 10, 0.5);
+	// color: $color-purple;
+	// @include ThreeDText($color-electric-green, 10, 0.5);
+
+	color: $color-pink;
+	@include ThreeDText($color-purple, 10, 0.5);
+
 	// @include CrossBox($color-electric-blue, $color-electric-green);
 	// @include CrossBox($color-purple, $color-electric-green);
 }

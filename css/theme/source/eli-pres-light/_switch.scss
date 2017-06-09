@@ -1,0 +1,51 @@
+.switch {
+	height: 2rem;
+	position: relative;
+	margin-bottom: 1rem;
+	outline: 0;
+	font-size: 0.875rem;
+	font-weight: bold;
+	color: #fefefe;
+	user-select: none;
+}
+.switch-input {
+	position: absolute;
+	margin-bottom: 0;
+	opacity: 0;
+}
+.switch-paddle {
+	position: relative;
+	display: block;
+	width: 4rem;
+	height: 2rem;
+	border-radius: 0;
+	background: #cacaca;
+	transition: all 0.25s ease-out;
+	font-weight: inherit;
+	color: inherit;
+	cursor: pointer;
+	border-radius: 1.5em;
+	&:after {
+		position: absolute;
+		top: 0.25rem;
+		left: 0.25rem;
+		display: block;
+		width: 1.5rem;
+		height: 1.5rem;
+		transform: translate3d(0, 0, 0);
+		border-radius: 0;
+		background: #fefefe;
+		transition: all 0.25s ease-out;
+		content: '';
+		border-radius: 100%;
+	}
+}
+input:checked ~ .switch-paddle {
+	background: $color-isl-blue;
+	&:after {
+		left: 2.25rem;
+	}
+}
+input + .switch-paddle {
+    margin: 0;
+}
