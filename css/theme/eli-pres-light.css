@@ -425,6 +425,8 @@ html.footer-fade .footer {
 .demo {
   font-size: 30px;
   font-family: "brandon grotesque", Impact, sans-serif; }
+  .demo h1, .demo h2, .demo h3, .demo h4, .demo h5, .demo h6 {
+    margin: 0; }
   .demo .font-pinopolis {
     font-family: "pinopolis", sans-serif;
     font-weight: 400; }
@@ -459,6 +461,59 @@ html.footer-fade .footer {
   .demo .button:hover {
     background-color: #43d8f8;
     color: #fafafa; }
+  .demo .debug {
+    border: 1px solid black;
+    padding: 1em;
+    box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 3px; }
+  .demo .debug__title {
+    line-height: 1.2em;
+    margin-bottom: 0.5em; }
+  .demo .debug__progress {
+    transition: 0.1s width;
+    width: 0;
+    height: 100%;
+    background-color: #43d8f8; }
+  .demo .debug__bar {
+    height: 0.75em;
+    position: relative; }
+    .demo .debug__bar:after {
+      content: '';
+      background: #ccc;
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      z-index: -1; }
+  .demo .debug__readout {
+    font-family: 'pinopolis'; }
+  .demo .media {
+    padding: 1rem;
+    border: 1px solid black;
+    background-color: #fafafa;
+    box-shadow: 0px 0px 10px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 3px; }
+  .demo .media__img {
+    margin-bottom: 1rem; }
+  .demo .media__controls {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.75em;
+    font-family: 'pinopolis'; }
+  .demo .media__like {
+    display: inline-block;
+    margin-right: 0em; }
+  .demo .heart {
+    height: 2em;
+    overflow: visible; }
+  .demo .heart__fill {
+    transform-origin: center;
+    fill: red; }
+  .demo .heart__border {
+    transform: scale(0.75);
+    transform-origin: center; }
 
 .switch-container {
   display: flex;
