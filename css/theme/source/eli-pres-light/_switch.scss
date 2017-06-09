@@ -1,12 +1,22 @@
+// <div class="switch">
+// 	<input class="switch-input" id="exampleRadioSwitch1" type="radio" checked name="testGroup">
+// 	<label class="switch-paddle" for="exampleRadioSwitch1"></label>
+// </div>
+.switch-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
 .switch {
 	height: 2rem;
 	position: relative;
-	margin-bottom: 1rem;
 	outline: 0;
 	font-size: 0.875rem;
 	font-weight: bold;
 	color: #fefefe;
 	user-select: none;
+	display: inline-block;
 }
 .switch-input {
 	position: absolute;
@@ -48,4 +58,10 @@ input:checked ~ .switch-paddle {
 }
 input + .switch-paddle {
     margin: 0;
+}
+
+.switch-label {
+	font-size: 0.75em;
+	margin-left: 0.5em;
+	font-family: 'pinopolis';
 }

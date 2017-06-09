@@ -460,15 +460,21 @@ html.footer-fade .footer {
     background-color: #43d8f8;
     color: #fafafa; }
 
+.switch-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center; }
+
 .switch {
   height: 2rem;
   position: relative;
-  margin-bottom: 1rem;
   outline: 0;
   font-size: 0.875rem;
   font-weight: bold;
   color: #fefefe;
-  user-select: none; }
+  user-select: none;
+  display: inline-block; }
 
 .switch-input {
   position: absolute;
@@ -509,6 +515,11 @@ input:checked ~ .switch-paddle {
 input + .switch-paddle {
   margin: 0; }
 
+.switch-label {
+  font-size: 0.75em;
+  margin-left: 0.5em;
+  font-family: 'pinopolis'; }
+
 /*********************************************
  * UTILS
  *********************************************/
@@ -520,6 +531,9 @@ input + .switch-paddle {
 
 .u-pt-04 {
   padding-top: 0.4em !important; }
+
+.u-mb-1r {
+  margin-bottom: 1rem; }
 
 .u-underline {
   position: relative;
