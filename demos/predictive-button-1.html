@@ -1,25 +1,27 @@
 <head>
-	<link rel="stylesheet prefetch" href="lib/css/foundation.min.css">
+	<link rel="stylesheet prefetch" href="lib/css/foundation-grid-only.min.css">
+	<link rel="stylesheet prefetch" href="../css/theme/eli-pres-light.css">
+	<script src="lib/js/tweenmax.min.js"></script>
 	<script src="lib/js/jquery.min.js"></script>
 	<script src="lib/js/three.min.js"></script>
 	<script src="lib/js/obj-loader.js"></script>
 
 	<style>
 	* {
-	  box-sizing: border-box;
+		box-sizing: border-box;
 	}
 	.container {
-	  padding-top: 2em;
+		padding-top: 2em;
 	}
 	.canvas-container {
-	  position: relative;
-	  width: 100%;
-	  height: 0;
-	  padding-bottom: 50%;
-	  margin-bottom: 2em;
-	  background-color: #fff;
-	  border: 6px solid turquoise;
-	  border-radius: 6px;
+		position: relative;
+		width: 100%;
+		height: 0;
+		padding-bottom: 50%;
+		margin-bottom: 2em;
+		background-color: #fff;
+		border: 6px solid #43d8f8;
+		border-radius: 6px;
 	}
 	.canvas-container canvas {
 		position: absolute;
@@ -28,66 +30,45 @@
 		transform: translate(-50%, -50%);
 	}
 	.spinner {
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  transform: translate(-50%, -50%);
-	  width: 10em;
-	  z-index: 1;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 10em;
+		z-index: 1;
 	}
-	.button {
-	  font-size: 2em;
-	  font-weight: bold;
-	  background-color: #21ccbb;
-	  transition: all 0.2s;
-	}
-	.button:hover {
-		background-color: #1aa093;
-	}
-	.button:active {
-		background-color: #13746a;
-		transform: translateY(5%);
-	}
-	.button:focus {
-		background-color: #13746a;
-	}
-
-	.debug {
-		border: 1px solid black;
-		padding: 1em;
-	}
-	.debug__bar {
-		transition: 0.1s width;
-		width: 0;
-		height: 1em;
-		background-color: teal;
+	.debug__progress {
+		transition: width 0.1s;
 	}
 	</style>
 </head>
+<body class="demo">
+	<div class="container">
+		<div class="row align-center">
 
-<div class="container">
-  <div class="row align-middle align-center">
+			<div class="column small-6">
+				<div class="canvas-container">
+					<img src="../img/spinner.gif" alt="" class="spinner hide" />
+				</div>
+				<div class="text-center">
+					<button class="button js-load-model">Load Wonky 3d Fella</button>
+				</div>
+			</div>
 
-    <div class="column small-6">
-      <div class="canvas-container">
-        <img src="../img/spinner.gif" alt="" class="spinner hide" />
-      </div>
-      <div class="text-center">
-        <button class="button js-load-model">Load Wonky 3d Fella</button>
-      </div>
-    </div>
+			<div class="column small-6 full-height">
+				<div class="debug">
+					<h3 class="debug__title">Behind the scenes loading progress</h3>
+					
+					<div class="debug__bar">
+						<div class="debug__progress js-debug-progress"></div>
+					</div>
+					<h6 class="js-debug-details debug__readout">0% complete</h6>
+				</div>
+			</div>
 
-    <div class="column small-6 full-height">
-      <div class="debug">
-        <h3 class="debug__details">3D Fella Loading Progress</h3>
-        
-        <div class="js-debug-bar debug__bar"></div>
-        <h6 class="js-debug-details debug__details">&nbsp;</h6>
-      </div>
-    </div>
-
-  </div>  
-</div>
+		</div>
+	</div>
+</body>
 
 <script>
 var minLoadTime = 3000;
@@ -106,106 +87,104 @@ var containerW;
 var containerH;
 var percX;
 var percY;
-var $bar = $('.js-debug-bar');
+var $bar = $('.js-debug-progress');
 var $output = $('.js-debug-details');
 var counter = 0;
 
 function init() {
 
-  if (container && !initialized) {
-    containerW = container.offsetWidth - 12
-    containerH = container.offsetHeight - 12
-    halfX = containerW/2
-    halfY = containerH/2
+	if (container && !initialized) {
+		containerW = container.offsetWidth - 12
+		containerH = container.offsetHeight - 12
+		halfX = containerW/2
+		halfY = containerH/2
 
-    renderer = new THREE.WebGLRenderer({antialias: true, alpha: false})
-    renderer.setPixelRatio( window.devicePixelRatio )
-    renderer.setSize( containerW, containerH )
-    renderer.setClearColor(0xFFFFFF)
+		renderer = new THREE.WebGLRenderer({antialias: true, alpha: false})
+		renderer.setPixelRatio( window.devicePixelRatio )
+		renderer.setSize( containerW, containerH )
+		renderer.setClearColor(0xFFFFFF)
 
-    container.appendChild(renderer.domElement)
+		container.appendChild(renderer.domElement)
 
-    scene = new THREE.Scene()
+		scene = new THREE.Scene()
 
-    camera = new THREE.PerspectiveCamera(45, containerW / containerH, 0.1, 1000)
+		camera = new THREE.PerspectiveCamera(45, containerW / containerH, 0.1, 1000)
 
-    scene.add(camera)
-    camera.position.set(-20, 15, 80)
-    camera.lookAt(scene.position)
+		scene.add(camera)
+		camera.position.set(-20, 15, 80)
+		camera.lookAt(scene.position)
 
-    window.addEventListener( 'resize', onWindowResize, false )
-    animate()
+		window.addEventListener( 'resize', onWindowResize, false )
+		animate()
 
-  } else if (container && initialized) {
-    container.appendChild(renderer.domElement)
-  }
+	} else if (container && initialized) {
+		container.appendChild(renderer.domElement)
+	}
 }
 
 function loadSkull() {
-  $('.spinner').removeClass('hide');
-  var loader = new THREE.OBJLoader()
-  loader.load('../img/chill-skull-1.obj', function(model) {
-    setTimeout(function() {
-      skullContainer = new THREE.Object3D()
-      scene.add(skullContainer)
-      skull = model
-      skull.position.set(0,4,10)
-      skull.children[0].material = new THREE.MeshNormalMaterial()
-      skull.children[1].material = new THREE.MeshNormalMaterial()
-      skull.children[2].material = new THREE.MeshNormalMaterial()
-      skullContainer.add(skull)
-      $('.spinner').addClass('hide');
-    }, minLoadTime);
+	$('.spinner').removeClass('hide');
+	var loader = new THREE.OBJLoader()
+	loader.load('../img/chill-skull-1.obj', function(model) {
+		setTimeout(function() {
+			skullContainer = new THREE.Object3D()
+			scene.add(skullContainer)
+			skull = model
+			skull.position.set(0,4,10)
+			skull.children[0].material = new THREE.MeshNormalMaterial()
+			skull.children[1].material = new THREE.MeshNormalMaterial()
+			skull.children[2].material = new THREE.MeshNormalMaterial()
+			skullContainer.add(skull)
+			$('.spinner').addClass('hide');
+		}, minLoadTime);
 
-    backgroundProgress(minLoadTime);
-    
-  })
+		backgroundProgress(minLoadTime);
+		
+	})
 }
 
 function onWindowResize() {
-  containerW = container.offsetWidth - 12
-  containerH = container.offsetHeight - 12
-  halfX = containerW/2
-  halfY = containerH/2
-  renderer.setSize( containerW, containerH )
-  camera.aspect = containerW / containerH
-  camera.updateProjectionMatrix()
+	containerW = container.offsetWidth - 12
+	containerH = container.offsetHeight - 12
+	halfX = containerW/2
+	halfY = containerH/2
+	renderer.setSize( containerW, containerH )
+	camera.aspect = containerW / containerH
+	camera.updateProjectionMatrix()
 }
 
 function onMouseMove(e) {
-  var mouseX = ( e.pageX - halfX );
-  var mouseY = ( e.pageY - halfY );
+	var mouseX = ( e.pageX - halfX );
+	var mouseY = ( e.pageY - halfY );
 
-  percX = (mouseX / containerW) * 2
-  percY = (mouseY / containerH) * 2
+	percX = (mouseX / containerW) * 2
+	percY = (mouseY / containerH) * 2
 }
 
 function animate() {
 
-  requestAnimationFrame(animate)
+	requestAnimationFrame(animate)
 
-  if(skull && percX && percY) {
-    skullContainer.rotation.y = THREE.Math.clamp(deg2Rad(40) * percX, deg2Rad(-40), deg2Rad(40)) //60deg
-    skullContainer.rotation.x = THREE.Math.clamp(0.5 * percY, deg2Rad(-20), deg2Rad(20)) //60deg
-  }
+	if(skull && percX && percY) {
+		skullContainer.rotation.y = THREE.Math.clamp(deg2Rad(40) * percX, deg2Rad(-40), deg2Rad(40)) //60deg
+		skullContainer.rotation.x = THREE.Math.clamp(0.5 * percY, deg2Rad(-20), deg2Rad(20)) //60deg
+	}
 
-  renderer.render(scene, camera)
+	renderer.render(scene, camera)
 }
 
 function deg2Rad(deg) {
-  return deg * Math.PI / 180;
+	return deg * Math.PI / 180;
 };
 
 function backgroundProgress(duration) {
-  setInterval(function() {
-    counter += 100;
-    var progress = (counter/duration) * 100;
-    if (counter <= duration) {
-      console.log(progress);
-      $bar.css('width', `${progress}%`);
-      $output.text(`${parseInt(progress)}% complete`);
-    }
-    },100); 
+
+	TweenMax.to($bar, duration/1000, {
+		width: '100%',
+		onUpdate: function() {
+			$output.text(`${Math.floor(this.progress() * 100)}% complete`)
+		}
+	})
 }
 
 button.addEventListener('mousedown', loadSkull);

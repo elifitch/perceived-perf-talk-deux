@@ -737,10 +737,9 @@ function init() {
 	let t1 = performance.now();
 	return fetch(`${VERY_SERIOUS_API_URL}`)
 		.then(response => {
+			const apiRoundtrip = t1 - t0;
+			savePerformanceScalar(API_EXPECTED_TIME, apiRoundtrip);
 			// Do stuff
-			let apiRoundtrip = t1 - t0;
-			savePerformanceScalar(API_EXPECTED_TIME, t1 - t0);
-			return apiRoundtrip;
 		});
 }
 
