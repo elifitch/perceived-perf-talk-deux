@@ -142,4 +142,15 @@
 		transform: scale(0.75);
 		transform-origin: center;
 	}
+
+	.text-input {
+		
+	}
+	.text-input__label {
+		font-size: 0.5em;
+		font-family: $mainFont;
+	}
+	.text-input__input {
+		width: 100%;
+	}
 }

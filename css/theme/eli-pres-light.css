@@ -515,6 +515,11 @@ html.footer-fade .footer {
   .demo .heart__border {
     transform: scale(0.75);
     transform-origin: center; }
+  .demo .text-input__label {
+    font-size: 0.5em;
+    font-family: "pinopolis", sans-serif; }
+  .demo .text-input__input {
+    width: 100%; }
 
 .switch-container {
   display: flex;
@@ -704,6 +709,9 @@ input + .switch-paddle {
 
 .u-align-middle {
   justify-content: center; }
+
+.u-block {
+  display: block; }
 
 .emoji {
   font-style: normal !important; }
