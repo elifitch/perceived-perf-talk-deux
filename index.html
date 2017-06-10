@@ -403,14 +403,7 @@
 					<iframe src="demos/animation-latency.html" frameborder="0" class="frame"></iframe>
 				</section>
 				<section>
-					<h2>The 60fps mantra<br>isn't just for fun.</h2>
-					<aside class="notes">
-						<p>Especially for interactive animations (scrolling!) like the one I just demoed</p>
-					</aside>
-				</section>
-				<section>
-					<h2>30fps scrolling?</h2>
-					<h2 class="fragment">Facebook's engagement "collapsed".</h2>
+					<h2>Jank >> Facebook's<br>engagement "collapsed".</h2>
 					<a class="citation" href="https://www.youtube.com/watch?v=3-WYu_p5rdU&t=2160s" target="_blank">Shane O'Sullivan</a>
 					<aside class="notes">
 						<p>Caveat, we don't know what "collapsed" means, but it sure sounds bad.</p>
@@ -465,6 +458,8 @@
 				<section>
 					<h2>React as soon as<br>the user signals intent.</h2>
 					<aside class="notes">
+						<p>It's funny, because the event listener we most frequently use to trigger actions doesn't fire when the user signals intent.</p>
+						<p>We use click events, which fire on mouse up, but the user shows you they want to click when they press their mouse down.</p>
 						<p>If it takes 1 sec for ppl to even consciously realize they're waiting, lets pack as much as possible into that 1 second.</p>
 					</aside>
 				</section>
@@ -516,31 +511,6 @@
 						<p>People subconsciously hold their mouse button down longer if there is an active animation</p>
 						<p>If you set the active animation duration to 150-200ms, people will keep their mouse button pressed for the full duration of the animation; so instead of holding their mouse button down for 100-150ms, they hold it down for 150-200ms. You end up coaxing them into giving us a longer head start from our mousedown event.</p>
 						<p>Taps are generally much faster than clicks, but are influenced much more dramatically by active animations.</p>
-					</aside>
-				</section>
-				<section>
-					<h2>People watch hovers.</h2>
-					<h2>Should this be after predictive design???</h2>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<iframe src="/demos/button-hover.html" frameborder="0" class="frame"></iframe>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<div class="list">
-						<h2 class="list__heading">The hoverstate falloff</h2>
-						<ul>
-							<li class="fragment">1: 60-100%</li>
-							<li class="fragment">2-5: 30% - 60%</li>
-							<li class="fragment">5+: 0% - 30%</li>
-						</ul>
-					</div>
-					<aside class="notes">
-						<p>Conducted some research on mechanical turk, where I told people to navigate through a checkout flow.</p>
-						<p>Users had to click through many stages of a form.</p>
-						<p>I found, that even when they were motivated to get through the process as fast as possible, as mechanical turk users are, users tended to watch hover effects before clicking.</p>
-						<p>I didn't test hover effects other than a 200ms duration, diagonal slash button, and a liquid fill button, so there's definitely more research to be done here, but the early returns are promising.</p>
 					</aside>
 				</section>
 				<!-- <section>
@@ -986,6 +956,7 @@ function init() {
 				</section>
 				<section>
 					<h2>You've probably done it<br>without realizing.</h2>
+					<h6>this is demo overload in this next section. break them up with something???</h6>
 					<aside class="notes">
 						<p>Who's lazyloaded images on scroll with a buffer so you're loading them before the user gets there?</p>
 						<p>You're using the users current behavior (scrolling), to predict what their next action will be (consuming the next bit of content), and you're loading the resources they need before they get there.</p>
@@ -999,6 +970,12 @@ function init() {
 						<p>Who's lazyloaded images on scroll with a buffer so you're loading them before the user gets there?</p>
 						<p>You're using the users current behavior (scrolling), to predict what their next action will be (consuming the next bit of content), and you're loading the resources they need before they get there.</p>
 						<p>We can take this like 10 steps further though.</p>
+					</aside>
+				</section>
+				<section>
+					<iframe src="/demos/lazyload-variable.html" frameborder="0" class="frame"></iframe>
+					<aside class="notes">
+						
 					</aside>
 				</section>
 				<!-- <section>
@@ -1052,9 +1029,28 @@ function init() {
 					</aside>
 				</section>
 				<section>
-					<iframe src="/demos/lazyload-variable.html" frameborder="0" class="frame"></iframe>
+					<h2>People watch hovers.</h2>
+					<h6>Should this be after predictive design, b/c we'd have to transition from hey, load stuff on mousedown, to now talking about hey, load stuff on hover???</h6>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<iframe src="/demos/button-hover.html" frameborder="0" class="frame"></iframe>
+					<aside class="notes"></aside>
+				</section>
+				<section>
+					<div class="list">
+						<h2 class="list__heading">The hoverstate falloff</h2>
+						<ul>
+							<li class="fragment">1: 60-100%</li>
+							<li class="fragment">2-5: 30% - 60%</li>
+							<li class="fragment">5+: 0% - 30%</li>
+						</ul>
+					</div>
 					<aside class="notes">
-						
+						<p>Conducted some research on mechanical turk, where I told people to navigate through a checkout flow.</p>
+						<p>Users had to click through many stages of a form.</p>
+						<p>I found, that even when they were motivated to get through the process as fast as possible, as mechanical turk users are, users tended to watch hover effects before clicking.</p>
+						<p>I didn't test hover effects other than a 200ms duration, diagonal slash button, and a liquid fill button, so there's definitely more research to be done here, but the early returns are promising.</p>
 					</aside>
 				</section>
 				<section>
@@ -1066,15 +1062,9 @@ function init() {
 					</aside>
 				</section>
 				<section>
-					<h2>This pairs exceptionally well with code splitting and HTTP/2</h2>
+					<h2>SP<span style="font-size: 2em; vertical-align: sub; display: inline-block;">/</span>LIT</h2>
 					<aside class="notes">
 						<p>The more we can chop up our code, the more benefit we can get from loading only the bits users need, and only when they signal their intent to use it.</p>
-					</aside>
-				</section>
-				<section>
-					<h2>This already exists! Its *everywhere* in games! The coolest shit about predictive design is that it's suposed to be invisible, and IS.</h2>
-					<aside class="notes">
-						
 					</aside>
 				</section>
 				<section>
@@ -1096,6 +1086,12 @@ function init() {
 					<h2>Need a much better conclusion.</h2>
 					<aside class="notes">
 						
+					</aside>
+				</section>
+				<section>
+					<h2>Tailor your experience to YOUR users.</h2>
+					<aside class="notes">
+						<p>Automatically adapt your loading scheme to your own users. Conduct research. Get to know them. It's about making it feel faster for them, so you'll have to adapt to each individual wherever you can.</p>
 					</aside>
 				</section>
 				<section>

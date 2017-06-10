@@ -659,6 +659,13 @@ input + .switch-paddle {
   background-position: 1rem, 2.5rem, 4rem;
   background-repeat: no-repeat; }
 
+.browser__threshold {
+  position: absolute;
+  width: calc(100% + 2em);
+  left: -1em;
+  bottom: -0.3em;
+  border-top: 0.3em dashed #43d8f8; }
+
 /*********************************************
  * UTILS
  *********************************************/
