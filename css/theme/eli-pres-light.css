@@ -339,7 +339,8 @@ body {
   text-shadow: 1px 1px 0px #9636f5, 2px 2px 0px #9433f5, 3px 3px 0px #9331f5, 4px 4px 0px #922ef5, 5px 5px 0px #912cf4, 6px 6px 0px #8f29f4, 7px 7px 0px #8e27f4, 8px 8px 0px #8d25f4, 9px 9px 0px #8c22f4; }
 
 .reveal .sub-title {
-  font-size: 2.7em; }
+  font-size: 2.7em;
+  padding-bottom: 0.1em; }
 
 .reveal .title--gradient {
   background: url("../../img/pink-orange-gradient.svg") repeat;
@@ -575,6 +576,89 @@ input + .switch-paddle {
   margin-left: 0.5em;
   font-family: 'pinopolis'; }
 
+.bar {
+  background: #efefef;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2em;
+  width: 100%; }
+
+.bar__prog {
+  height: 2em;
+  background-color: #43d8f8;
+  overflow: hidden; }
+
+.bar__stripes {
+  height: 100%;
+  width: calc(100% + 120px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+  background-image: linear-gradient(45deg, #efefef 25%, transparent 25%, transparent 50%, #efefef 50%, #efefef 75%, transparent 75%, transparent); }
+
+.bar__stripes--counterflow-speedup {
+  height: 2em;
+  width: 300%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0; }
+
+.anim-bar {
+  animation: bar 8s linear infinite; }
+
+.anim-bar--speedup {
+  animation: bar 8s ease-in infinite; }
+
+.anim-counter-flow {
+  animation: counter-flow 2s linear infinite; }
+
+.anim-counter-flow--speedup {
+  animation: counter-flow-speedup 8s ease-in infinite; }
+
+@keyframes bar {
+  0% {
+    width: 0%; }
+  100% {
+    width: 100%; } }
+
+@keyframes counter-flow {
+  0% {
+    transform: translateX(0); }
+  100% {
+    transform: translateX(-120px); } }
+
+@keyframes counter-flow-speedup {
+  0% {
+    transform: translateX(0); }
+  100% {
+    transform: translateX(-50%); } }
+
+.browser {
+  border-radius: 0.5rem;
+  border: 4px solid #ccc;
+  width: 80%;
+  height: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 45%;
+  position: fixed; }
+
+.browser:before {
+  content: '';
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ccc;
+  position: absolute;
+  height: 2rem;
+  background-image: radial-gradient(circle closest-side, #D16B5A calc(100% - 0.5px), transparent 100%), radial-gradient(circle closest-side, #E5BE39 calc(100% - 0.5px), transparent 100%), radial-gradient(circle closest-side, #81C445 calc(100% - 0.5px), transparent 100%);
+  background-size: 0.8rem 0.8rem;
+  background-position: 1rem, 2.5rem, 4rem;
+  background-repeat: no-repeat; }
+
 /*********************************************
  * UTILS
  *********************************************/
@@ -589,6 +673,9 @@ input + .switch-paddle {
 
 .u-mb-1r {
   margin-bottom: 1rem; }
+
+.u-mb-2r {
+  margin-bottom: 2rem; }
 
 .u-underline {
   position: relative;

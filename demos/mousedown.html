@@ -28,10 +28,6 @@ $('.button--onclick').on('mousedown', startTimer);
 
 $('.button--onclick').on('click', endTimer);
 
-// $('.button--onclick').on('click', function() {
-//   alert('boop');
-// });
-
 function startTimer() {
 	startTime = Date.now();
 }
@@ -39,8 +35,6 @@ function startTimer() {
 function endTimer() {
 	const nowish = Date.now();
 	const timey = nowish - startTime;
-	
-	// $('.readout').html(`click event fired <span class="bold">${timey}ms</span> after mousedown event`);
 	$('.readout').html(`Mousedown fired <span class="bold">${timey}ms</span> before click event`);
 }
 </script>
