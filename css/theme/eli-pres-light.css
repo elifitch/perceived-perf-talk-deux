@@ -544,7 +544,7 @@ html.footer-fade .footer {
   height: 2rem;
   border-radius: 0;
   background: #cacaca;
-  transition: all 0.25s ease-out;
+  transition: all 0.15s ease-in-out;
   font-weight: inherit;
   color: inherit;
   cursor: pointer;
@@ -559,7 +559,7 @@ html.footer-fade .footer {
     transform: translate3d(0, 0, 0);
     border-radius: 0;
     background: #fefefe;
-    transition: all 0.25s ease-out;
+    transition: all 0.15s ease-in-out;
     content: '';
     border-radius: 100%; }
 
@@ -935,6 +935,3 @@ img.transparent {
   box-shadow: none; }
   .reveal pre code {
     max-height: 45vh; }
-
-.print-pdf .reveal .slides {
-  background-color: #171717; }
