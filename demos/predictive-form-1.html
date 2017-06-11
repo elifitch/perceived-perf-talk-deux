@@ -41,6 +41,13 @@
 			width: 15%;
 			margin-right: 3%;
 		}
+
+		.spinner-container {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
 	</style>
 </head>
 <body class="demo">
@@ -88,7 +95,7 @@
 					<button class="button button--submit" type="button">Next step</button>
 				</div>
 
-				<div class="section fade-out hide u-text-center" id="spinner">
+				<div class="spinner-container section fade-out hide u-text-center" id="spinner">
 					<div class="spinner"></div>
 				</div>
 			</div>
