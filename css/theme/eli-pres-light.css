@@ -425,7 +425,8 @@ html.footer-fade .footer {
 
 .demo {
   font-size: 30px;
-  font-family: "brandon grotesque", Impact, sans-serif; }
+  font-family: "brandon grotesque", Impact, sans-serif;
+  background-color: transparent; }
   .demo h1, .demo h2, .demo h3, .demo h4, .demo h5, .demo h6 {
     margin: 0; }
   .demo .font-pinopolis {
