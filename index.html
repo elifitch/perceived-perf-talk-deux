@@ -605,7 +605,7 @@
 						<p>We've all experienced this. Isn't it so much worse when you're sitting on tarmac waiting for the plane to take off, and they keep telling you 5 more minutes? Wouldn't you rather they just told you an hour?</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>
 						<span>P</span><span class="fragment">rogr</span><span class="fragment">ess </span><span class="fragment">ba</span><span class="fragment">...</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">rs!</span>
 					</h2>
@@ -613,19 +613,16 @@
 					<aside class="notes">
 						<p>This is a job for progress bars!</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
-					<!-- <h2>Animation makes a difference.</h2> -->
-					<h2 class="fragment anim-bounce"><span>A</span><span>n</span><span>i</span><span>m</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span><span>&nbsp;</span><span>m</span><span>a</span><span>k</span><span>e</span><span>s</span><span>&nbsp;</span><span>a</span><span>&nbsp;</span><span>d</span><span>i</span><span>f</span><span>f</span><span>e</span><span>r</span><span>e</span><span>n</span><span>c</span><span>e</span><span>.</span></h2>
+					<h2 class="fragment anim-bounce js-anim-bounce" data-anim-bounce><span>A</span><span>n</span><span>i</span><span>m</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span><span>&nbsp;</span><span>m</span><span>a</span><span>k</span><span>e</span><span>s</span><span>&nbsp;</span><span>a</span><span>&nbsp;</span><span>d</span><span>i</span><span>f</span><span>f</span><span>e</span><span>r</span><span>e</span><span>n</span><span>c</span><span>e</span><span>.</span></h2>
 
 					<aside class="notes">
 						<p>Progress bars are not all created equal, and certain animations can make them feel faster.</p>
 					</aside>
 				</section>
 				<section>
-					<!-- <iframe src="https://codepen.io/EliFitch/full/179fd5d77c41b213e2cb813a047faeaa/" frameborder="0" class="frame"></iframe> -->
 					<iframe src="demos/progress.html" frameborder="0" class="frame"></iframe>
-					<!-- <a class="citation" style="margin-top: 0; bottom: -1em;" target="_blank" href="http://www.chrisharrison.net/projects/progressbars2/ProgressBarsHarrison.pdf">Chris Harrison, Carnegie Mellon</a> -->
 					<aside class="notes">
 						<p>Chris Harrison, a grad student at Carnegie Mellon found that progress bars with bands that animate in the opposite direction of the progress make the bar seem to fill faster.</p>
 						<p>Same principle of being on a train, and another train is coming by the opposite direction, you look out the window to see the other train whizzing by, and it seems like you're going twice as fast.</p>
@@ -723,24 +720,24 @@
 const API_EXPECTED_TIME = 1000;
 const SOME_OTHER_EXPECTED_TIME = 2000;
 
-function setPerformanceScalar(expected, observed) {
-	const performanceScalar = expected * observed;
+function setPerformanceScalar(observed, expected) {
+	const performanceScalar = observed / expected;
 	// ...
 	// tuck this away in app state, local storage, a global variable, etc
 }
 
 function getPerformanceScalar() {
 	// retreive your saved performance data
+	return performanceScalar;
 }
 
 function init() {
-	let t1 = performance.now();
-	return fetch(`${VERY_SERIOUS_API_URL}`)
-		.then(response => {
-			const apiRoundtrip = t1 - t0;
-			savePerformanceScalar(API_EXPECTED_TIME, apiRoundtrip);
-			// Do stuff
-		});
+	let t0 = performance.now();
+	fetch(`${VERY_SERIOUS_API_URL}`).then(response => {
+		const apiRoundtrip = performance.now() - t0;
+		setPerformanceScalar(apiRoundtrip, API_EXPECTED_TIME);
+		// Do stuff
+	});
 }
 
 //...
@@ -751,6 +748,7 @@ function init() {
 
 					<aside class="notes">
 						<ul>
+							<li>So what's going on here is we record the time that an api request starts, and then on the response we use performance.now to take another high resulotion timestamp. We then save it, setting a performance scalar that is the observed time divided by the expected time.  So if we expected this request to be 1 second, and it took only half a second, the performance scalar for the next progress bar would be 0.5, making the animation duration go twice as fast.  We can use that to modulate progress bar durations and all sorts of other stuff.</li>
 							<li>Gives you a very basic idea about what a client's connection speed is.</li>
 							<li>You can normalize this with the size of a postbody as well if you need to.</li>
 							<li>You can use this information to set your loading scheme for the next request.</li>
@@ -762,8 +760,9 @@ function init() {
 					<div class="list">
 						<h2 class="list__heading">Some tips</h2>
 						<ul>
+							<li class="fragment">Adapt your whole loading scheme.</li>
 							<li class="fragment">Great place for middleware.</li>
-							<li class="fragment">Record anticipated times with your test runner.</li>
+							<li class="fragment">Set baseline times with your test runner.</li>
 							<li class="fragment">Store resource size in metadata.</li>
 							<li class="fragment">Post this to user analytics to re-normalize for *your* users.</li>
 						</ul>
@@ -1166,6 +1165,8 @@ function init() {
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
+		<script src="demos/lib/js/tweenmax.min.js"></script>
+		<script src="js/eli-pres.js"></script>
 
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration

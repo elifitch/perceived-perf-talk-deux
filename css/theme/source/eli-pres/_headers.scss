@@ -49,7 +49,7 @@
 	// display: inline-block;
 	// color: red;
 }
-.reveal .citation {
+.citation, .reveal .citation {
 	font-family: $headingFont !important;
 	left: 50%;
     transform: translateX(-50%);

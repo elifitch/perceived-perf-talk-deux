@@ -91,25 +91,28 @@
 		animation: 3s spin linear infinite;
 	}
 }
-.reveal .slides section .fragment.anim-bounce {
-	span {
-		display: inline-block;
-		transform: translateY(-1em);
-		transition: transform 0.3s, opacity 0.1s;
-		transition-timing-function: cubic-bezier(0, 0.68, 0, 1.56);
-		opacity: 0;
-	}
-	@for $i from 1 through 29 {
-		span:nth-child(#{$i}) {
-			transition-delay: #{30 * $i}ms;
-		}
-	}
-	&.visible {
-		span {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
+// .reveal .slides section .fragment.anim-bounce {
+// 	span {
+// 		display: inline-block;
+// 		transform: translateY(-1em);
+// 		transition: transform 0.3s, opacity 0.1s;
+// 		transition-timing-function: cubic-bezier(0, 0.68, 0, 1.56);
+// 		opacity: 0;
+// 	}
+// 	@for $i from 1 through 29 {
+// 		span:nth-child(#{$i}) {
+// 			transition-delay: #{30 * $i}ms;
+// 		}
+// 	}
+// 	&.visible {
+// 		span {
+// 			opacity: 1;
+// 			transform: translateY(0);
+// 		}
+// 	}
+// }
+.anim-bounce span {
+	display: inline-block;
 }
 
 img.transparent {

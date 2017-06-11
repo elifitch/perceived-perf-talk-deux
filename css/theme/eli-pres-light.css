@@ -40,7 +40,7 @@ body {
 
 ::selection {
   color: #fff;
-  background: rgba(79, 64, 28, 0.99);
+  background: #43d8f8;
   text-shadow: none; }
 
 .reveal .slides > section,
@@ -322,6 +322,18 @@ body {
 .reveal h5,
 .reveal h6 {
   font-family: "brandon grotesque", Impact, sans-serif !important; }
+  .reveal h1::selection, .reveal h1::-moz-selection,
+  .reveal h2::selection,
+  .reveal h2::-moz-selection,
+  .reveal h3::selection,
+  .reveal h3::-moz-selection,
+  .reveal h4::selection,
+  .reveal h4::-moz-selection,
+  .reveal h5::selection,
+  .reveal h5::-moz-selection,
+  .reveal h6::selection,
+  .reveal h6::-moz-selection {
+    background: #43d8f8 !important; }
 
 .reveal h1 {
   margin-bottom: 0.5em; }
@@ -349,7 +361,7 @@ body {
   -webkit-background-clip: text;
   background-size: 100%; }
 
-.reveal .citation {
+.citation, .reveal .citation {
   font-family: "brandon grotesque", Impact, sans-serif !important;
   left: 50%;
   transform: translateX(-50%);
@@ -819,103 +831,8 @@ input + .switch-paddle {
   .reveal .slides section .fragment.anim-spin--slow.visible {
     animation: 3s spin linear infinite; }
 
-.reveal .slides section .fragment.anim-bounce span {
-  display: inline-block;
-  transform: translateY(-1em);
-  transition: transform 0.3s, opacity 0.1s;
-  transition-timing-function: cubic-bezier(0, 0.68, 0, 1.56);
-  opacity: 0; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(1) {
-  transition-delay: 30ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(2) {
-  transition-delay: 60ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(3) {
-  transition-delay: 90ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(4) {
-  transition-delay: 120ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(5) {
-  transition-delay: 150ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(6) {
-  transition-delay: 180ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(7) {
-  transition-delay: 210ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(8) {
-  transition-delay: 240ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(9) {
-  transition-delay: 270ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(10) {
-  transition-delay: 300ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(11) {
-  transition-delay: 330ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(12) {
-  transition-delay: 360ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(13) {
-  transition-delay: 390ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(14) {
-  transition-delay: 420ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(15) {
-  transition-delay: 450ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(16) {
-  transition-delay: 480ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(17) {
-  transition-delay: 510ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(18) {
-  transition-delay: 540ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(19) {
-  transition-delay: 570ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(20) {
-  transition-delay: 600ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(21) {
-  transition-delay: 630ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(22) {
-  transition-delay: 660ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(23) {
-  transition-delay: 690ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(24) {
-  transition-delay: 720ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(25) {
-  transition-delay: 750ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(26) {
-  transition-delay: 780ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(27) {
-  transition-delay: 810ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(28) {
-  transition-delay: 840ms; }
-
-.reveal .slides section .fragment.anim-bounce span:nth-child(29) {
-  transition-delay: 870ms; }
-
-.reveal .slides section .fragment.anim-bounce.visible span {
-  opacity: 1;
-  transform: translateY(0); }
+.anim-bounce span {
+  display: inline-block; }
 
 img.transparent {
   box-shadow: none !important;

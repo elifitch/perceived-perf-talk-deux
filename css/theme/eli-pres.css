@@ -343,7 +343,7 @@ body {
   -webkit-background-clip: text;
   background-size: 100%; }
 
-.reveal .citation {
+.citation, .reveal .citation {
   font-family: "brandon grotesque", Impact, sans-serif !important;
   left: 50%;
   transform: translateX(-50%);
