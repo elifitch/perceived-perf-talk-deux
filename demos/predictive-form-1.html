@@ -1,12 +1,15 @@
 <head>
-	<!-- <link rel="stylesheet prefetch" href="lib/css/foundation.min.css"> -->
 	<link rel="stylesheet prefetch" href="lib/css/foundation-grid-only.min.css">
 	<link rel="stylesheet prefetch" href="../css/theme/eli-pres-light.css">
+	<script src="lib/js/tweenmax.min.js"></script>
 	<script src="lib/js/jquery.min.js"></script>
 
 	<style>
 		* {
 			transition: 400ms opacity;
+		}
+		body.demo {
+			background-color: transparent;
 		}
 		.spinner {
 			width: 10em;
@@ -19,13 +22,6 @@
 		.container {
 			position: relative;
 			padding-top: 2em;
-		}
-		.section {
-			position: absolute;
-			width: calc(100% - 1rem);
-		}
-		.text-center {
-			text-align: center;
 		}
 
 		.relative {
@@ -92,8 +88,8 @@
 					<button class="button button--submit" type="button">Next step</button>
 				</div>
 
-				<div class="spinner section fade-out hide" id="spinner">
-					<img src="../img/spinner.gif" alt="" />
+				<div class="section fade-out hide u-text-center" id="spinner">
+					<div class="spinner"></div>
 				</div>
 			</div>
 
@@ -116,22 +112,20 @@ var step2Ready = false;
 var counter = 0;
 var $bar = $('.js-debug-progress');
 var $output = $('.js-debug-details');
-const LOAD_TIME = 2000;
+const LOAD_TIME = 3000;
 
 $('.button--submit').on('click', function() {
   loadStep2();
 });
 
 function loadStep2() {
-  fade($('#step-1'), 'out');
-  fade($('#spinner'), 'in');
+	fade($('#step-1'), 'out');
+	fade($('#spinner'), 'in');
 	
-  setTimeout(function() {
-	fade($('#spinner'), 'out');
-    fade($('#step-2'), 'in');
-  }, LOAD_TIME);
-	
-  backgroundProgress(LOAD_TIME);
+	backgroundProgress(LOAD_TIME, function() {
+		fade($('#spinner'), 'out');
+		fade($('#step-2'), 'in');
+	});
 }
 
 function fade($el, inOut) {
@@ -154,15 +148,13 @@ function fade($el, inOut) {
 	})
 }
 
-function backgroundProgress(duration) {
-	setInterval(function() {
-		counter += 100;
-		let progress = (counter/duration) * 100;
-		if (counter <= duration) {
-			console.log(progress);
-			$bar.css('width', `${progress}%`);
-			$output.text(`${parseInt(progress)}% complete`);
-		}
-	  },100);	
+function backgroundProgress(duration, onComplete) {
+	TweenMax.to($bar, duration / 1000, {
+		width: '100%',
+		onUpdate: function() {
+			$output.text(`${parseInt(this.progress() * 100)}% complete`);
+		},
+		onComplete: onComplete
+	});
 }
 </script>

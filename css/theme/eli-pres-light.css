@@ -519,7 +519,10 @@ html.footer-fade .footer {
     font-size: 0.5em;
     font-family: "pinopolis", sans-serif; }
   .demo .text-input__input {
-    width: 100%; }
+    width: 100%;
+    font-size: 0.9em;
+    padding: 0.2em;
+    font-family: "pinopolis", sans-serif; }
 
 .switch-container {
   display: flex;
@@ -671,11 +674,51 @@ input + .switch-paddle {
   bottom: -0.3em;
   border-top: 0.3em dashed #43d8f8; }
 
+.spinner,
+.spinner:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em; }
+
+.spinner {
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(0, 0, 0, 0.075);
+  border-right: 1.1em solid rgba(0, 0, 0, 0.075);
+  border-bottom: 1.1em solid rgba(0, 0, 0, 0.075);
+  border-left: 1.1em solid #43d8f8;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear; }
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
 /*********************************************
  * UTILS
  *********************************************/
 .u-text-left {
   text-align: left; }
+
+.u-text-center {
+  text-align: center; }
 
 .u-inline-block {
   display: inline-block; }
