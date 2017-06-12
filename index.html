@@ -265,7 +265,7 @@
 					</aside>
 				</section>
 				<section>
-					<img src="img/watched-pot.jpg" alt="" style="height: 45vh">
+					<img src="img/watched-pot.jpg" alt="" class="u-max-h-45vh">
 					<aside class="notes">
 						
 					</aside>
@@ -815,6 +815,12 @@ function init() {
 					</aside>
 				</section>
 				<section>
+					<video src="img/slack-loading.mp4" alt="" controls class="u-max-h-45vh"/>
+					<aside class="notes">
+						<p>Slack transitions from a visually arresting loader with an explanation, to another loader with an extraneous quotation to read, and then to a skeleton UI, and then to the full UI.  Holding user attention through this process.</p>
+					</aside>
+				</section>
+				<section>
 					<h2>We can learn from the games industry.</h2>
 
 					<aside class="notes">
@@ -823,26 +829,20 @@ function init() {
 						<p>From opening a menu, to loading a new level, to streaming in a world, game developers have to be masters of perceived performance.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<img src="img/human-revolution-loading.jpg" alt="">
 					<aside class="notes">
 						<p>Games frequently give players tips to read during long loading screens. Tips require high levels of mental activity to read them, digest them, and integrate them into the player's existing play style. Thus holding attention.</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
-					<video src="/img/fifa-demo-basic.mp4" controls loop />
+					<video src="/img/fifa-demo-basic.mp4" controls class="u-max-h-45vh"/>
 					<aside class="notes">
 						<p>Note as well that the player you control, and the goalkeeper are assets you'll have to load for the upcoming game anyways, so there's little cost to loading them and making them interactive while the rest of the content loads. The enviornment loads when the game itself boots, so that's almost free as well.</p>
 					</aside>
 				</section>
-				<section>
-					<img src="img/slack-loading.gif" alt="">
-					<aside class="notes">
-						<p>Slack transitions from a visually arresting loader with an explanation, to another loader with an extraneous quotation to read, and then to a skeleton UI, and then to the full UI.  Holding user attention through this process.</p>
-					</aside>
-				</section>
 				<!-- <section>
-					<img src="img/uber-waiting-game.png" alt="" style="height: 45vh;">
+					<img src="img/uber-waiting-game.png" alt="" class="u-max-h-45vh">
 					<aside class="notes">
 						<p>Uber's old screen when it was matching you with a driver was interactive.  You could draw little light doodles in this creative play space.  If you know the wait is going to be *very* long, give users something interactive to play with, because nothing holds attention like play.</p>
 					</aside>
@@ -932,16 +932,19 @@ function init() {
 						<p>Behavior of disembarking passengers is *very* predictable. They mostly travel to the baggage claim by the fastest possible route, and then procede to ground transportation.  They leaned on their understanding of how passengers behave, and used it to their advantage to make active time a much greater proportion of the experience.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Users aren't [[snowflakes]].</h2>
 					<img class="fragment" src="img/snowflake.gif" alt="">
 					<h2 class="fragment">Behavior follows patterns.</h2>
 					<aside class="notes">
 						<p>Embrace the idea that individual users aren't unique snowflakes; their behavior follows patterns.</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2>Predict and preload.</h2>
+					<aside class="notes">
+						<p>Recognize the fact that user behavior is predictable. Study their behavior with heatmaps, and user flows.</p>
+					</aside>
 				</section>
 				<!-- <section>
 					<img src="img/math.gif" alt="">
@@ -949,7 +952,20 @@ function init() {
 				<section>
 					<img src="img/math-bird.gif" alt="">
 					<aside class="notes">
-						<p>Doesn't have to be a crazy complex machine learning algorithm.</p>
+						<p>Doesn't have to be a crazy complex machine learning algorithm, although it definitely could be.</p>
+						<p>We're going to go through examples now without relying on behavior from past views or sessions, but that can be the best guidepost.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Again, gamedevs lead the way.</h2>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
+					<video src="img/metroid-prime-doors.mp4" alt="" controls class="u-max-h-45vh"/>
+					<aside class="notes">
+						
 					</aside>
 				</section>
 				<section>
@@ -990,6 +1006,12 @@ function init() {
 					</aside>
 				</section> -->
 				<section>
+					<h2>Checkout form</h2>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
 					<iframe src="demos/predictive-form-1.html" frameborder="0" class="frame" id="demo-1"></iframe>
 					<button class="lil-button js-reset" data-reset="demo-1">RESET</button>
 					<aside class="notes">
@@ -1005,6 +1027,12 @@ function init() {
 						<p>We predict that if a user fills out all the fields, they want to move to the next step.  This demo will load the second step of the form after the user has inputted text into all the form fields.  Note that we wouldn't be sending their data to the server when they fill input fields, we'll still wait for a click to do that (don't want to transmit data that is then revised).  BUT in the real world we'd still use this as an opportunity to load the assets necessary to render the next step in the form.</p>
 						<p>To be clear, this is not for pre-emptively sending a server data that a user hasn't finished entering, it's for loading resources you need for the next page</p>
 						<p>In my testing I was able to accomplish about 50% of the loading process before users even clicked "Next step", which is a huge gain.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>CTA Button</h2>
+					<aside class="notes">
+						
 					</aside>
 				</section>
 				<section>
@@ -1052,6 +1080,18 @@ function init() {
 					</aside>
 				</section>
 				<section>
+					<div class="list">
+						<h2 class="list__heading">Look for</h2>
+						<ul>
+							<li class="fragment">Linear flows.</li>
+							<li class="fragment">Isolated UI elements.</li>
+						</ul>
+					</div>
+					<aside class="notes">
+						<p>Use usage data to find where using predictive design would have the most impact; use predictive design in areas of high certainty.</p>
+					</aside>
+				</section>
+				<section>
 					<h2>Predictive design is a very powerful tool.</h2>
 					<h2 class="fragment">Use it <span class="fragment anim-stroke">wisely.</span></h2>
 					<aside class="notes">
@@ -1059,18 +1099,12 @@ function init() {
 						<p>We should feel comfortable taking this risk if it'll yield a faster feeling experience for a large majority of users, but we need to be sure.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>SP<span style="font-size: 2em; vertical-align: sub; display: inline-block;">/</span>LIT</h2>
 					<aside class="notes">
 						<p>The more we can chop up our code, the more benefit we can get from loading only the bits users need, and only when they signal their intent to use it.</p>
 					</aside>
-				</section>
-				<section>
-					<h2>MAKE A DEMO of metroid prime loader</h2>
-					<aside class="notes">
-						
-					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2>Mitigate risk with data.</h2>
 					<aside class="notes">
@@ -1087,23 +1121,22 @@ function init() {
 					</aside>
 				</section>
 				<section>
-					<h2>Tailor your experience to YOUR users.</h2>
-					<aside class="notes">
-						<p>Automatically adapt your loading scheme to your own users. Conduct research. Get to know them. It's about making it feel faster for them, so you'll have to adapt to each individual wherever you can.</p>
-					</aside>
-				</section>
-				<section>
-					<h2>At the end of the day, what matters is how it <span class="fragment anim-stroke">feels.</span></h2>
-					<aside class="notes">
-						<p>People don't browse the web with a stopwatch. What matters is how fast it *feels* not how fast it actually is.</p>
-					</aside>
-				</section>
-				<section>
-					<!-- <h2>Focus on perceived performance.</h2> -->
-					<!-- <h2 class="fragment">Focus on the user.</h2> -->
-					<h2>Think about how you<br>want to use your resources.</h2>
+					<h2>Perceived perf is<br>low hanging fruit.</h2>
 					<aside class="notes">
 						<p>If you have sufficient low hanging fruit to effect a 30% speedup in your app then by all means, do it.  But many team don't have that luxury, and for them it makes a great deal of sense to focus on subjective performance measures before dedicating significant resources on physically making their product faster.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Target ~1 - 2 second<br>delays first.</h2>
+					<aside class="notes">
+						<p>This is when users enter passive states.</p>
+						<p>Research users and look for common flows. Identify when common flows have a 1 - 1.5 second delay. Target your efforts here.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Provide users immediate, accurate, live feedback.</h2>
+					<aside class="notes">
+						<p>They're boring but make an incredible difference in perceived speed for medium length requests, which is where you really start to lose people in bulk. Don't skimp on them.</p>
 					</aside>
 				</section>
 				<section>
@@ -1113,14 +1146,30 @@ function init() {
 					</aside>
 				</section>
 				<section>
-					<h2>Rely on data to<br>make sound decisions.</h2>
+					<h2>Tailor your solution<br>to individual users.</h2>
+					<aside class="notes">
+						<p>Automatically adapt your loading scheme to your own users. Conduct research. Get to know them. It's about making it feel faster for them, so you'll have to adapt to each individual wherever you can.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>React as soon as users signal intent; extrapolate if necessary.</h2>
+					<aside class="notes">
+						<p>They're boring but make an incredible difference in perceived speed for medium length requests, which is where you really start to lose people in bulk. Don't skimp on them.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>At the end of the day, what matters is how it <span class="fragment anim-stroke">feels.</span></h2>
+					<aside class="notes">
+						<p>People don't browse the web with a stopwatch. What matters is how fast it *feels* not how fast it actually is.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Introduce predictive design</h2>
 					<aside class="notes">
 						<p>Individual users may not be snowflakes but *your* users as a group are. They most likely aren't a representative sample of humanity and they most likely aren't a carbon copy of another app's users.  Use data to make decisions that make sense for your particular set of users and your particular sitiuation.  A/B test the shit out of this stuff.</p>
 					</aside>
 				</section>
 				<section>
-					<!-- <h2>Focus on perceived performance.</h2> -->
-					<!-- <h2 class="fragment">Focus on the user.</h2> -->
 					<h2>Focus on the user.</h2>
 					<aside class="notes">
 						<p>Focusing on perceived perf is really just focusing on the user, and at the end of the day that's really what we're here to do.</p>
