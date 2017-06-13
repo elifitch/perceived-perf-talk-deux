@@ -310,7 +310,7 @@
 				<section>
 					<div class="list">
 						<h2 class="list__heading">
-							Let's do something about it
+							How do we use this
 						</h2>
 						<ul>
 							<li class="fragment">Make that first active phase seem to last as long as possible</li>
@@ -678,6 +678,38 @@
 					</aside>
 				</section>
 				<section>
+					<h2>
+						<span class="fragment anim-spin">But </span>
+						<span class="fragment anim-spin">what </span>
+						<span class="fragment anim-spin">about </span>
+						<span class="fragment anim-spin">spinners?</span>
+					</h2>
+					<h2>
+						<span class="fragment anim-spin--slow">
+							Meh.
+						</span>
+					</h2>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
+					<div class="list">
+						<h2 class="list__heading">Spinners aren't versatile</h2>
+						<ul>
+							<li class="fragment">< ~1s? Don't indicate loading.</li>
+							<li class="fragment">> ~2s? Really need a progress bar.</li>
+							<li class="fragment">Only useful between 1 and 2 seconds.</li>
+						</ul>
+					</div>
+					<aside class="notes">
+						<p>Spinners have a pretty narrow use case.</p>
+						<p>Don't want to use them if the expected wait time is less than 1s or so, because user flow won't be disrupted.</p>
+						<p>Don't want to use them if the expected wait time is ~2.5s or up, since users need certainty as to where they are in the process.</p>
+						<p>So you're looking at using them for loads between 1 - 2ish seconds.</p>
+					</aside>
+				</section>
+				<section>
 					<h2 class="sub-title title--gradient">Fake it til you make it</h2>
 					<aside class="notes"></aside>
 				</section>
@@ -763,44 +795,12 @@ function init() {
 							<li class="fragment">Adapt your whole loading scheme.</li>
 							<li class="fragment">Great place for middleware.</li>
 							<li class="fragment">Set baseline times with your test runner.</li>
-							<li class="fragment">Store resource size in metadata.</li>
+							<li class="fragment">Normalize for resource or payload.</li>
 							<li class="fragment">Post this to user analytics to re-normalize for *your* users.</li>
 						</ul>
 					</div>
 					<aside class="notes">
 						
-					</aside>
-				</section>
-				<section>
-					<h2>
-						<span class="fragment anim-spin">But </span>
-						<span class="fragment anim-spin">what </span>
-						<span class="fragment anim-spin">about </span>
-						<span class="fragment anim-spin">spinners?</span>
-					</h2>
-					<h2>
-						<span class="fragment anim-spin--slow">
-							Meh.
-						</span>
-					</h2>
-					<aside class="notes">
-						
-					</aside>
-				</section>
-				<section>
-					<div class="list">
-						<h2 class="list__heading">Spinners aren't versatile</h2>
-						<ul>
-							<li class="fragment">< ~1s? Don't indicate loading.</li>
-							<li class="fragment">> ~2s? Really need a progress bar.</li>
-							<li class="fragment">Only useful between 1 and 2 seconds.</li>
-						</ul>
-					</div>
-					<aside class="notes">
-						<p>Spinners have a pretty narrow use case.</p>
-						<p>Don't want to use them if the expected wait time is less than 1s or so, because user flow won't be disrupted.</p>
-						<p>Don't want to use them if the expected wait time is ~2.5s or up, since users need certainty as to where they are in the process.</p>
-						<p>So you're looking at using them for loads between 1 - 2ish seconds.</p>
 					</aside>
 				</section>
 				<section>
@@ -1083,6 +1083,7 @@ function init() {
 					<div class="list">
 						<h2 class="list__heading">Look for</h2>
 						<ul>
+							<li class="fragment">Pathways to specialized code.</li>
 							<li class="fragment">Linear flows.</li>
 							<li class="fragment">Isolated UI elements.</li>
 						</ul>
