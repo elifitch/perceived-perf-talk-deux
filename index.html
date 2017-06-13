@@ -83,6 +83,7 @@
 								<li>Why focusing on perceived performance over objective performance is often a good idea.</li>
 								<li>How people sense time.</li>
 								<li>How to use what we learn about how humans sense time to make waiting/loading time less parinful</li>
+								<li>Predictive design: really aggressive, data driven preloading</li>
 								<li>Predictive design: the sneaky art of predicting user behavior and loading things in the background before they're required.</li>
 							</ul>
 						</aside>
@@ -176,12 +177,15 @@
 					</aside>
 				</section>
 				<section>
-					<h2>We optimize for objective time<br><span class="fragment">but that isn't very efficient.</span></h2>
+					<!-- <h2>We optimize for objective time<br><span class="fragment">but that isn't very efficient.</span></h2> -->
+					<h2>We optimize for objective time.</h2>
+					<h2 class="fragment">Even with perceived perf!</h2>
 					<aside class="notes">
 						<p>We're good at objective time, because this is what we optimize for.</p>
 						<p>When users report that our app is slow, we usually focus on making it objectively faster. Reducing load time by a certain percentage, etc.</p>
-						<p>Objective time is easy to measure, that's why we focus on it.</p>
-						<p>We make our projects faster, hoping that because they *are* faster, they'll feel faster.</p>
+						<p>Even traditional perceived perf methods are objective time focused. Stuff like "get people into content as fast as possible" is focused on painting a page objectively as fast as possible. That doesn't necessarily answer the question of how we improve subjective performance.</p>
+						<!-- <p>Objective time is easy to measure, that's why we focus on it.</p>
+						<p>We make our projects faster, hoping that because they *are* faster, they'll feel faster.</p> -->
 					</aside>
 				</section>
 				<section>
@@ -339,6 +343,9 @@
 					</div>
 					<aside class="notes">
 						<p>This is how you manage short duration, 100ms to 1s ish, loads to keep users in an active mental state</p>
+						<p>NOTES prematurely</p>
+						<p>NOTES prematurely</p>
+						<p>NOTES prematurely</p>
 					</aside>
 				</section>
 				<section>
@@ -384,7 +391,7 @@
 				</section>
 				<section>
 					<h2 class="sub-title title--gradient">Immediate<br>Response</h2>
-					<h2 class="sub-title title--gradient">I'm not sure I like this section. maybe cut?</h2>
+					<h2 class="sub-title title--gradient">This section might need a list?</h2>
 					<aside class="notes"></aside>
 				</section>
 				<section>
@@ -490,6 +497,15 @@
 					</aside>
 				</section>
 				<section>
+					<h2><span class="active">:active</span> animations<br>buy you more time</h2>
+					<h4 class="fragment">~200ms duration gives you a +50ms bonus</h4>
+					<aside class="notes">
+						<p>People subconsciously hold their mouse button down longer if there is an active animation</p>
+						<p>If you set the active animation duration to 150-200ms, people will keep their mouse button pressed for the full duration of the animation; so instead of holding their mouse button down for 100-150ms, they hold it down for 150-200ms. You end up coaxing them into giving us a longer head start from our mousedown event.</p>
+						<p>Taps are generally much faster than clicks, but are influenced much more dramatically by active animations.</p>
+					</aside>
+				</section>
+				<section>
 					<h2 class="fragment current-visible">Works on touch devices too!</h2>
 					<h2 class="fragment">Begin on touchstart.</h2>
 					<h2 class="fragment">Confirm on touchend.</h2>
@@ -502,15 +518,6 @@
 					<iframe src="demos/touchstart.html" frameborder="0" class="frame"></iframe>
 					<aside class="notes">
 						
-					</aside>
-				</section>
-				<section>
-					<h2><span class="active">:active</span> animations<br>buy you more time</h2>
-					<h4 class="fragment">~200ms duration gives you a +50ms bonus</h4>
-					<aside class="notes">
-						<p>People subconsciously hold their mouse button down longer if there is an active animation</p>
-						<p>If you set the active animation duration to 150-200ms, people will keep their mouse button pressed for the full duration of the animation; so instead of holding their mouse button down for 100-150ms, they hold it down for 150-200ms. You end up coaxing them into giving us a longer head start from our mousedown event.</p>
-						<p>Taps are generally much faster than clicks, but are influenced much more dramatically by active animations.</p>
 					</aside>
 				</section>
 				<!-- <section>
@@ -726,8 +733,9 @@
 					</aside>
 				</section>
 				<section>
-					<iframe src="demos/fake-progress.html" frameborder="0" class="frame"></iframe>
-					
+					<!-- <iframe src="demos/fake-progress.html" frameborder="0" class="frame" id="fake-progress"></iframe> -->
+					<iframe src="demos/fake-progress-options.html" frameborder="0" class="frame" id="fake-progress"></iframe>
+					<button class="lil-button js-reset" data-reset="fake-progress">RESET</button>
 					<aside class="notes">
 						<p>How this works, is basically we animate the bar towards the end of its track, with a strong ease out, so it will slow down as it approches, say 95% of its length</p>
 						<p>When the load finishes, you just animate it to complete.</p>

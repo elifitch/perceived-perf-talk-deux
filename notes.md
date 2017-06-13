@@ -45,19 +45,20 @@ Laura notes 6/4
 * unfuck conclusion
 
 Notes 6/12
-* predictive design: really aggressive, data driven preloading
-* maybe make some sort of note that "get people into content as fast as possible" is great for perceived perf, but is still an objective time oriented measure, so you're gonna skip it for now; lots of other folk have already talked about this
-* taco slide
-* transition from amazon to time demarkations
-* transitions within immediacy section
-* Immediacy section: keep talking about keeping users active; use the words
-* change touchmove demo to have touchmove listener on whole page, not just button; use grabby hand
-* put active animations buy more time before the touchmove thing
-* add reset button to fake progress bars
+* ✅predictive design: really aggressive, data driven preloading
+* ✅maybe make some sort of note that "get people into content as fast as possible" is great for perceived perf, but is still an objective time oriented measure, so you're gonna skip it for now; lots of other folk have already talked about this
+* 🎙taco slide
+* 🎙transition from amazon to time demarkations
+* 🎙transitions within immediacy section
+* 🎙Immediacy section: keep talking about keeping users active; use the words
+* ✅change touchmove demo to have touchmove listener on whole page, not just button; use grabby hand
+* ✅put active animations buy more time before the touchmove thing
+* ✅add reset button to fake progress bars
 * fake progress bar make demo of bad fake progress bars (fast and slow)
 	- if its too slow you're going to sit there and stare at it until you lose your mind, and you're never going to visit it again; unless its twitter and you're addicted to it because it makes you feel bad
+* Explain how to write a fake progress bar
 * re normalize for your users? does this make sense?
 * viget loader study do one for interactive loaders? make shit up?
-* checkout form: note there is complex javascript and imagers and stuff on the checkout page
-* predictive design: react as soon as users signal intent; go back to this concept
+* 🎙checkout form: note there is complex javascript and imagers and stuff on the checkout page
+* 🎙predictive design: react as soon as users signal intent; go back to this concept
 * go thru conclusion again

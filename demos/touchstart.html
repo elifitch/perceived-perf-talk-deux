@@ -7,11 +7,17 @@
 		body {
 			background-color: transparent;
 		}
+		.button--grab {
+			cursor: -webkit-grab !important;
+		}
+		.button--grab:active {
+			cursor: -webkit-grabbing !important;
+		}
 	</style>
 </head>
 <body class="demo">
 	<div class="container u-flex u-align-middle u-align-center">
-		<button class="button button--onclick u-mb-1r">Tap me!</button>
+		<button class="button button--onclick button--grab u-mb-1r">Tap me!</button>
 		<h3 class="readout">&nbsp;</h3>
 	</div>
 </body>
@@ -29,7 +35,8 @@ function start(e) {
 		$('.readout').html('take action with loaded resources');
 	});
 	
-	$('.button--onclick').on('mousemove', function(moveEvent) {
+	// $('.button--onclick').on('mousemove', function(moveEvent) {
+	$(window).on('mousemove', function(moveEvent) {
 		console.log(moveEvent)
 		if (
 			e.clientX - moveEvent.clientX > 50 || 
