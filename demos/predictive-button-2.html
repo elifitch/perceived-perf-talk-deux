@@ -138,6 +138,7 @@ var counter = 0;
 var $bar = $('.js-debug-progress');
 var $output = $('.js-debug-details');
 var showBB = document.getElementById('bb');
+var t0;
 
 function init() {
 
@@ -172,6 +173,7 @@ function init() {
 
 function loadSkull() {
 	if (!isLoading) {
+		t0 = performance.now();
 		isLoading = true;
 		var loader = new THREE.OBJLoader()
 		loader.load('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62921/chill-skull-1.obj', function(model) {
@@ -192,6 +194,7 @@ function loadSkull() {
 }
 
 function showSkull() {
+	console.log(performance.now() - t0);
 	$('.spinner').removeClass('hide');
 
 	if (skull && skullContainer) {

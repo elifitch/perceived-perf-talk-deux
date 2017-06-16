@@ -52,11 +52,7 @@
 			<div class="column small-6 relative">
 				<div class="section" id="step-1">
 					<div class="u-mb-2r">
-						<h4>Contact info</h4>
-					</div>
-					<div class="text-input u-mb-1r">
-						<label class="text-input__label u-block">Email</label>
-						<input class="text-input__input" type="email" />
+						<h4>Shipping info</h4>
 					</div>
 					<div class="text-input u-mb-1r">
 						<label class="text-input__label u-block">First Name</label>
@@ -64,6 +60,10 @@
 					</div>
 					<div class="text-input u-mb-2r">
 						<label class="text-input__label u-block">Last Name</label>
+						<input class="text-input__input" type="text" />
+					</div>
+					<div class="text-input u-mb-1r">
+						<label class="text-input__label u-block">Shipping Address</label>
 						<input class="text-input__input" type="text" />
 					</div>
 					<button class="button button--submit" type="button">Check out</button>
@@ -117,6 +117,7 @@ var loadTime = 3000;
 var $bar = $('.js-debug-progress');
 var $output = $('.js-debug-details');
 var inited = false;
+var t0;
 
 $('#step-1 input').on('keydown', function() {
 	if (!inited && isFormCompleteAndValid( $('#step-1') )) {
@@ -140,6 +141,7 @@ function isFormCompleteAndValid($parentEl) {
 }
 
 function simulateAsync() {
+	t0 = performance.now();
 	setTimeout(function() {
 		step2Ready = true;
 	}, loadTime);
@@ -147,6 +149,7 @@ function simulateAsync() {
 }
 
 function loadStep2() {
+	console.log(performance.now() - t0)
 	if (!step2Ready) {
 		fade($('#step-1'), 'out');
 		fade($('#spinner'), 'in');

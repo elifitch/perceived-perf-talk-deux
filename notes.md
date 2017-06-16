@@ -54,7 +54,7 @@ Notes 6/12
 * ✅change touchmove demo to have touchmove listener on whole page, not just button; use grabby hand
 * ✅put active animations buy more time before the touchmove thing
 * ✅add reset button to fake progress bars
-* fake progress bar make demo of bad fake progress bars (fast and slow)
+* ✅fake progress bar make demo of bad fake progress bars (fast and slow)
 	- if its too slow you're going to sit there and stare at it until you lose your mind, and you're never going to visit it again; unless its twitter and you're addicted to it because it makes you feel bad
 * Explain how to write a fake progress bar
 * re normalize for your users? does this make sense?
@@ -62,3 +62,12 @@ Notes 6/12
 * 🎙checkout form: note there is complex javascript and imagers and stuff on the checkout page
 * 🎙predictive design: react as soon as users signal intent; go back to this concept
 * go thru conclusion again
+
+Notes 6/13
+* list right after keep users active gives away the punchline of hiding loading indicators
+* ✅LETS CUT/CONDENSE THE CLICK VS ANIM LATENCY SECTION
+* OPTIMISM transition
+* number the keep users active slides?
+* generally work on transitions; make notes
+* cta button, use screenshot of a marketing page for a spa, with a big button to load the spa. Preload the spa as the cursor approaches
+* make a slide for predictive design that's like WOAH THIS IS HUGE

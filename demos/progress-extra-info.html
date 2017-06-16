@@ -70,7 +70,19 @@
 	function start() {
 		var currentMessageIndex = -1;
 		bar.style.width = 0;
-		TweenMax.fromTo(bar, 10, {width: 0}, {
+		TweenMax.set(bar, {width: 0});
+		TweenMax.set(stripes, {x: 0});
+		// TweenMax.fromTo(bar, 10, {width: 0}, {
+		// 	width: '100%', 
+		// 	ease: Power0.easeNone, 
+		// 	onUpdate: function() {
+		// 		if (Math.floor(this.progress() * (messages.length)) > currentMessageIndex) {
+		// 			currentMessageIndex = Math.floor(this.progress() * (messages.length));
+		// 			annotationEl.innerHTML = messages[currentMessageIndex] ? messages[currentMessageIndex] : messages[messages.length - 1];
+		// 		}
+		// 	}
+		// });
+		TweenMax.to(bar, 10, {
 			width: '100%', 
 			ease: Power0.easeNone, 
 			onUpdate: function() {
@@ -80,7 +92,11 @@
 				}
 			}
 		});
-		TweenMax.fromTo(stripes, 10, {x: 0}, {
+		// TweenMax.fromTo(stripes, 10, {x: 0}, {
+		// 	x: '-50%',
+		// 	ease: Power1.easeIn
+		// });
+		TweenMax.to(stripes, 10, {
 			x: '-50%',
 			ease: Power1.easeIn
 		});

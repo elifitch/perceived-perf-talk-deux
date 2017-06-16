@@ -40,7 +40,7 @@
 	width: 100%;
 	height: 100vmin;
 	@media screen and (min-width: 700px) {
-		height: 50vh;
+		height: 80vh;
 	}
 }
 
@@ -188,8 +188,10 @@ img.transparent {
 .reveal pre {
 	font-size: 0.4em;
 	box-shadow: none;
+	margin: 0;
+	width: 100%;
 	code {
-		max-height: 45vh;
+		// max-height: 45vh;
 	}
 }
 

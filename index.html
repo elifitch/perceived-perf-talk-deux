@@ -259,19 +259,19 @@
 					</aside>
 				</section>
 				<section>
+					<img src="img/watched-pot.jpg" alt="" class="u-max-h-45vh">
+					<aside class="notes">
+						<p>this will come to no surprise to anyone who's ever tried to watch a pot boil...</p>
+					</aside>
+				</section>
+				<section>
 					<h2>
 						Humans tend to overestimate passive time by <span class="fragment anim-stroke">36%</span>.
 					</h2>
 					<a class="citation" href="http://www.jstor.org/stable/171439?seq=1#page_scan_tab_contents" target="_blank">Richard Larson, MIT</a>
 					<aside class="notes">
-						<p>Humans overestimate passive waits by 36%, per Richard Larson of MIT</p>
+						<p>...but Humans overestimate passive waits by 36%, per Richard Larson of MIT</p>
 						<p>Dopamine is the main neurotransmitter associated with time perception per the guardian https://www.theguardian.com/science/2013/jan/01/psychology-time-perception-awareness-research</p>
-					</aside>
-				</section>
-				<section>
-					<img src="img/watched-pot.jpg" alt="" class="u-max-h-45vh">
-					<aside class="notes">
-						
 					</aside>
 				</section>
 				<section>
@@ -302,8 +302,8 @@
 				</section>
 				<section>
 					<h2 class="fragment">100ms: <span class="fragment">Immediate</span></h2>
-					<h2 class="fragment">1,000ms: <span class="fragment">Thought Flow</span></h2>
-					<h2 class="fragment">10,000ms: <span class="fragment">Attention Span</span></h2>
+					<h2 class="fragment">1s: <span class="fragment">Thought Flow</span></h2>
+					<h2 class="fragment">10s: <span class="fragment">Attention Span</span></h2>
 					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Jakob Nielsen</a>
 					<aside class="notes">
 						<p>When waiting for something to load, users don't just snap into a passive state, it takes time for them to realize they're waiting.</p>
@@ -335,7 +335,7 @@
 							What we can do
 						</h2>
 						<ul>
-							<li class="fragment">Don't show a loader prematurely.</li>
+							<li class="fragment">Don't tell users they're waiting.</li>
 							<li class="fragment">Respond to users immediately, even if nothing is happening.</li>
 							<li class="fragment">Keep users in flow with more responsive event listeners.</li>
 							<!-- <li class="fragment">Use interstitial animations.</li> -->
@@ -372,7 +372,7 @@
 					<aside class="notes"></aside>
 				</section>
 				<section>
-					<h2>It takes users at least <span class="fragment anim-stroke">~500ms</span><br>to know they're waiting.</h2>
+					<h2>It takes users about <span class="fragment anim-stroke">~1 second</span><br>to enter a passive state.</h2>
 					<aside class="notes">
 						This is why optimistic updates are important. Sure we could show a loader while making the request, and then update our like button, but isn't it better to just show the success ui?
 					</aside>
@@ -380,6 +380,7 @@
 				<section>
 					<h2>Adding a loader prematurely<br>puts them in a passive state.</h2>
 					<aside class="notes">
+						<p>Before we talk about how to make our apps feel faster, we want to make sure we're not abusing these techniques and making our apps feel slower.</p>
 						<p>This is the opposite of what we want.</p>
 						<p>Remember we want them in an active mental state as long as possible</p>
 					</aside>
@@ -390,14 +391,17 @@
 					</aside>
 				</section>
 				<section>
-					<h2 class="sub-title title--gradient">Immediate<br>Response</h2>
+					<h2 class="sub-title title--gradient">Immediate<br>Feedback</h2>
 					<h2 class="sub-title title--gradient">This section might need a list?</h2>
 					<aside class="notes"></aside>
 				</section>
 				<section>
 					<h2>Immediacy keeps users from entering a passive state.</h2>
+					<aside class="notes">
+						<p>Because immediacy establishes a two way dialogue with users, and it gives the sense that the app is holding up its end of the conversation.</p>
+					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Immediacy is contextual.</h2>
 				</section>
 				<section>
@@ -417,7 +421,7 @@
 						<p>30fps isn't even that bad!</p>
 						<p>Shows that jank, apps not feeling immediate, damage the overall experience in a big way</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2>Stay <span class="active">:active,</span> kids!</h2>
 					<aside class="notes">
@@ -427,7 +431,12 @@
 					</aside>
 				</section>
 				<section>
-					<h2>Optimism!</h2>
+					<!-- <h2>Optimism!</h2> -->
+					<h2>
+						<div class="fragment anim-bounce js-anim-bounce js-split">Optimism!</div>
+						<div class="fragment anim-bounce js-anim-bounce js-split">Is!</div>
+						<div class="fragment anim-bounce js-anim-bounce js-split">Important!</div>
+					</h2>
 					<aside class="notes">
 						
 					</aside>
@@ -456,11 +465,11 @@
 					</aside>
 				</section>
 				<section>
-					<h2 class="sub-title title--gradient">Keep Users<br>In Flow</h2>
+					<h2 class="sub-title title--gradient">Better Event<br>Listeners</h2>
 					<aside class="notes"></aside>
 				</section>
 				<section>
-					<h2>Takes <span class="fragment anim-stroke">~1 second</span> for<br>flow to be disrupted.</h2>
+					<h2>Takes <span class="fragment anim-stroke">~1 second</span> to<br>enter a passive state.</h2>
 				</section>
 				<section>
 					<h2>React as soon as<br>the user signals intent.</h2>
@@ -472,9 +481,9 @@
 				</section>
 				<section>
 					<h2>
-						<span class="fragment">Mousedown: button down</span>
-						<br>vs.<br>
 						<span class="fragment">Click: button up</span>
+						<br>vs.<br>
+						<span class="fragment">Mousedown: button down</span>
 					</h2>
 					<aside class="notes">
 						<p>One of my favorite ways to do that is replacing click events with mousedown (and touchstart) events.</p>
@@ -581,9 +590,9 @@
 							What we can do
 						</h2>
 						<ul>
-							<li class="fragment">The right animation can make time pass more quickly</li>
-							<li class="fragment">Ground fake progress bars in reality</li>
-							<li class="fragment">Distract with shiny objects</li>
+							<li class="fragment">The right loading animation can make time pass more quickly.</li>
+							<li class="fragment">Adapt loading scheme to each user.</li>
+							<li class="fragment">Distract with shiny objects.</li>
 						</ul>
 					</div>
 					<aside class="notes">
@@ -612,6 +621,9 @@
 						<p>We've all experienced this. Isn't it so much worse when you're sitting on tarmac waiting for the plane to take off, and they keep telling you 5 more minutes? Wouldn't you rather they just told you an hour?</p>
 					</aside>
 				</section>
+				<section>
+					<h2>Progress bars give<br>users certainty.</h2>
+				</section>
 				<!-- <section>
 					<h2>
 						<span>P</span><span class="fragment">rogr</span><span class="fragment">ess </span><span class="fragment">ba</span><span class="fragment">...</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">rs!</span>
@@ -622,7 +634,8 @@
 					</aside>
 				</section> -->
 				<section>
-					<h2 class="fragment anim-bounce js-anim-bounce" data-anim-bounce><span>A</span><span>n</span><span>i</span><span>m</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span><span>&nbsp;</span><span>m</span><span>a</span><span>k</span><span>e</span><span>s</span><span>&nbsp;</span><span>a</span><span>&nbsp;</span><span>d</span><span>i</span><span>f</span><span>f</span><span>e</span><span>r</span><span>e</span><span>n</span><span>c</span><span>e</span><span>.</span></h2>
+					<!-- <h2 class="fragment anim-bounce js-anim-bounce" data-anim-bounce><span>A</span><span>n</span><span>i</span><span>m</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span><span>&nbsp;</span><span>m</span><span>a</span><span>k</span><span>e</span><span>s</span><span>&nbsp;</span><span>a</span><span>&nbsp;</span><span>d</span><span>i</span><span>f</span><span>f</span><span>e</span><span>r</span><span>e</span><span>n</span><span>c</span><span>e</span><span>.</span></h2> -->
+					<h2 class="fragment anim-bounce js-anim-bounce js-split" data-anim-bounce>Animation makes a difference.</h2>
 
 					<aside class="notes">
 						<p>Progress bars are not all created equal, and certain animations can make them feel faster.</p>
@@ -631,14 +644,14 @@
 				<section>
 					<iframe src="demos/progress.html" frameborder="0" class="frame"></iframe>
 					<aside class="notes">
-						<p>Chris Harrison, a grad student at Carnegie Mellon found that progress bars with bands that animate in the opposite direction of the progress make the bar seem to fill faster.</p>
+						<p>Chris Harrison, Zhiquan Yeo, and Scott Hudson, a grad student at Carnegie Mellon found that progress bars with bands that animate in the opposite direction of the progress make the bar seem to fill faster.</p>
 						<p>Same principle of being on a train, and another train is coming by the opposite direction, you look out the window to see the other train whizzing by, and it seems like you're going twice as fast.</p>
 						<p>In a followup study he found that if those bands accellerate, the bar feels faster still. Can get that accelerating feel just by applying an ease-in to the animation.</p>
 					</aside>
 				</section>
 				<section>
 					<h2>Bars with accelerating<br>bands feel <span class="fragment anim-stroke">12%</span> faster.</h2>
-					<a class="citation" target="_blank" href="http://www.chrisharrison.net/projects/progressbars2/ProgressBarsHarrison.pdf">Chris Harrison, Carnegie Mellon</a>
+					<a class="citation" target="_blank" href="http://www.chrisharrison.net/projects/progressbars2/ProgressBarsHarrison.pdf">Chris Harrison, Zhiquan Yeo, and Scott Hudson, Carnegie Mellon</a>
 					<aside class="notes">
 						<p>He found that they feel 12% faster.  So just from this one change we can get half way to our Just Noticeable Difference threshold.</p>
 					</aside>
@@ -667,6 +680,13 @@
 						</ul>
 					</aside>
 				</section> -->
+				<section>
+					<h2>Unexplained waits feel longer.</h2>
+					<a class="citation" href="http://www.columbia.edu/~ww2040/4615S13/Psychology_of_Waiting_Lines.pdf" target="_blank">David Maister</a>
+					<aside class="notes">
+						<p>Postulated by business consultant David Maister but confirmed in several studies. If people don't have a sense of how much has elapsed and how much is left, the wait feels longer.</p>
+					</aside>
+				</section>
 				<section>
 					<h2>Long waits?</h2>
 					<h2 class="fragment">Context is everything.</h2>
@@ -717,12 +737,27 @@
 					</aside>
 				</section>
 				<section>
+					<div class="list">
+						<h2 class="list__heading">Spinner advantages</h2>
+						<ul>
+							<li class="fragment">Easier to brand.</li>
+							<li class="fragment">Honest! No websockets, no polling endpoint, no problem.</li>
+						</ul>
+					</div>
+					<aside class="notes">
+						<p>Spinners have a pretty narrow use case.</p>
+						<p>Don't want to use them if the expected wait time is less than 1s or so, because user flow won't be disrupted.</p>
+						<p>Don't want to use them if the expected wait time is ~2.5s or up, since users need certainty as to where they are in the process.</p>
+						<p>So you're looking at using them for loads between 1 - 2ish seconds.</p>
+					</aside>
+				</section>
+				<section>
 					<h2 class="sub-title title--gradient">Fake it til you make it</h2>
 					<aside class="notes"></aside>
 				</section>
 				<section>
-					<h2>Most progress bars are fake</h2>
-					<h2 class="fragment">and that's ok.</h2>
+					<h2>Most progress bars are fake.</h2>
+					<h2 class="fragment">Many are pretty <span class="emoji">💩</span>y.</h2>
 
 					<aside class="notes">
 						<ul>
@@ -760,6 +795,15 @@
 const API_EXPECTED_TIME = 1000;
 const SOME_OTHER_EXPECTED_TIME = 2000;
 
+function init() {
+	let t0 = performance.now();
+	fetch(`${VERY_SERIOUS_API_URL}`).then(response => {
+		const apiRoundtrip = performance.now() - t0;
+		setPerformanceScalar(apiRoundtrip, API_EXPECTED_TIME);
+		// Do stuff
+	});
+}
+
 function setPerformanceScalar(observed, expected) {
 	const performanceScalar = observed / expected;
 	// ...
@@ -769,15 +813,6 @@ function setPerformanceScalar(observed, expected) {
 function getPerformanceScalar() {
 	// retreive your saved performance data
 	return performanceScalar;
-}
-
-function init() {
-	let t0 = performance.now();
-	fetch(`${VERY_SERIOUS_API_URL}`).then(response => {
-		const apiRoundtrip = performance.now() - t0;
-		setPerformanceScalar(apiRoundtrip, API_EXPECTED_TIME);
-		// Do stuff
-	});
 }
 
 //...
@@ -800,11 +835,10 @@ function init() {
 					<div class="list">
 						<h2 class="list__heading">Some tips</h2>
 						<ul>
+							<li class="fragment">Normalize for resource or payload.</li>
 							<li class="fragment">Adapt your whole loading scheme.</li>
 							<li class="fragment">Great place for middleware.</li>
 							<li class="fragment">Set baseline times with your test runner.</li>
-							<li class="fragment">Normalize for resource or payload.</li>
-							<li class="fragment">Post this to user analytics to re-normalize for *your* users.</li>
 						</ul>
 					</div>
 					<aside class="notes">
@@ -829,7 +863,7 @@ function init() {
 					</aside>
 				</section>
 				<section>
-					<h2>We can learn from the games industry.</h2>
+					<h2>We can learn from gamedevs.</h2>
 
 					<aside class="notes">
 						<p>Game developers have to deal with these problems all the time.</p>
@@ -935,9 +969,23 @@ function init() {
 					</aside>
 				</section> -->
 				<section>
-					<h2>We can do something similar.</h2>
+					<img src="img/math-bird.gif" alt="">
+					<aside class="notes">
+						<p>Doesn't have to be a crazy complex machine learning algorithm, although it definitely could be.</p>
+						<p>We're going to go through examples now without relying on behavior from past views or sessions, but that can be the best guidepost.</p>
+					</aside>
+				</section>
+				<section>
+					<!-- <h2>We can do something similar.</h2> -->
+					<h2>Gamedevs do this all the time.</h2>
 					<aside class="notes">
 						<p>Behavior of disembarking passengers is *very* predictable. They mostly travel to the baggage claim by the fastest possible route, and then procede to ground transportation.  They leaned on their understanding of how passengers behave, and used it to their advantage to make active time a much greater proportion of the experience.</p>
+					</aside>
+				</section>
+				<section>
+					<video src="img/metroid-prime-doors.mp4" alt="" controls class="u-max-h-45vh"/>
+					<aside class="notes">
+						
 					</aside>
 				</section>
 				<!-- <section>
@@ -948,34 +996,15 @@ function init() {
 						<p>Embrace the idea that individual users aren't unique snowflakes; their behavior follows patterns.</p>
 					</aside>
 				</section> -->
-				<section>
+				<!-- <section>
 					<h2>Predict and preload.</h2>
 					<aside class="notes">
 						<p>Recognize the fact that user behavior is predictable. Study their behavior with heatmaps, and user flows.</p>
 					</aside>
-				</section>
+				</section> -->
 				<!-- <section>
 					<img src="img/math.gif" alt="">
 				</section> -->
-				<section>
-					<img src="img/math-bird.gif" alt="">
-					<aside class="notes">
-						<p>Doesn't have to be a crazy complex machine learning algorithm, although it definitely could be.</p>
-						<p>We're going to go through examples now without relying on behavior from past views or sessions, but that can be the best guidepost.</p>
-					</aside>
-				</section>
-				<section>
-					<h2>Again, gamedevs lead the way.</h2>
-					<aside class="notes">
-						
-					</aside>
-				</section>
-				<section>
-					<video src="img/metroid-prime-doors.mp4" alt="" controls class="u-max-h-45vh"/>
-					<aside class="notes">
-						
-					</aside>
-				</section>
 				<section>
 					<h2>You've probably done it<br>without realizing.</h2>
 					<h6>this is demo overload in this next section. break them up with something???</h6>
@@ -992,12 +1021,6 @@ function init() {
 						<p>Who's lazyloaded images on scroll with a buffer so you're loading them before the user gets there?</p>
 						<p>You're using the users current behavior (scrolling), to predict what their next action will be (consuming the next bit of content), and you're loading the resources they need before they get there.</p>
 						<p>We can take this like 10 steps further though.</p>
-					</aside>
-				</section>
-				<section>
-					<iframe src="/demos/lazyload-variable.html" frameborder="0" class="frame"></iframe>
-					<aside class="notes">
-						
 					</aside>
 				</section>
 				<!-- <section>
@@ -1038,7 +1061,18 @@ function init() {
 					</aside>
 				</section>
 				<section>
+					<h2><span class="fragment anim-stroke">~2 second</span> head start!</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
 					<h2>CTA Button</h2>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+				<section>
+					<img src="img/gravit-designer.jpg" alt="" class="u-max-h-45vh">
 					<aside class="notes">
 						
 					</aside>
@@ -1063,8 +1097,21 @@ function init() {
 					</aside>
 				</section>
 				<section>
+					<h2><span class="fragment anim-stroke">~500ms</span> head start!</h2>
+					<h2 class="fragment">But we can do better!</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>Futurelink!</h2>
+					<a class="citation" href="https://github.com/SamKnows/futurelink" target="_blank">https://github.com/SamKnows/futurelink</a>
+					<!-- https://blog.samknows.com/intelligent-page-preloading-with-futurelink-c1de25449dee -->
+				</section>
+				<section>
+					<video src="/img/futurelink-demo.mp4" controls />
+				</section>
+				<section>
 					<h2>People watch hovers.</h2>
-					<h6>Should this be after predictive design, b/c we'd have to transition from hey, load stuff on mousedown, to now talking about hey, load stuff on hover???</h6>
 					<aside class="notes"></aside>
 				</section>
 				<section>
@@ -1087,6 +1134,17 @@ function init() {
 						<p>I didn't test hover effects other than a 200ms duration, diagonal slash button, and a liquid fill button, so there's definitely more research to be done here, but the early returns are promising.</p>
 					</aside>
 				</section>
+				<section>
+					<h2>At least <span class="fragment anim-stroke">~1.5 second</span> head start!</h2>
+					<aside class="notes">
+					</aside>
+				</section>
+				<!-- <section>
+					<iframe src="/demos/lazyload-variable.html" frameborder="0" class="frame"></iframe>
+					<aside class="notes">
+						
+					</aside>
+				</section> -->
 				<section>
 					<div class="list">
 						<h2 class="list__heading">Look for</h2>
@@ -1124,19 +1182,13 @@ function init() {
 					<h1 class="title">TLDR;</h1>
 				</section>
 				<section>
-					<h2>Need a much better conclusion.</h2>
-					<aside class="notes">
-						
-					</aside>
-				</section>
-				<section>
 					<h2>Perceived perf is<br>low hanging fruit.</h2>
 					<aside class="notes">
 						<p>If you have sufficient low hanging fruit to effect a 30% speedup in your app then by all means, do it.  But many team don't have that luxury, and for them it makes a great deal of sense to focus on subjective performance measures before dedicating significant resources on physically making their product faster.</p>
 					</aside>
 				</section>
 				<section>
-					<h2>Target ~1 - 2 second<br>delays first.</h2>
+					<h2>Target longer<br>delays first.</h2>
 					<aside class="notes">
 						<p>This is when users enter passive states.</p>
 						<p>Research users and look for common flows. Identify when common flows have a 1 - 1.5 second delay. Target your efforts here.</p>
@@ -1148,12 +1200,12 @@ function init() {
 						<p>They're boring but make an incredible difference in perceived speed for medium length requests, which is where you really start to lose people in bulk. Don't skimp on them.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>Take time to make great progress bars</h2>
 					<aside class="notes">
 						<p>They're boring but make an incredible difference in perceived speed for medium length requests, which is where you really start to lose people in bulk. Don't skimp on them.</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2>Tailor your solution<br>to individual users.</h2>
 					<aside class="notes">
@@ -1161,21 +1213,21 @@ function init() {
 					</aside>
 				</section>
 				<section>
-					<h2>React as soon as users signal intent; extrapolate if necessary.</h2>
+					<h2>React as soon as users signal intent; extrapolate where possible.</h2>
 					<aside class="notes">
 						<p>They're boring but make an incredible difference in perceived speed for medium length requests, which is where you really start to lose people in bulk. Don't skimp on them.</p>
+					</aside>
+				</section>
+				<section>
+					<h2>Introduce predictive design<br> bit by bit.</h2>
+					<aside class="notes">
+						<p>Individual users may not be snowflakes but *your* users as a group are. They most likely aren't a representative sample of humanity and they most likely aren't a carbon copy of another app's users.  Use data to make decisions that make sense for your particular set of users and your particular sitiuation.  A/B test the shit out of this stuff.</p>
 					</aside>
 				</section>
 				<section>
 					<h2>At the end of the day, what matters is how it <span class="fragment anim-stroke">feels.</span></h2>
 					<aside class="notes">
 						<p>People don't browse the web with a stopwatch. What matters is how fast it *feels* not how fast it actually is.</p>
-					</aside>
-				</section>
-				<section>
-					<h2>Introduce predictive design</h2>
-					<aside class="notes">
-						<p>Individual users may not be snowflakes but *your* users as a group are. They most likely aren't a representative sample of humanity and they most likely aren't a carbon copy of another app's users.  Use data to make decisions that make sense for your particular set of users and your particular sitiuation.  A/B test the shit out of this stuff.</p>
 					</aside>
 				</section>
 				<section>

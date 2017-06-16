@@ -53,7 +53,7 @@
 						</div>
 						<div class="flex-vertical-center u-mb-1r">
 							<div class="switch">
-								<input class="switch-input js-duration input" id="one" type="radio" name="foo" value="1">
+								<input class="switch-input js-duration input" id="one" type="radio" name="foo" value="0.6">
 								<label class="switch-paddle" for="one"></label>
 							</div>
 							<span class="switch-label">Too fast</span>
@@ -87,11 +87,19 @@
 	function start() {
 		bar.style.width = 0;
 		// stripes.style.transform = 'translateX(0)';
-		TweenMax.fromTo(bar, duration, {width: 0}, {
-			width: '95%', 
-			ease: Power2.easeOut,
-			overwrite: 'all'
-		});
+		if (duration < 6) {
+			TweenMax.fromTo(bar, duration, {width: 0}, {
+				width: '100%', 
+				ease: Power0.easeNone,
+				overwrite: 'all'
+			});
+		} else {
+			TweenMax.fromTo(bar, duration, {width: 0}, {
+				width: '95%', 
+				ease: Power2.easeOut,
+				overwrite: 'all'
+			});
+		}
 		// TweenMax.fromTo(stripes, duration, {x: 0}, {
 		// 	x: '-50%',
 		// 	repeat: -1,

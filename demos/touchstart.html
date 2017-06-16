@@ -52,7 +52,7 @@ function start(e) {
 }
 
 function cancel() {
-	$('.button--onclick').off('mousemove');
+	$(window).off('mousemove');
 	$('.button--onclick').on('mouseup', function() {
 		$('.readout').html('touchended after cancel. Resources loaded but no action taken.');
 	});
