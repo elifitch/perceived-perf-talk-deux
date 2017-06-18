@@ -319,7 +319,7 @@
 						<ul>
 							<li class="fragment">Make that first active phase seem to last as long as possible</li>
 							<li class="fragment">Make the interstitial passive phase seem as fast as possible.</li>
-							<li class="fragment">Move users back into an active state however we can.</li>
+							<!-- <li class="fragment">Move users back into an active state however we can.</li> -->
 						</ul>
 					</div>
 					<aside class="notes">
@@ -529,46 +529,6 @@
 						
 					</aside>
 				</section>
-				<!-- <section>
-					<h2 class="sub-title title--gradient">Interstitial<br>Animations</h2>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<h2>People watch hovers.</h2>
-					<h2>Should this be after predictive design???</h2>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<iframe src="/demos/button-hover.html" frameborder="0" class="frame"></iframe>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<div class="list">
-						<h2 class="list__heading">The hoverstate falloff</h2>
-						<ul>
-							<li class="fragment">1: 60-100%</li>
-							<li class="fragment">2-5: 30% - 60%</li>
-							<li class="fragment">5+: 0% - 30%</li>
-						</ul>
-					</div>
-					<aside class="notes">
-						<p>Conducted some research on mechanical turk, where I told people to navigate through a checkout flow.</p>
-						<p>Users had to click through many stages of a form.</p>
-						<p>I found, that even when they were motivated to get through the process as fast as possible, as mechanical turk users are, users tended to watch hover effects before clicking.</p>
-						<p>I didn't test hover effects other than a 200ms duration, diagonal slash button, and a liquid fill button, so there's definitely more research to be done here, but the early returns are promising.</p>
-					</aside>
-				</section>
-				<section>
-					<h2>Animating from one layout to another can reduce preceived loading time to zero.</h2>
-					<aside class="notes"></aside>
-				</section>
-				<section>
-					<video src="/img/page-transition-demos.mp4" controls />
-					<aside class="notes">
-						<p>This is incredibly easy to fuck up, which is one of the main reasons this technique isn't popular.</p>
-						<p>However, if you can do it elegantly, as I believe these examples do, it can be an incredibly powerful tool for perceived perf</p>
-					</aside>
-				</section> -->
 				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">Un-suck passive waits</h1>
 				</section>
@@ -935,6 +895,18 @@ function getPerformanceScalar() {
 					<h1 class="title">Predictive<br>Design</h1>
 				</section>
 				<section>
+					<h2>React as soon as<br>users signal intent.</h2>
+					<aside class="notes">
+						<p></p>
+					</aside>
+				</section>
+				<section>
+					<h2>What if we could<br>predict their intent?</h2>
+					<aside class="notes">
+						<p></p>
+					</aside>
+				</section>
+				<!-- <section>
 					<img src="img/airplane.jpg">
 					<aside class="notes">
 						<p>Great story that explains what predictive design is all about.</p>
@@ -957,7 +929,7 @@ function getPerformanceScalar() {
 					<aside class="notes">
 						<p>They leaned on what they understood about passenger behavior (walking directly to the baggage claim) and structured their experience so the bags "loaded" while the user was still walking there.</p>
 					</aside>
-				</section>
+				</section> -->
 				<!-- <section>
 					<h2>
 						<span class="fragment emoji">🤔</span>
@@ -968,18 +940,23 @@ function getPerformanceScalar() {
 						Going back to the restaurant example, what if we could accurately predict what you were going to order, so the food was being prepared as you were making up your mind, and as soon as you put in the order, we just brought out the food. That's predictive design.
 					</aside>
 				</section> -->
-				<section>
+				<!-- <section>
 					<img src="img/math-bird.gif" alt="">
 					<aside class="notes">
 						<p>Doesn't have to be a crazy complex machine learning algorithm, although it definitely could be.</p>
 						<p>We're going to go through examples now without relying on behavior from past views or sessions, but that can be the best guidepost.</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
-					<!-- <h2>We can do something similar.</h2> -->
 					<h2>Gamedevs do this all the time.</h2>
 					<aside class="notes">
 						<p>Behavior of disembarking passengers is *very* predictable. They mostly travel to the baggage claim by the fastest possible route, and then procede to ground transportation.  They leaned on their understanding of how passengers behave, and used it to their advantage to make active time a much greater proportion of the experience.</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/frustum-culling.gif" alt="" controls class="u-max-h-45vh"/>
+					<aside class="notes">
+						
 					</aside>
 				</section>
 				<section>
@@ -988,26 +965,8 @@ function getPerformanceScalar() {
 						
 					</aside>
 				</section>
-				<!-- <section>
-					<h2>Users aren't [[snowflakes]].</h2>
-					<img class="fragment" src="img/snowflake.gif" alt="">
-					<h2 class="fragment">Behavior follows patterns.</h2>
-					<aside class="notes">
-						<p>Embrace the idea that individual users aren't unique snowflakes; their behavior follows patterns.</p>
-					</aside>
-				</section> -->
-				<!-- <section>
-					<h2>Predict and preload.</h2>
-					<aside class="notes">
-						<p>Recognize the fact that user behavior is predictable. Study their behavior with heatmaps, and user flows.</p>
-					</aside>
-				</section> -->
-				<!-- <section>
-					<img src="img/math.gif" alt="">
-				</section> -->
 				<section>
-					<h2>You've probably done it<br>without realizing.</h2>
-					<h6>this is demo overload in this next section. break them up with something???</h6>
+					<h2>You may have done it<br>without realizing.</h2>
 					<aside class="notes">
 						<p>Who's lazyloaded images on scroll with a buffer so you're loading them before the user gets there?</p>
 						<p>You're using the users current behavior (scrolling), to predict what their next action will be (consuming the next bit of content), and you're loading the resources they need before they get there.</p>
@@ -1023,19 +982,6 @@ function getPerformanceScalar() {
 						<p>We can take this like 10 steps further though.</p>
 					</aside>
 				</section>
-				<!-- <section>
-					<h2>If we know what a user's done, or is doing, we can guess at what they will do next.</h2>
-					<aside class="notes">
-						
-					</aside>
-				</section> -->
-				<!-- <section>
-					<h2>Why wait for a click?</h2>
-					<h2 class="fragment">Idle time is a terrible thing to waste.</h2>
-					<aside class="notes">
-						
-					</aside>
-				</section> -->
 				<section>
 					<h2>Checkout form</h2>
 					<aside class="notes">
@@ -1086,21 +1032,8 @@ function getPerformanceScalar() {
 						<p>In this demo we'll load a 3d model into this little window when a user clicks a big, isolated CTA button.</p>
 					</aside>
 				</section>
-				<section>
-					<!-- <iframe src="http://codepen.io/EliFitch/full/87b337c9619afca8f390d173b505f1b7/" frameborder="0" class="frame"></iframe> -->
-					<iframe src="demos/predictive-button-2.html" frameborder="0" class="frame" id="demo-4"></iframe>
-					<button class="lil-button js-reset" data-reset="demo-4">RESET</button>
-					<aside class="notes">
-						<p>Predictive CTA button demo:</p>
-						<p>It's a common pattern for big CTA buttons to be obvious and surrounded by white space to attract users to click them.  We predict that if a user hovers the button, they will click the button.  Moreover, if they hover over a hitbox outside the button, we predict they will continue to move their mouse onto the button and click it.  You can reveal the hitbox by clicking the checkbox within the demo.</p>
-						<p>In my testing I was able to accomplish about 30% of the loading process before users even clicked the big button.</p>
-					</aside>
-				</section>
-				<section>
-					<h2><span class="fragment anim-stroke">~500ms</span> head start!</h2>
-					<h2 class="fragment">But we can do better!</h2>
-					<aside class="notes">
-					</aside>
+				<section class="center">
+					<img src="/img/expanding-mind.jpg" class="u-max-h-45vh"/>
 				</section>
 				<section>
 					<h2>Futurelink!</h2>
@@ -1111,8 +1044,20 @@ function getPerformanceScalar() {
 					<video src="/img/futurelink-demo.mp4" controls />
 				</section>
 				<section>
+					<iframe src="demos/predictive-button-3.html" frameborder="0" class="frame" id="demo-4"></iframe>
+					<button class="lil-button js-reset" data-reset="demo-4">RESET</button>
+					<aside class="notes">
+						<p>Predictive CTA button demo:</p>
+						<p>It's a common pattern for big CTA buttons to be obvious and surrounded by white space to attract users to click them.  We predict that if a user hovers the button, they will click the button.  Moreover, if they hover over a hitbox outside the button, we predict they will continue to move their mouse onto the button and click it.  You can reveal the hitbox by clicking the checkbox within the demo.</p>
+						<p>In my testing I was able to accomplish about 30% of the loading process before users even clicked the big button.</p>
+					</aside>
+				</section>
+				<section>
 					<h2>People watch hovers.</h2>
-					<aside class="notes"></aside>
+					<aside class="notes">
+						<p>We can do even better.</p>
+						<p>If we're loading before users click, then we can take advantage of hover animations to mask loading, just like active animations when using mousedown.</p>
+					</aside>
 				</section>
 				<section>
 					<iframe src="/demos/button-hover.html" frameborder="0" class="frame"></iframe>
@@ -1122,9 +1067,9 @@ function getPerformanceScalar() {
 					<div class="list">
 						<h2 class="list__heading">The hoverstate falloff</h2>
 						<ul>
-							<li class="fragment">1: 60-100%</li>
-							<li class="fragment">2-5: 30% - 60%</li>
-							<li class="fragment">5+: 0% - 30%</li>
+							<li class="fragment">1st hover: 60-100% of animation runs before clicking</li>
+							<li class="fragment">2nd - 5th hover: 30% - 60%</li>
+							<li class="fragment">5+ hovers: 0% - 30%</li>
 						</ul>
 					</div>
 					<aside class="notes">
@@ -1146,19 +1091,6 @@ function getPerformanceScalar() {
 					</aside>
 				</section> -->
 				<section>
-					<div class="list">
-						<h2 class="list__heading">Look for</h2>
-						<ul>
-							<li class="fragment">Pathways to specialized code.</li>
-							<li class="fragment">Linear flows.</li>
-							<li class="fragment">Isolated UI elements.</li>
-						</ul>
-					</div>
-					<aside class="notes">
-						<p>Use usage data to find where using predictive design would have the most impact; use predictive design in areas of high certainty.</p>
-					</aside>
-				</section>
-				<section>
 					<h2>Predictive design is a very powerful tool.</h2>
 					<h2 class="fragment">Use it <span class="fragment anim-stroke">wisely.</span></h2>
 					<aside class="notes">
@@ -1166,14 +1098,21 @@ function getPerformanceScalar() {
 						<p>We should feel comfortable taking this risk if it'll yield a faster feeling experience for a large majority of users, but we need to be sure.</p>
 					</aside>
 				</section>
-				<!-- <section>
-					<h2>SP<span style="font-size: 2em; vertical-align: sub; display: inline-block;">/</span>LIT</h2>
-					<aside class="notes">
-						<p>The more we can chop up our code, the more benefit we can get from loading only the bits users need, and only when they signal their intent to use it.</p>
-					</aside>
-				</section> -->
 				<section>
 					<h2>Mitigate risk with data.</h2>
+					<aside class="notes">
+						<p>Use usage data to find where using predictive design would have the most impact; use predictive design in areas of high certainty.</p>
+					</aside>
+				</section>
+				<section>
+					<div class="list">
+						<h2 class="list__heading">Look for</h2>
+						<ul>
+							<li class="fragment">Pathways to specialized code.</li>
+							<li class="fragment">Branching flows.</li>
+							<li class="fragment">Isolated UI elements.</li>
+						</ul>
+					</div>
 					<aside class="notes">
 						<p>Use usage data to find where using predictive design would have the most impact; use predictive design in areas of high certainty.</p>
 					</aside>
@@ -1258,18 +1197,18 @@ function getPerformanceScalar() {
 				</section> -->
 				<section data-background-image="XXXimg/pink-orange-gradient.svg">
 					<h1 class="thank-you">Thanks <img class="rad-pointer" src="img/rad-pointer.png" alt=""> y'all!</h1>
-					<h4><a class="end-link" href="http://assets.eli.wtf/talks/perceived-perf-talk">http://assets.eli.wtf/talks/perceived-perf-talk</a></h4>
+					<h4><a class="end-link" href="http://assets.eli.wtf/talks/perceived-perf-fluent-2017">http://assets.eli.wtf/talks/perceived-perf-fluent-2017</a></h4>
 					<h4><a class="end-link" href="http://eli.wtf/fun">http://eli.wtf/fun</a></h4>
 					<!-- 
 					<h2>y'all!</h2> -->
 				</section>
 
 
-			<div class="footer">
-				<a class="footer__logo" href="http://eli.wtf/" target="_blank">Eli.wtf</a>
-				<!-- <span href="" class="footer__small">#PerceivedPerf<br><span class="footer__small">(504) 229-6828</span></span> -->
-				<a class="footer__social" href="http://twitter.com/elifitch" target="_blank">@elifitch</a>
-			</div>
+			
+		</div>
+		<div class="footer footer--fixed">
+			<a class="footer__logo" href="http://eli.wtf/" target="_blank">Eli.wtf</a>
+			<a class="footer__social" href="http://twitter.com/elifitch" target="_blank">@elifitch</a>
 		</div>
 
 

@@ -342,6 +342,10 @@ body {
   box-shadow: 0 0.2em 1em 0em rgba(0, 0, 0, 0.2);
   border: none; }
 
+.reveal .main-title {
+  color: #ff4cff;
+  text-shadow: 1px 1px 0px #9636f5, 2px 2px 0px #9433f5, 3px 3px 0px #9331f5, 4px 4px 0px #922ef5, 5px 5px 0px #912cf4, 6px 6px 0px #8f29f4, 7px 7px 0px #8e27f4, 8px 8px 0px #8d25f4, 9px 9px 0px #8c22f4, 10px 10px 0px #8a20f4, 11px 11px 0px #891df4, 12px 12px 0px #881bf4, 13px 13px 0px #8718f3, 14px 14px 0px #8516f3; }
+
 .reveal .title {
   display: inline-block;
   width: auto;
@@ -432,6 +436,15 @@ body {
   font-size: 0.75em;
   color: inherit; }
 
+.reveal .footer--fixed {
+  position: fixed;
+  font-size: 1em;
+  padding: 0.5em;
+  width: calc(100% - 1em);
+  max-width: 1400px;
+  left: 50%;
+  transform: translateX(-50%); }
+
 html.footer-fade .footer {
   color: rgba(0, 0, 0, 0.2); }
 
@@ -475,6 +488,106 @@ html.footer-fade .footer {
   .demo .button:hover {
     background-color: #43d8f8;
     color: #fafafa; }
+  .demo .button + .button {
+    margin-left: 2em; }
+  .demo .button:hover {
+    color: #fafafa; }
+  .demo .button--slash:before {
+    content: '';
+    position: absolute;
+    height: 400%;
+    width: 0%;
+    transform-origin: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    background-image: linear-gradient(to left, #43f8df 0%, #43d8f8 100%);
+    transition: all 0.4s;
+    z-index: -1; }
+  .demo .button--slash:after {
+    content: 'me too';
+    position: absolute;
+    color: #43d8f8;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition: color 0.3s, letter-spacing 0.3s; }
+  .demo .button--slash:hover {
+    transition-delay: 0ms;
+    color: transparent;
+    background-color: transparent; }
+    .demo .button--slash:hover:before {
+      width: 100%; }
+    .demo .button--slash:hover:after {
+      width: 100%;
+      color: #fafafa;
+      letter-spacing: 0.1em; }
+  .demo .button--goo {
+    transition: color 600ms, transform 200ms; }
+    .demo .button--goo:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #43d8f8;
+      z-index: -1;
+      transform: translateY(100%) translateZ(0);
+      transition: transform 600ms; }
+    .demo .button--goo:hover {
+      background-color: transparent; }
+      .demo .button--goo:hover .button__blob {
+        transform: scale(1.4) translateY(0) translateZ(0); }
+        .demo .button--goo:hover .button__blob:nth-child(1) {
+          transition-delay: 0s; }
+        .demo .button--goo:hover .button__blob:nth-child(2) {
+          transition-delay: .1s;
+          transform: scale(1.4) translateY(0) translateZ(0) rotate(25deg); }
+        .demo .button--goo:hover .button__blob:nth-child(3) {
+          transition-delay: 50ms;
+          transform: scale(1.6) translateY(0) translateZ(0); }
+        .demo .button--goo:hover .button__blob:nth-child(4) {
+          transition-delay: 120ms;
+          transform: scale(1.5) translateY(0) translateZ(0) rotate(-25deg); }
+      .demo .button--goo:hover:after {
+        transform: translateY(-50%) translateZ(0);
+        transition: transform 0s;
+        transition-delay: 600ms; }
+  .demo .button__beaker {
+    display: block;
+    overflow: hidden;
+    filter: url(#goo);
+    position: absolute;
+    top: -3px;
+    left: 0;
+    bottom: -3px;
+    right: -1px;
+    z-index: -1; }
+  .demo .button__blob {
+    display: block;
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: #43d8f8;
+    -webkit-transform: scale(1.3) translateY(125%) translateZ(0);
+    transform: scale(1.3) translateY(125%) translateZ(0);
+    transition: all 600ms; }
+    .demo .button__blob:nth-child(1) {
+      left: -5%;
+      transition-delay: 0s; }
+    .demo .button__blob:nth-child(2) {
+      left: 20%;
+      transition-delay: 50ms; }
+    .demo .button__blob:nth-child(3) {
+      left: 45%;
+      transition-delay: 25ms; }
+    .demo .button__blob:nth-child(4) {
+      left: 75%;
+      transition-delay: 50ms; }
   .demo .debug {
     border: 1px solid black;
     padding: 1em;
@@ -792,6 +905,9 @@ input + .switch-paddle {
   @media screen and (min-width: 700px) {
     .frame {
       height: 80vh; } }
+  @media screen and (min-width: 1400px) {
+    .frame {
+      height: 45vh; } }
 
 .active {
   transition: 0.2s all;
