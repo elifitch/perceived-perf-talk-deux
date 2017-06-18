@@ -615,24 +615,6 @@
 					</aside>
 				</section>
 				<!-- <section>
-					<div class="list">
-						<h2 class="list__heading">Don't overdo it</h2>
-						<ul>
-							<li class="fragment">&lt; 1s? Don't bother.</li>
-							<li class="fragment">~ 1-3s? Stick to the basics.</li>
-							<li class="fragment">~ 3-10s? Include extra information</li>
-						</ul>
-					</div>
-
-					<aside class="notes">
-						<ul>
-							<li>Any action taking less than 1 or so seconds doesn't need an indicator at all, thought is uninterrupted.  By showing an indicator here, you're taking their focus away from the action they just took and forcing them to focus on the fact that they have to wait for the app to respond. So you are in effect making the app feel *slower*.</li>
-							<li>1-3 seconds displaying a progress bar is preferable. Don't need to include lots of written explanation as to what the app is doing, since this is within the window where most people still have patience.</li>
-							<li>3-10s? Include an explanation as to what the app is doing. These durations can seem unreasonable if you don't explain to the user what is happening.</li>
-						</ul>
-					</aside>
-				</section> -->
-				<section>
 					<h2>Unexplained waits feel longer.</h2>
 					<a class="citation" href="http://www.columbia.edu/~ww2040/4615S13/Psychology_of_Waiting_Lines.pdf" target="_blank">David Maister</a>
 					<aside class="notes">
@@ -656,6 +638,13 @@
 						<p>I made a test on mechanical turk, where I asked people to chose a handful of options and play a game that was generated for them, and review that game. I then showed them a progress bar while the game was "loading" and gave them a link that said "click here if game loads slowly".  On average, mech turk users that got the explained progress bar waited an additional 2 full seconds before clicking the panic button.</p>
 					</aside>
 				</section>
+				<section>
+					<h2>Explained progress bar<br>felt <span class="fragment anim-stroke">20%</span> faster</h2>
+
+					<aside class="notes">
+						<p>3-10s? Include an explanation as to what the app is doing. These durations can seem unreasonable if you don't explain to the user what is happening.</p>
+					</aside>
+				</section> -->
 				<section>
 					<h2>
 						<span class="fragment anim-spin">But </span>
@@ -951,12 +940,12 @@ function getPerformanceScalar() {
 						<p>Behavior of disembarking passengers is *very* predictable. They mostly travel to the baggage claim by the fastest possible route, and then procede to ground transportation.  They leaned on their understanding of how passengers behave, and used it to their advantage to make active time a much greater proportion of the experience.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<img src="img/frustum-culling.gif" alt="" controls class="u-max-h-45vh"/>
 					<aside class="notes">
 						
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<video src="img/metroid-prime-doors.mp4" alt="" controls class="u-max-h-45vh"/>
 					<aside class="notes">
@@ -1031,18 +1020,10 @@ function getPerformanceScalar() {
 					</aside>
 				</section>
 				<section class="center">
-					<img src="/img/expanding-mind.jpg" class="u-max-h-45vh"/>
+					<img src="/img/expanding-mind-small.jpg" class="u-max-h-45vh"/>
 				</section>
 				<section>
-					<h2>Futurelink!</h2>
-					<a class="citation" href="https://github.com/SamKnows/futurelink" target="_blank">https://github.com/SamKnows/futurelink</a>
-					<!-- https://blog.samknows.com/intelligent-page-preloading-with-futurelink-c1de25449dee -->
-				</section>
-				<section>
-					<video src="/img/futurelink-demo.mp4" controls />
-				</section>
-				<section>
-					<iframe src="demos/predictive-button-3.html" frameborder="0" class="frame" id="demo-4"></iframe>
+					<iframe src="demos/predictive-button-2.html" frameborder="0" class="frame" id="demo-4"></iframe>
 					<button class="lil-button js-reset" data-reset="demo-4">RESET</button>
 					<aside class="notes">
 						<p>Predictive CTA button demo:</p>
@@ -1081,6 +1062,26 @@ function getPerformanceScalar() {
 					<h2>Fancy hovers buy you<br>up to <span class="fragment anim-stroke">600ms</span> extra.</h2>
 					<aside class="notes">
 						<p>Can buy you up to 600ms extra.</p>
+					</aside>
+				</section>
+				<section class="center">
+					<img src="/img/expanding-mind.jpg" class="u-max-h-45vh"/>
+				</section>
+				<section>
+					<h2>Futurelink!</h2>
+					<a class="citation" href="https://github.com/SamKnows/futurelink" target="_blank">https://github.com/SamKnows/futurelink</a>
+					<!-- https://blog.samknows.com/intelligent-page-preloading-with-futurelink-c1de25449dee -->
+				</section>
+				<section>
+					<video src="/img/futurelink-demo.mp4" controls />
+				</section>
+				<section>
+					<iframe src="demos/predictive-button-3.html" frameborder="0" class="frame" id="demo-5"></iframe>
+					<button class="lil-button js-reset" data-reset="demo-5">RESET</button>
+					<aside class="notes">
+						<p>Predictive CTA button demo:</p>
+						<p>It's a common pattern for big CTA buttons to be obvious and surrounded by white space to attract users to click them.  We predict that if a user hovers the button, they will click the button.  Moreover, if they hover over a hitbox outside the button, we predict they will continue to move their mouse onto the button and click it.  You can reveal the hitbox by clicking the checkbox within the demo.</p>
+						<p>In my testing I was able to accomplish about 30% of the loading process before users even clicked the big button.</p>
 					</aside>
 				</section>
 				<section>
@@ -1211,8 +1212,8 @@ function getPerformanceScalar() {
 			
 		</div>
 		<div class="footer footer--fixed">
-			<a class="footer__logo" href="http://eli.wtf/" target="_blank">Eli.wtf</a>
-			<a class="footer__social" href="http://twitter.com/elifitch" target="_blank">@elifitch</a>
+			<a class="footer__logo footer__item" href="http://eli.wtf/" target="_blank">Eli.wtf</a>
+			<a class="footer__social footer__item" href="http://twitter.com/elifitch" target="_blank">@elifitch</a>
 		</div>
 
 

@@ -26,6 +26,9 @@
 	font-size: 0.75em;
 	color: inherit;
 }
+.footer__item {
+	pointer-events: auto;
+}
 
 .reveal .footer--fixed {
 	position: fixed;
@@ -36,6 +39,7 @@
 	left: 50%;
 	z-index: 1;
 	transform: translateX(-50%);
+	pointer-events: none;
 }
 
 html.footer-fade .footer {

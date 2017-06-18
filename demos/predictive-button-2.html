@@ -85,7 +85,17 @@
 
 				<div class="text-center">
 					<div class="button-container">
-						<button class="button js-load-button">Load Wonky 3d Fella</button>
+						<!-- <button class="button js-load-button">Load Wonky 3d Fella</button> -->
+						<div href="#" class="button button--goo js-load-button">
+							Load 3D Model
+
+							<div class="button__beaker">
+								<span class="button__blob"></span>
+								<span class="button__blob"></span>
+								<span class="button__blob"></span>
+								<span class="button__blob"></span>
+							</div>
+						</div>
 						<div class="load-area js-load-area"></div>
 					</div>
 				</div>
@@ -96,13 +106,13 @@
 					<div class="u-mb-1r">
 						<h3 class="debug__details">3D Fella Loading Progress</h3>
 					</div>
-					<div class="switch-container u-mb-1r">
+					<!-- <div class="switch-container u-mb-1r">
 						<div class="switch">
 							<input class="switch-input" id="bb" type="checkbox">
 							<label class="switch-paddle" for="bb"></label>
 						</div>
 						<label class="switch-label" for="bb">Show hitbox</label>
-					</div>
+					</div> -->
 
 					<div class="debug__bar">
 						<div class="debug__progress js-debug-progress"></div>
@@ -113,6 +123,16 @@
 
 		</div>
 	</div>
+
+	<svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+		<defs>
+			<filter id="goo">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+				<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix>
+				<feBlend in="SourceGraphic" in2="goo"></feBlend>
+			</filter>
+		</defs>
+	</svg>
 </body>
 
 <script>
@@ -257,12 +277,13 @@ function backgroundProgress(duration, onComplete) {
 	})
 }
 
-loadArea.addEventListener('mouseenter', loadSkull);
+// loadArea.addEventListener('mouseenter', loadSkull);
+button.addEventListener('mouseover', loadSkull);
 button.addEventListener('mousedown', showSkull);
 container.addEventListener('mousemove', onMouseMove);
-showBB.addEventListener('change', function() {
-	$('.load-area').toggleClass('show');
-});
+// showBB.addEventListener('change', function() {
+// 	$('.load-area').toggleClass('show');
+// });
 
 init();
 </script>
