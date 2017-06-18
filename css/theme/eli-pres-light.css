@@ -359,11 +359,14 @@ body {
   padding-bottom: 0.1em; }
 
 .reveal .title--gradient {
-  background: url("../../img/pink-orange-gradient.svg") repeat;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-size: 100%; }
+  color: #ff4cff; }
+  @supports (-webkit-background-clip: text) {
+    .reveal .title--gradient {
+      background: linear-gradient(150deg, #ff4cff, #9738f5) repeat;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-size: 100%; } }
 
 .citation, .reveal .citation {
   font-family: "brandon grotesque", Impact, sans-serif !important;
@@ -849,6 +852,9 @@ input + .switch-paddle {
 
 .u-max-h-45vh {
   max-height: 45vh; }
+
+.u-max-h-75vh {
+  max-height: 75vh !important; }
 
 .u-underline {
   position: relative;

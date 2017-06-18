@@ -58,15 +58,14 @@
 	padding-bottom: 0.1em;
 }
 .reveal .title--gradient {
-	// color: transparent;
-	// background: url("../../../img/pink-orange-gradient.svg") repeat;
-	background: url("../../img/pink-orange-gradient.svg") repeat;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text;
-	background-size: 100%;
-	// display: inline-block;
-	// color: red;
+	color: $color-pink;
+	@supports (-webkit-background-clip: text) {
+		background: linear-gradient(150deg, $color-pink, $color-purple) repeat;
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
+		color: transparent;
+		background-size: 100%;
+	}
 }
 .citation, .reveal .citation {
 	font-family: $headingFont !important;

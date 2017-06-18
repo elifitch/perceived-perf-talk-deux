@@ -69,13 +69,12 @@
 				</section>
 				<section>
 					<div class="list">
-						<h2 class="list__heading">Today I'll be shrieking about [REVISE]</h2>
+						<h2 class="list__heading">Today I'll be shrieking about</h2>
 						<ul>
 							<li class="fragment">Why focusing on perceived performance is smart</li>
 							<li class="fragment">How humans perceive time</li>
-							<!-- <li class="fragment">How to make passive waiting time less painful</li> -->
-							<li class="fragment">Techniques to manage passive waiting time</li>
-							<li class="fragment">Predictive design</li>
+							<li class="fragment">A box of tricks to manage perceived loading time</li>
+							<li class="fragment">Predictive preloading</li>
 						</ul>
 						<aside class="notes">
 							<p>Agenda:</p>
@@ -83,8 +82,8 @@
 								<li>Why focusing on perceived performance over objective performance is often a good idea.</li>
 								<li>How people sense time.</li>
 								<li>How to use what we learn about how humans sense time to make waiting/loading time less parinful</li>
-								<li>Predictive design: really aggressive, data driven preloading</li>
-								<li>Predictive design: the sneaky art of predicting user behavior and loading things in the background before they're required.</li>
+								<li>Predictive preloading: really aggressive, data driven preloading</li>
+								<li>Predictive preloading: the sneaky art of predicting user behavior and loading things in the background before they're required.</li>
 							</ul>
 						</aside>
 					</div>
@@ -258,8 +257,8 @@
 						<p>Active phase characterized by a high level of mental activity, passive phase by a high level of thumb twiddling.</p>
 					</aside>
 				</section>
-				<section>
-					<img src="img/watched-pot.jpg" alt="" class="u-max-h-45vh">
+				<section class="center">
+					<img src="img/watched-pot.jpg" alt="" class="u-max-h-75vh">
 					<aside class="notes">
 						<p>this will come to no surprise to anyone who's ever tried to watch a pot boil...</p>
 					</aside>
@@ -304,9 +303,9 @@
 					<h2 class="fragment">100ms: <span class="fragment">Immediate</span></h2>
 					<h2 class="fragment">1s: <span class="fragment">Thought Flow</span></h2>
 					<h2 class="fragment">10s: <span class="fragment">Attention Span</span></h2>
-					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Jakob Nielsen</a>
+					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Nielsen Norman Group</a>
 					<aside class="notes">
-						<p>When waiting for something to load, users don't just snap into a passive state, it takes time for them to realize they're waiting.</p>
+						<p>This transition from active to passive states lines up quite well with a very famous study by the nielsen group</p>
 						<p>In a pretty famous study Jakob Nielsen showed that it takes about 1 sec for peoples flow of thought to be disrupted &amp; for them to mentally transition to a waiting state.</p>
 						<p>Basically what this means, is that right around 1000ms users start to slip from an active mental state into a passive mental state.</p>
 					</aside>
@@ -330,6 +329,9 @@
 					<h1 class="title">Keep users active</h1>
 				</section>
 				<section>
+					<h2>Key for short durations.</h2>
+				</section>
+				<section>
 					<div class="list">
 						<h2 class="list__heading">
 							What we can do
@@ -343,9 +345,6 @@
 					</div>
 					<aside class="notes">
 						<p>This is how you manage short duration, 100ms to 1s ish, loads to keep users in an active mental state</p>
-						<p>NOTES prematurely</p>
-						<p>NOTES prematurely</p>
-						<p>NOTES prematurely</p>
 					</aside>
 				</section>
 				<section>
@@ -392,7 +391,6 @@
 				</section>
 				<section>
 					<h2 class="sub-title title--gradient">Immediate<br>Feedback</h2>
-					<h2 class="sub-title title--gradient">This section might need a list?</h2>
 					<aside class="notes"></aside>
 				</section>
 				<section>
@@ -616,12 +614,6 @@
 						<p>He found that they feel 12% faster.  So just from this one change we can get half way to our Just Noticeable Difference threshold.</p>
 					</aside>
 				</section>
-				<section>
-					Viget's branded loader study
-					<aside class="notes">
-						
-					</aside>
-				</section>
 				<!-- <section>
 					<div class="list">
 						<h2 class="list__heading">Don't overdo it</h2>
@@ -696,7 +688,7 @@
 						<p>So you're looking at using them for loads between 1 - 2ish seconds.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<div class="list">
 						<h2 class="list__heading">Spinner advantages</h2>
 						<ul>
@@ -710,10 +702,12 @@
 						<p>Don't want to use them if the expected wait time is ~2.5s or up, since users need certainty as to where they are in the process.</p>
 						<p>So you're looking at using them for loads between 1 - 2ish seconds.</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
-					<h2 class="sub-title title--gradient">Fake it til you make it</h2>
-					<aside class="notes"></aside>
+					<h2>Real progress bars<br>can be overkill.</h2>
+
+					<aside class="notes">
+					</aside>
 				</section>
 				<section>
 					<h2>Most progress bars are fake.</h2>
@@ -738,6 +732,10 @@
 						<p>Sometimes bad things happen though, like the progress bar scoots to the end immediately, thus prematurely jumping the user into a passive state, while lying to them about how long they're going to wait and defeating the whole point of a progress bar</p>
 						<p>Or you can have the progress bar sit forever right at the end, which is infuriating.</p>
 					</aside>
+				</section>
+				<section>
+					<h2 class="sub-title title--gradient">Adaptive loading</h2>
+					<aside class="notes"></aside>
 				</section>
 				<section>
 					<h2>Keep it real&hellip;ish.</h2>
@@ -892,7 +890,7 @@ function getPerformanceScalar() {
 					</aside>
 				</section> -->
 				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
-					<h1 class="title">Predictive<br>Design</h1>
+					<h1 class="title">Predictive<br>Preloading</h1>
 				</section>
 				<section>
 					<h2>React as soon as<br>users signal intent.</h2>
@@ -909,7 +907,7 @@ function getPerformanceScalar() {
 				<!-- <section>
 					<img src="img/airplane.jpg">
 					<aside class="notes">
-						<p>Great story that explains what predictive design is all about.</p>
+						<p>Great story that explains what predictive preloading is all about.</p>
 					</aside>
 				</section>
 				<section>
@@ -937,7 +935,7 @@ function getPerformanceScalar() {
 						<span class="fragment emoji u-inline-block u-pt-04">🕐🌮🕑🌮🕒</span>
 					</h2>
 					<aside class="notes">
-						Going back to the restaurant example, what if we could accurately predict what you were going to order, so the food was being prepared as you were making up your mind, and as soon as you put in the order, we just brought out the food. That's predictive design.
+						Going back to the restaurant example, what if we could accurately predict what you were going to order, so the food was being prepared as you were making up your mind, and as soon as you put in the order, we just brought out the food. That's predictive preloading.
 					</aside>
 				</section> -->
 				<!-- <section>
@@ -1063,7 +1061,7 @@ function getPerformanceScalar() {
 					<iframe src="/demos/button-hover.html" frameborder="0" class="frame"></iframe>
 					<aside class="notes"></aside>
 				</section>
-				<section>
+				<!-- <section>
 					<div class="list">
 						<h2 class="list__heading">The hoverstate falloff</h2>
 						<ul>
@@ -1078,9 +1076,15 @@ function getPerformanceScalar() {
 						<p>I found, that even when they were motivated to get through the process as fast as possible, as mechanical turk users are, users tended to watch hover effects before clicking.</p>
 						<p>I didn't test hover effects other than a 200ms duration, diagonal slash button, and a liquid fill button, so there's definitely more research to be done here, but the early returns are promising.</p>
 					</aside>
+				</section> -->
+				<section>
+					<h2>Fancy hovers buy you<br>up to <span class="fragment anim-stroke">600ms</span> extra.</h2>
+					<aside class="notes">
+						<p>Can buy you up to 600ms extra.</p>
+					</aside>
 				</section>
 				<section>
-					<h2>At least <span class="fragment anim-stroke">~1.5 second</span> head start!</h2>
+					<h2>Elaborate Hover + Futurelink<br>At least <span class="fragment anim-stroke">~1.5 second</span> head start!</h2>
 					<aside class="notes">
 					</aside>
 				</section>
@@ -1091,7 +1095,7 @@ function getPerformanceScalar() {
 					</aside>
 				</section> -->
 				<section>
-					<h2>Predictive design is a very powerful tool.</h2>
+					<h2>Predictive preloading is a very powerful tool.</h2>
 					<h2 class="fragment">Use it <span class="fragment anim-stroke">wisely.</span></h2>
 					<aside class="notes">
 						<p>We're taking a risk here that we will load assets that user's don't actually need.</p>
@@ -1158,7 +1162,7 @@ function getPerformanceScalar() {
 					</aside>
 				</section>
 				<section>
-					<h2>Introduce predictive design<br> bit by bit.</h2>
+					<h2>Introduce predictive preloading<br> bit by bit.</h2>
 					<aside class="notes">
 						<p>Individual users may not be snowflakes but *your* users as a group are. They most likely aren't a representative sample of humanity and they most likely aren't a carbon copy of another app's users.  Use data to make decisions that make sense for your particular set of users and your particular sitiuation.  A/B test the shit out of this stuff.</p>
 					</aside>
