@@ -15,7 +15,7 @@
         <meta property="og:title" content="Eli's Perceived Performance Talk" />
         <meta property="og:site_name" content="Eli.wtf" />
         <meta property="og:url" content="http://assets.eli.wtf/talks/perceived-perf-talk/" />
-        <meta property="og:description" content="A talk on understanding perceived performance, delivered at CSS Dev Conf 2016." />
+        <meta property="og:description" content="A talk on perceived performance, delivered at Fluent Conf 2017" />
         <meta property="fb:app_id" content="">
         <meta property="og:type" content="website" />
         <meta property="og:image" content="http://assets.eli.wtf/talks/perceived-perf-talk/img/og-image.jpg" />
@@ -283,7 +283,7 @@
 						<p>We've all been in that situation where the faster route involves sitting in traffic on a main route, but it feels much faster to scoot along through side streets, even if it does take a few more minutes to get there.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2>
 						<span class="fragment emoji">🤔</span>
 						<br>vs.<br>
@@ -292,17 +292,26 @@
 					<aside class="notes">
 						<p>Think of waiting for food. Hemming and hawwing deciding what you want to eat doesn't really feel like time stretches on for ages, but waiting for a server to bring your food somehow does.</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<video src="/img/website-active-passive-annotated.mp4" controls />
 					<aside class="notes">
 						
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<h2 class="fragment">100ms: <span class="fragment">Immediate</span></h2>
 					<h2 class="fragment">1s: <span class="fragment">Thought Flow</span></h2>
 					<h2 class="fragment">10s: <span class="fragment">Attention Span</span></h2>
+					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Nielsen Norman Group</a>
+					<aside class="notes">
+						<p>This transition from active to passive states lines up quite well with a very famous study by the nielsen group</p>
+						<p>In a pretty famous study Jakob Nielsen showed that it takes about 1 sec for peoples flow of thought to be disrupted &amp; for them to mentally transition to a waiting state.</p>
+						<p>Basically what this means, is that right around 1000ms users start to slip from an active mental state into a passive mental state.</p>
+					</aside>
+				</section> -->
+				<section>
+					<h2>Takes about <span class="fragment anim-stroke">~1 second</span> to transition to a passive state</h2>
 					<a class="citation" href="https://www.nngroup.com/articles/response-times-3-important-limits/" target="_blank">Nielsen Norman Group</a>
 					<aside class="notes">
 						<p>This transition from active to passive states lines up quite well with a very famous study by the nielsen group</p>
@@ -316,8 +325,8 @@
 							How do we use this
 						</h2>
 						<ul>
-							<li class="fragment">Make that first active phase seem to last as long as possible</li>
-							<li class="fragment">Make the interstitial passive phase seem as fast as possible.</li>
+							<li class="fragment">Keep users in an active state, keep them from entering a passive state.</li>
+							<li class="fragment">Make passive phases feel faster than they actually are.</li>
 							<!-- <li class="fragment">Move users back into an active state however we can.</li> -->
 						</ul>
 					</div>
@@ -371,7 +380,8 @@
 					<aside class="notes"></aside>
 				</section>
 				<section>
-					<h2>It takes users about <span class="fragment anim-stroke">~1 second</span><br>to enter a passive state.</h2>
+					<!-- <h2>It takes users about <span class="fragment anim-stroke">~1 second</span><br>to enter a passive state.</h2> -->
+					<h2>Loaders tell users<br>that they have to wait.</h2>
 					<aside class="notes">
 						This is why optimistic updates are important. Sure we could show a loader while making the request, and then update our like button, but isn't it better to just show the success ui?
 					</aside>
@@ -385,7 +395,7 @@
 					</aside>
 				</section>
 				<section>
-					<h2>As you approach ~1s,<br>start to use loaders.</h2>
+					<h2>As waits approach <span class="fragment anim-stroke">~1 second</span>,<br>start to use loaders.</h2>
 					<aside class="notes">
 					</aside>
 				</section>
@@ -429,11 +439,10 @@
 					</aside>
 				</section>
 				<section>
-					<!-- <h2>Optimism!</h2> -->
 					<h2>
+						<div class="fragment anim-bounce js-anim-bounce js-split">Optimism!</div> 
+						<div class="fragment anim-bounce js-anim-bounce js-split">Optimism!</div> 
 						<div class="fragment anim-bounce js-anim-bounce js-split">Optimism!</div>
-						<div class="fragment anim-bounce js-anim-bounce js-split">Is!</div>
-						<div class="fragment anim-bounce js-anim-bounce js-split">Important!</div>
 					</h2>
 					<aside class="notes">
 						
@@ -513,20 +522,23 @@
 					</aside>
 				</section>
 				<section>
-					<h2 class="fragment current-visible">Works on touch devices too!</h2>
+					<!-- <h2 class="fragment current-visible">Works on touch devices too!</h2>
 					<h2 class="fragment">Begin on touchstart.</h2>
 					<h2 class="fragment">Confirm on touchend.</h2>
+					<h2 class="fragment">Cancel on touchmove.</h2> -->
+					<h2>Works on touch devices too!</h2>
+					<h2 class="fragment">Begin on touchstart.</h2>
 					<h2 class="fragment">Cancel on touchmove.</h2>
 					<aside class="notes">
 						<p>benefit not as much, but still get you something.</p>
 					</aside>
 				</section>
-				<section>
+<!-- 				<section>
 					<iframe src="demos/touchstart.html" frameborder="0" class="frame"></iframe>
 					<aside class="notes">
 						
 					</aside>
-				</section>
+				</section> -->
 				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">Un-suck passive waits</h1>
 				</section>
@@ -784,7 +796,7 @@ function getPerformanceScalar() {
 						<ul>
 							<li class="fragment">Normalize for resource or payload.</li>
 							<li class="fragment">Adapt your whole loading scheme.</li>
-							<li class="fragment">Great place for middleware.</li>
+							<!-- <li class="fragment">Great place for middleware.</li> -->
 							<li class="fragment">Set baseline times with your test runner.</li>
 						</ul>
 					</div>
@@ -1004,12 +1016,12 @@ function getPerformanceScalar() {
 						
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<img src="img/gravit-designer.jpg" alt="" class="u-max-h-45vh">
 					<aside class="notes">
 						
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<!-- <iframe src="http://codepen.io/EliFitch/full/de45fbe0774bc6f6dce5db60fa25923d/" frameborder="0" class="frame"></iframe> -->
 					<iframe src="demos/predictive-button-1.html" frameborder="0" class="frame" id="demo-3"></iframe>
@@ -1019,10 +1031,22 @@ function getPerformanceScalar() {
 						<p>In this demo we'll load a 3d model into this little window when a user clicks a big, isolated CTA button.</p>
 					</aside>
 				</section>
-				<section class="center">
+				<!-- <section class="center">
 					<img src="/img/expanding-mind-small.jpg" class="u-max-h-45vh"/>
+				</section> -->
+				<section class="center">
+					<img src="/img/expanding-mind.jpg" class="u-max-h-45vh"/>
 				</section>
 				<section>
+					<div class="list">
+						<h2 class="list__heading">Exploiting behavioral quirks</h2>
+						<ul>
+							<li class="fragment">People tend to watch hover &amp; active animations.</li>
+							<li class="fragment">People necessarily slow their cursor as it approaches a target.</li>
+						</ul>
+					</div>
+				</section>
+				<!-- <section>
 					<iframe src="demos/predictive-button-2.html" frameborder="0" class="frame" id="demo-4"></iframe>
 					<button class="lil-button js-reset" data-reset="demo-4">RESET</button>
 					<aside class="notes">
@@ -1030,7 +1054,7 @@ function getPerformanceScalar() {
 						<p>It's a common pattern for big CTA buttons to be obvious and surrounded by white space to attract users to click them.  We predict that if a user hovers the button, they will click the button.  Moreover, if they hover over a hitbox outside the button, we predict they will continue to move their mouse onto the button and click it.  You can reveal the hitbox by clicking the checkbox within the demo.</p>
 						<p>In my testing I was able to accomplish about 30% of the loading process before users even clicked the big button.</p>
 					</aside>
-				</section>
+				</section> -->
 				<section>
 					<h2>People watch hovers.</h2>
 					<aside class="notes">
@@ -1064,16 +1088,13 @@ function getPerformanceScalar() {
 						<p>Can buy you up to 600ms extra.</p>
 					</aside>
 				</section>
-				<section class="center">
-					<img src="/img/expanding-mind.jpg" class="u-max-h-45vh"/>
-				</section>
 				<section>
-					<h2>Futurelink!</h2>
+					<h2>Detect decelleration<br>with Futurelink!</h2>
 					<a class="citation" href="https://github.com/SamKnows/futurelink" target="_blank">https://github.com/SamKnows/futurelink</a>
 					<!-- https://blog.samknows.com/intelligent-page-preloading-with-futurelink-c1de25449dee -->
 				</section>
 				<section>
-					<video src="/img/futurelink-demo.mp4" controls />
+					<video src="/img/futurelink-demo.mp4" controls loop />
 				</section>
 				<section>
 					<iframe src="demos/predictive-button-3.html" frameborder="0" class="frame" id="demo-5"></iframe>
@@ -1105,11 +1126,12 @@ function getPerformanceScalar() {
 				</section>
 				<section>
 					<h2>Mitigate risk with data.</h2>
+					<h2 class="fragment">Dry run first.</h2>
 					<aside class="notes">
 						<p>Use usage data to find where using predictive design would have the most impact; use predictive design in areas of high certainty.</p>
 					</aside>
 				</section>
-				<section>
+				<!-- <section>
 					<div class="list">
 						<h2 class="list__heading">Look for</h2>
 						<ul>
@@ -1121,7 +1143,7 @@ function getPerformanceScalar() {
 					<aside class="notes">
 						<p>Use usage data to find where using predictive design would have the most impact; use predictive design in areas of high certainty.</p>
 					</aside>
-				</section>
+				</section> -->
 				<section data-background-image="XXXimg/pink-orange-gradient.svg" data-state="footer-fade">
 					<h1 class="title">TLDR;</h1>
 				</section>
